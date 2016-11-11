@@ -21,5 +21,6 @@ Users can see some anonymous posts of their friends. Application will randomly s
 Users can comment or like any posts and comments, anonymously or unanonymously.
 Users can @ other users in the posts or comments. The target user will receive a notification.
 Login/Sign In for the users.
+Users can register accounts.
 Users can review/delete their posts and comments. Also they can view the unanonymous posts of other users.
 Users can upload pictures for their portrait in profile and background image. 
