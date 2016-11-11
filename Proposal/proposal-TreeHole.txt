@@ -19,5 +19,6 @@ Features of the application:
 12. Users can comment or like any posts and comments, anonymously or unanonymously.
 13. Users can @ other users in the posts or comments. The target user will receive a notification.
 14. Login/Sign In for the users.
-15. Users can review/delete their posts and comments. Also they can view the unanonymous posts of other users.
-16. Users can upload pictures for their portrait in profile and background image.
+15. Users can register accounts.
+16. Users can review/delete their posts and comments. Also they can view the unanonymous posts of other users.
+17. Users can upload pictures for their portrait in profile and background image.
