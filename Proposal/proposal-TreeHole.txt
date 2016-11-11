@@ -1,0 +1,23 @@
+We plan to design a social network application to provide a platform for people who desire to public their ideas anonymously and discuss the ideas with other users. The purpose of this application is provide a chance to public some dissimliar thoughts without facing the risk of continuous attack from other users. Also we think it’s gone be fun to discuss with ‘strangers’ (however,  some of them may be your friends). Our main target users is the morden youngers who prefer to communicate with others through texts rather than face-to-face or telephone also the people who would like to try some new social networks. Users still cansee their friends’ unanonymous posts, but users will never know what their friends will say when they hide their name.
+
+
+Our main data will be user profile and posts, since the relationship between the data is simple we decide to use MongoDB to load/save the data of the application. We will store the image files in the server so we can load them through URL. Here is the summary of the features:
+
+
+Features of the application:
+1. Users can post contents includes text and/or pictures anonymously or unanonymously.
+2. Users can add tags to their posts
+3. Users can add other users to the friend list, or remove the users in the friend list.   
+4. Users can have real-time private chatting with the friends.
+5. Users can view and change their profile.
+6. Users can search other users by user name.
+7. Users can search posts by tags.
+8. Users can view profile of other users.
+9. Users can see the unanonymous posts of their friends.
+10. Users can see some anonymous posts of their friends. Application will randomly select some anonymous posts from all other users(doesn’t need to be friends)
+11.  Users can refresh the page to see another bunch of anonymous posts
+12. Users can comment or like any posts and comments, anonymously or unanonymously.
+13. Users can @ other users in the posts or comments. The target user will receive a notification.
+14. Login/Sign In for the users.
+15. Users can review/delete their posts and comments. Also they can view the unanonymous posts of other users.
+16. Users can upload pictures for their portrait in profile and background image.
