@@ -1,0 +1,44 @@
+TEAM : StraightManEsthetics
+
+MARKS: 10
+
+WHAT:
+    Quora for Facebook Users
+
+POTENTIAL:
+    I think, A network is not social anymore as soon as you get concerned about
+    your privacy and go “anonymous”, it’s just another forum to post your things.
+    You’re trying to cover a lot many things, I would like you to consider why do
+    you need to build a new social network, what are the shortcomings of the
+    current state of the art which you are trying to address and build just over
+    that. If done right, you guys could be the next facebook.
+
+
+NOTES:
+    - Consider again what you want cover in this project. Like you might not need
+      to write a chat app, though it sounds cool (and we have already covered
+      that in the lab) think in terms of a MVP that portrays your idea of the
+      ideal social network.
+    - Think about efficient data structures and models to store data. This will
+      be really important to make things faster and more “real-time”. Also in
+      your case, these structures can explode exponentially and you need to make
+      your choices wisely.
+    - Like the User Search functionality which you want to build. If you just end
+      up querying the database on every “keyup” event it could be really bad with
+      1 million users. Data structures can be really critical here. You could use
+      something like a “trie” to make user search more efficient and predictive.
+    - For the sake of this assignment, I guess it will be really helpful if you
+      can skip the user register option (until it's really important). I mean
+      there is nothing "fancy" about a signup form and you don't basically learn
+      anything new. Consider the login/register functionality works. 
+
+TA Message:
+    This is my understanding about the project, you can use this to improve your
+    proposal and slides to convey more effectively what you want to present.
+
+Looking forward to meet you guys to discuss this further.
+
+Nishant
+PS: I always love beautifully written, maintainable code that follows standard
+    coding style guides. The ideal code actually walks you through itself and is
+    efficient at the same time.
