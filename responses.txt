@@ -82,3 +82,26 @@ Request body contains:
 }
 note: if there is no change in one attribute, then just don't include this attribute in the request body, except userName
 which should always be in the request body
+
+POST /post
+Request body contains:
+{
+		"userName":"",   
+		"posts":[{
+			"userName":"",  --here userName are all the same
+			"content":"",
+			"time":time         --call time function in javascript
+		}]	
+}
+
+POSR /comment
+Request body contains:
+{
+		"userName":"", 
+		"id":int,  
+		“comment”:[{
+			"userName":"",  --here userName are all the same
+			"content":"",
+			"time":time         --call time function in javascript
+		}]	
+}
