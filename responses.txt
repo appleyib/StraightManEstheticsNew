@@ -1,0 +1,84 @@
+GET /users?userName=userName
+
+{
+		"userName":"",
+		"birthday":"",
+		"gender":"",
+		"introduction":"",
+		"follow":[""],     --stores user name in list
+		"followers":[""],	--stores user name in list
+		"posts":[{
+			"id":int,
+			"userName":"",	 --here userName are all the same
+			"content":"",
+			"comment":[{
+				"id":int,
+				"userName":"",
+				"content":"",
+			}]
+			"likes":[""],  --stores user name in list
+			"time":time         --call time function in javascript
+		}]
+}
+
+GET /users?userName=userName&mainPage=true
+
+{
+		"userName":"",
+		"birthday":"",
+		"gender":"",
+		"introduction":"",
+		"follow":[""],     --stores user name in list
+		"followers":[""],	--stores user name in list
+		"posts":[{
+			"id":int,
+			"userName":"",  --here userName are all the same
+			"content":"",
+			"comment":[{
+				"id":int,
+				"userName":"",
+				"content":"",
+			}]
+			"likes":[""],  --stores user name in list
+			"time":time         --call time function in javascript
+		}]
+		"postsOnPage":[{
+			"id":int,
+			"userName":"",  --here userName are different: they are follows of this user
+			"content":"",
+			"comment":[{
+				"id":int,
+				"userName":"",
+				"content":"",
+			}]
+			"likes":[""],  --stores user name in list
+			"time":time         --call time function in javascript
+		}]
+		
+}
+
+POST /user
+Request body contains:
+{
+		"userName":"",   --should always have this attribute
+		"birthday":"",
+		"gender":"",
+		"introduction":"",
+		"password","",
+		"follow":[""],     --stores user name in list
+		"followers":[""],	--stores user name in list
+		"posts":[{
+			"id":int,
+			"userName":"",  --here userName are all the same
+			"content":"",
+			"comment":[{
+				"id":int,
+				"userName":"",
+				"content":"",
+			}]
+			"likes":[""],  --stores user name in list
+			"time":time         --call time function in javascript
+		}]	
+}
+note: if there is no change in one attribute, then just don't include this attribute in the request body, except userName
+which should always be in the request body
