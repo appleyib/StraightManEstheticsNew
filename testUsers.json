@@ -1,0 +1,129 @@
+[
+    {
+        "userName": "testUser1",
+        "birthday": "2016.09.08",
+        "gender": "male",
+        "introduction": "Hi, I am testUser1!",
+        "password": "12345678",
+        "follow": [
+            "testUser2",
+            "testUser3"
+        ],
+        "followers": [
+            "testUser2"
+        ],
+        "posts": [
+            {
+                "id": 0,
+                "userName": "testUser1",
+                "content": "This is a test post from user 1",
+                "comment": [
+                    {
+                        "id": 0,
+                        "userName": "testUser1",
+                        "content": "self comment from test User1"
+                    },
+                    {
+                        "id": 1,
+                        "userName": "testUser2",
+                        "content": "Wow! comment from test User2"
+                    }
+                ],
+                "likes": [
+                    "testUser3"
+                ],
+                "time": "2016.07.07"
+            }
+        ],
+        "admin": false
+    },
+    {
+        "userName": "testUser2",
+        "birthday": "2016.10.08",
+        "gender": "male",
+        "introduction": "Hi, I am testUser2 hahaha!",
+        "password": "123456789",
+        "follow": [
+            "testUser1"
+        ],
+        "followers": [
+            "testUser1"
+        ],
+        "posts": [
+            {
+                "id": 0,
+                "userName": "testUser2",
+                "content": "This is a test post from user 2",
+                "comment": [],
+                "likes": [
+                    "testUser1"
+                ],
+                "time": "2016.08.07"
+            },
+            {
+                "id": 1,
+                "userName": "testUser2",
+                "content": "This is a second test post from user 2",
+                "comment": [
+                    {
+                        "id": 0,
+                        "userName": "testUser2",
+                        "content": "self comment from test User2"
+                    },
+                    {
+                        "id": 1,
+                        "userName": "testUser3",
+                        "content": "Wow! comment from stranger test User3"
+                    }
+                ],
+                "likes": [
+                    "testUser1",
+                    "testUser3"
+                ],
+                "time": "2016.09.07"
+            }
+        ],
+        "admin": false
+    },
+    {
+        "userName": "testUser3",
+        "birthday": "2016.11.08",
+        "gender": "female",
+        "introduction": "Hi, I am testUser3 lalala!",
+        "password": "123456789",
+        "follow": [],
+        "followers": [
+            "testUser1"
+        ],
+        "posts": [
+            {
+                "id": 0,
+                "userName": "testUser3",
+                "content": "This is a second test post from user 3",
+                "comment": [
+                    {
+                        "id": 0,
+                        "userName": "testUser1",
+                        "content": "comment from test User1"
+                    },
+                    {
+                        "id": 1,
+                        "userName": "testUser2",
+                        "content": "Wow! comment from stranger test User2"
+                    },
+                    {
+                        "id": 3,
+                        "userName": "testUser3",
+                        "content": "It is a self comment from  test User3"
+                    }
+                ],
+                "likes": [
+                    "testUser1",
+                    "testUser2",
+                    "testUser3"
+                ],
+                "time": "2016.12.07"
+            }
+        ],
+        "admin": false
+    }]
