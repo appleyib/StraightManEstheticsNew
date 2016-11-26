@@ -3,6 +3,9 @@ var Users = require('../models/users');
 
 /**
  * Finds a user by given user name.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
  */
  function findByUsername(req, res){
 	console.log("finds by user name");
@@ -19,6 +22,9 @@ var Users = require('../models/users');
 
 /**
  * Finds a user info when the user is on his own main page.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
  */
 function findSelfOnMainPage(req, res){
 	console.log("on main page");
@@ -40,6 +46,33 @@ function findSelfOnMainPage(req, res){
 	})
 }
 
+/**
+ * Finds all users by given username key words.
+ * If keywords is not given, send all users list to
+ * front end.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+function findByNameKeyWords(req, res){
+	console.log("finds by user name key words");
+	if(req.query.searchName){
+		var searchName = req.query.searchName;
+	}else{
+		var searchName = "";
+	}
+	Users.find({userName:{$regex:searchName}}, function(err, users){
+		var result=[];
+		for(index in users){
+			result.push({userName:users[index]._doc.userName,
+				gender:users[index]._doc.gender,
+				introduction:users[index]._doc.introduction});
+		}
+		console.log(result);
+		res.send(result);
+	})
+}
+
 /** 
  * Handles GET request on \users
  * @param  {Object} req request from front end
@@ -53,6 +86,8 @@ exports.find=function(req, res){
 		}else{
 			return findByUsername(req, res);
 		}
+	}else{
+		return findByNameKeyWords(req,res);
 	}
 }
 
