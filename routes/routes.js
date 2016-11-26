@@ -142,7 +142,13 @@ exports.post = function(req, res){
 	})
 }
 
-
+/**
+ * Makes a comment under a post by a id number
+ * of a certain post.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
 exports.comment = function(req, res){
 	Users.findOne({userName:req.body.userName}, function(err, user){
 		if(err){

@@ -128,7 +128,6 @@ Request body contains:
 		“comment”:{
 			"userName":"",  --here userName are all the same
 			"content":"",
-			"time":time         --call time function in javascript
 		}	
 }
 
