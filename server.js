@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.get('/users', users.find);
+app.post('/post', users.post);
 
 
 

@@ -1,3 +1,8 @@
+GET /users
+{
+	"users":[""] --stores user name in list
+}
+
 GET /users?userName=userName
 
 {
@@ -11,6 +16,7 @@ GET /users?userName=userName
 			"id":int,
 			"userName":"",	 --here userName are all the same
 			"content":"",
+			"commentedTotal:int,
 			"comment":[{
 				"id":int,
 				"userName":"",
@@ -18,7 +24,8 @@ GET /users?userName=userName
 			}]
 			"likes":[""],  --stores user name in list
 			"time":time         --call time function in javascript
-		}]
+		}],
+		"admin": Boolean
 }
 
 GET /users?userName=userName&mainPage=true
@@ -34,8 +41,10 @@ GET /users?userName=userName&mainPage=true
 			"id":int,
 			"userName":"",  --here userName are all the same
 			"content":"",
+			"commentedTotal:int,
 			"comment":[{
 				"id":int,
+				
 				"userName":"",
 				"content":"",
 			}]
@@ -46,16 +55,32 @@ GET /users?userName=userName&mainPage=true
 			"id":int,
 			"userName":"",  --here userName are different: they are follows of this user
 			"content":"",
+			"commentedTotal:int,
 			"comment":[{
 				"id":int,
+				
 				"userName":"",
 				"content":"",
 			}]
 			"likes":[""],  --stores user name in list
 			"time":time         --call time function in javascript
-		}]
-		
+		}],
+		"admin": Boolean
 }
+
+GET ／users     --all users list
+[
+	{"userName":"",
+	"gender":"",
+	"introduction":""}
+]
+
+GET ／users?searchName=keywords     --search users by key words
+[
+	{"userName":"",
+	"gender":"",
+	"introduction":""}
+]
 
 POST /user
 Request body contains:
@@ -64,13 +89,14 @@ Request body contains:
 		"birthday":"",
 		"gender":"",
 		"introduction":"",
-		"password","",
+		"password":"",
 		"follow":[""],     --stores user name in list
 		"followers":[""],	--stores user name in list
 		"posts":[{
 			"id":int,
 			"userName":"",  --here userName are all the same
 			"content":"",
+			"commentedTotal:int,
 			"comment":[{
 				"id":int,
 				"userName":"",
@@ -87,21 +113,28 @@ POST /post
 Request body contains:
 {
 		"userName":"",   
-		"posts":[{
+		"post":{
 			"userName":"",  --here userName are all the same
 			"content":"",
 			"time":time         --call time function in javascript
-		}]	
+		}	
 }
 
-POSR /comment
+POST /comment
 Request body contains:
 {
 		"userName":"", 
 		"id":int,  
-		“comment”:[{
+		“comment”:{
 			"userName":"",  --here userName are all the same
 			"content":"",
 			"time":time         --call time function in javascript
-		}]	
+		}	
+}
+
+POST /likes
+Request body contains:
+{
+	"userName":"",
+	"id":int
 }

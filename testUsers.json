@@ -5,6 +5,7 @@
         "gender": "male",
         "introduction": "Hi, I am testUser1!",
         "password": "12345678",
+        "postedTotal":1,
         "follow": [
             "testUser2",
             "testUser3"
@@ -17,6 +18,7 @@
                 "id": 0,
                 "userName": "testUser1",
                 "content": "This is a test post from user 1",
+                "commentedTotal":2,
                 "comment": [
                     {
                         "id": 0,
@@ -43,6 +45,7 @@
         "gender": "male",
         "introduction": "Hi, I am testUser2 hahaha!",
         "password": "123456789",
+        "postedTotal":2,
         "follow": [
             "testUser1"
         ],
@@ -54,6 +57,7 @@
                 "id": 0,
                 "userName": "testUser2",
                 "content": "This is a test post from user 2",
+                "commentedTotal":0,
                 "comment": [],
                 "likes": [
                     "testUser1"
@@ -64,6 +68,7 @@
                 "id": 1,
                 "userName": "testUser2",
                 "content": "This is a second test post from user 2",
+                "commentedTotal":2,
                 "comment": [
                     {
                         "id": 0,
@@ -91,6 +96,7 @@
         "gender": "female",
         "introduction": "Hi, I am testUser3 lalala!",
         "password": "123456789",
+        "postedTotal":1,
         "follow": [],
         "followers": [
             "testUser1"
@@ -100,6 +106,7 @@
                 "id": 0,
                 "userName": "testUser3",
                 "content": "This is a second test post from user 3",
+                "commentedTotal":4,
                 "comment": [
                     {
                         "id": 0,
