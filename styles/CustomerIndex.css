@@ -366,7 +366,7 @@
 			#mainBannerContent .huifu{
 				width:410px;
 				margin-left:70px;
-				padding-top:2px;
+				padding-top:10px;
 				border-top:1px #dddddd dotted;
 			}
 			/* 限定table里面的长数字或者英文自动换行 */
@@ -676,6 +676,14 @@ hr.h1{
 		margin-bottom:11px;
 		background-color:#FEFEFE;
 	}
+	#rewt{
+		height:120px;
+		width:450px;
+		margin-top:41px;
+		margin-left:6px;
+		margin-bottom:11px;
+		background-color:#FEFEFE;
+	}
 	/* 回复输入框样式 */
 	#ta1{
 		text-align:left;
@@ -698,9 +706,7 @@ hr.h1{
 	#footer{
 		width:765px;
 		height:50px;
-		margin:0px auto;
-		background-color:#C1E6F5;
-		clear:both;
+		border:1px solid #ccc;
 	}
 	/* footer链接部分*/
 	#footerLink{
@@ -709,7 +715,6 @@ hr.h1{
 		margin:0px auto;
 		position:relative;
 		line-height:30px;
-		color:#444444;
 	}
 		/* footer部分的链接 */
 		#footerLink ul{
@@ -726,7 +731,7 @@ hr.h1{
 	#footerCopy{
 		width:250px;
 		height:20px;
-		color:#444444;
+		color:#5c4444;
 		line-height:20px;
 		margin:0px auto;
 		text-align:center;
