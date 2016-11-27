@@ -176,11 +176,14 @@ exports.commentAndLike = function(req, res) {
                         (user._doc.posts)[index].comment.concat([newComment]);
                     user.posts[index].commentedTotal += 1;
                 } else {
-                    if (!(user._doc.posts)[index].likes.includes(
+                    var likes = Object.assign([],
+                        (user._doc.posts)[index].likes);
+                    console.log(likes);
+                    if (!likes.includes(
                             req.body.userNameLiked)) {
                         (user.posts)[index].likes =
                             (user._doc.posts)[index].likes.concat(
-                                [{ userName: req.body.userNameLiked }]);
+                                [req.body.userNameLiked]);
                     }
                 }
 
@@ -248,7 +251,6 @@ exports.modifyUser = function(req, res) {
  * @param  {Object} res respond to front end
  * @return {Object}
  */
-/*
 exports.follow = function(req, res) {
     Users.findOne({ userName: req.body.followFrom }, function(err, followFrom) {
         if (err) {
@@ -257,7 +259,7 @@ exports.follow = function(req, res) {
         if (!followFrom) {
             res.status(400).json("Error: no such user");
         }
-        Users.findOne { userName: req.body.followTo },
+        Users.findOne({ userName: req.body.followTo },
             function(err, followTo) {
                 if (err) {
                     throw err;
@@ -265,27 +267,38 @@ exports.follow = function(req, res) {
                 if (!followTo) {
                     res.status(400).json("Error: no such user");
                 }
-                if (followFrom._doc.follow.includes({
-                	userName:req.body.followTo})) {
-                	var temp=followFrom._doc.follow;
-                	temp.splice(followFrom._doc.follow.indexOf({
-                	userName:req.body.followTo}))
+                if (followFrom._doc.follow.includes(
+                        req.body.followTo)) {
+                    var temp = followFrom._doc.follow;
+                    temp.splice(
+                        followFrom._doc.follow.indexOf(req.body.followTo), 1);
+                    followFrom.follow = temp;
+                    temp = followTo._doc.followers;
+                    temp.splice(followTo._doc.followers.indexOf(req.body.followFrom), 1);
+                    followTo.followers = temp;
                 } else {
                     followFrom.follow =
-                    followFrom._doc.follow.concat([{userName:req.body.followTo}])
-
+                        followFrom._doc.follow.concat([req.body.followTo]);
+                    followTo.followers =
+                        followTo._doc.followers.concat([req.body.followFrom]);
                 }
 
-                user.save(function(err, book) {
+                followFrom.save(function(err, user) {
                     if (err) {
                         throw err;
                     }
-                    console.log("information undate of " + req.body.userName);
-                    res.json(JSON.stringify({
-                        "information undate of ": req.body.userName
-                    }));
+                    followTo.save(function(err, user) {
+                        if (err) {
+                            throw err;
+                        }
+                        console.log("follow from " +
+                            req.body.followFrom + " to " + req.body.followTo);
+                        res.json(JSON.stringify({
+                            "followFrom": req.body.followFrom,
+                            "followTo": req.body.followTo
+                        }))
+                    })
                 })
-            }
-
+            })
     })
-}*/
+}

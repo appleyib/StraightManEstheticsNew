@@ -7,11 +7,11 @@
         "password": "12345678",
         "postedTotal":1,
         "follow": [
-            {"userName":"testUser2"},
-            {"userName":"testUser3"}
+            "testUser2",
+            "testUser3"
         ],
         "followers": [
-            {"userName":"testUser2"}
+            "testUser2"
         ],
         "posts": [
             {
@@ -32,7 +32,7 @@
                     }
                 ],
                 "likes": [
-                    {"userName":"testUser3"}
+                    "testUser3"
                 ],
                 "time": "2016.07.07"
             }
@@ -47,10 +47,10 @@
         "password": "123456789",
         "postedTotal":2,
         "follow": [
-            {"userName":"testUser1"}
+            "testUser1"
         ],
         "followers": [
-            {"userName":"testUser1"}
+            "testUser1"
         ],
         "posts": [
             {
@@ -60,7 +60,7 @@
                 "commentedTotal":0,
                 "comment": [],
                 "likes": [
-                    {"userName":"testUser1"}
+                    "testUser1"
                 ],
                 "time": "2016.08.07"
             },
@@ -82,8 +82,8 @@
                     }
                 ],
                 "likes": [
-                    {"userName":"testUser1"},
-                    {"userName":"testUser3"}
+                    "testUser1",
+                    "testUser3"
                 ],
                 "time": "2016.09.07"
             }
@@ -99,7 +99,7 @@
         "postedTotal":1,
         "follow": [],
         "followers": [
-            {"userName":"testUser1"}
+            "testUser1"
         ],
         "posts": [
             {
@@ -125,9 +125,9 @@
                     }
                 ],
                 "likes": [
-                    {"userName":"testUser1"},
-                    {"userName":"testUser2"},
-                    {"userName":"testUser3"}
+                    "testUser1",
+                    "testUser2",
+                    "testUser3"
                 ],
                 "time": "2016.12.07"
             }

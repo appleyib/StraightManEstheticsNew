@@ -21,6 +21,7 @@ app.post('/post', users.post);
 app.post('/comment',users.commentAndLike);
 app.post('/like', users.commentAndLike);
 app.post('/user', users.modifyUser);
+app.post('/follow', users.follow);
 
 
 
