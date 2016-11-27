@@ -101,7 +101,7 @@ Request body contains:
 				"id":int,
 				"userName":"",
 				"content":"",
-			}]
+			}],
 			"likes":[""],  --stores user name in list
 			"time":time         --call time function in javascript
 		}]	
@@ -135,5 +135,6 @@ POST /likes
 Request body contains:
 {
 	"userName":"",
+	"userNameLiked":"",
 	"id":int
 }

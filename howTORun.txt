@@ -1,8 +1,8 @@
 don’t copy, type by hand
 terminal 1:
 initialize mongo set the PATH variable
-mongod —-dbpath=$PWD/data
+mongod --dbpath=$PWD/data
 
 open another terminal
 terminal 2:
-mongoimport -—db usersdb —-collection users —-type json —-file testUsers.json —-jsonArray —-drop
+mongoimport --db usersdb --collection users --type json --file testUsers.json --jsonArray --drop
