@@ -14,7 +14,9 @@ app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
-
+app.get('/', function(req, res) {
+    res.sendfile('CustomerIndex.html');
+});
 
 app.get('/users', users.find);
 app.post('/post', users.post);
