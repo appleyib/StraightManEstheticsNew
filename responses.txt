@@ -90,21 +90,6 @@ Request body contains:
 		"gender":"",
 		"introduction":"",
 		"password":"",
-		"follow":[""],     --stores user name in list
-		"followers":[""],	--stores user name in list
-		"posts":[{
-			"id":int,
-			"userName":"",  --here userName are all the same
-			"content":"",
-			"commentedTotal:int,
-			"comment":[{
-				"id":int,
-				"userName":"",
-				"content":"",
-			}],
-			"likes":[""],  --stores user name in list
-			"time":time         --call time function in javascript
-		}]	
 }
 note: if there is no change in one attribute, then just don't include this attribute in the request body, except userName
 which should always be in the request body
@@ -137,4 +122,11 @@ Request body contains:
 	"userName":"",
 	"userNameLiked":"",
 	"id":int
+}
+
+POST /follow
+Request body contains:
+{
+	"followTo":"",
+	"followFrom":""
 }

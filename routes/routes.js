@@ -176,18 +176,18 @@ exports.commentAndLike = function(req, res) {
                         (user._doc.posts)[index].comment.concat([newComment]);
                     user.posts[index].commentedTotal += 1;
                 } else {
-                	if(!(user._doc.posts)[index].likes.includes(
-                		req.body.userNameLiked)){
-                		(user.posts)[index].likes =
-                        (user._doc.posts)[index].likes.concat(
-                        	[{userName:req.body.userNameLiked}]);
-                	}
+                    if (!(user._doc.posts)[index].likes.includes(
+                            req.body.userNameLiked)) {
+                        (user.posts)[index].likes =
+                            (user._doc.posts)[index].likes.concat(
+                                [{ userName: req.body.userNameLiked }]);
+                    }
                 }
 
                 console.log(user);
                 user.save(function(err, book) {
                     if (err) {
-                    	console.log(err);
+                        console.log(err);
                         throw err;
                     }
                     console.log("comment/like on " + req.body.userName);
@@ -200,3 +200,92 @@ exports.commentAndLike = function(req, res) {
         res.status(400).json("Error: no such post");
     })
 }
+
+/**
+ * Updates the user's information.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+exports.modifyUser = function(req, res) {
+    Users.findOne({ userName: req.body.userName }, function(err, user) {
+        if (err) {
+            throw err;
+        }
+        if (!user) {
+            res.status(400).json("Error: no such user");
+        }
+        if (req.body.password) {
+            user.password = req.body.password;
+        }
+        if (req.body.birthday) {
+            user.birthday = req.body.birthday;
+        }
+        if (req.body.gender) {
+            user.gender = req.body.gender;
+        }
+        if (req.body.introduction) {
+            user.introduction = req.body.introduction;
+        }
+        console.log(user);
+        user.save(function(err, book) {
+            if (err) {
+                throw err;
+            }
+            console.log("information update of " + req.body.userName);
+            res.json(JSON.stringify({
+                "information undate of ": req.body.userName
+            }));
+        })
+    })
+}
+
+/**
+ * Let the current user to follow another user.
+ * If the current user has already followed the other user,
+ * let the current user unfollow that user.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+/*
+exports.follow = function(req, res) {
+    Users.findOne({ userName: req.body.followFrom }, function(err, followFrom) {
+        if (err) {
+            throw err;
+        }
+        if (!followFrom) {
+            res.status(400).json("Error: no such user");
+        }
+        Users.findOne { userName: req.body.followTo },
+            function(err, followTo) {
+                if (err) {
+                    throw err;
+                }
+                if (!followTo) {
+                    res.status(400).json("Error: no such user");
+                }
+                if (followFrom._doc.follow.includes({
+                	userName:req.body.followTo})) {
+                	var temp=followFrom._doc.follow;
+                	temp.splice(followFrom._doc.follow.indexOf({
+                	userName:req.body.followTo}))
+                } else {
+                    followFrom.follow =
+                    followFrom._doc.follow.concat([{userName:req.body.followTo}])
+
+                }
+
+                user.save(function(err, book) {
+                    if (err) {
+                        throw err;
+                    }
+                    console.log("information undate of " + req.body.userName);
+                    res.json(JSON.stringify({
+                        "information undate of ": req.body.userName
+                    }));
+                })
+            }
+
+    })
+}*/
