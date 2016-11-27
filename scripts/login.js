@@ -4,4 +4,6 @@ $(document).ready(function(){
         var password=$("#passWord").val();
         window.location = "./CustomerIndex.html";
     });
+
+    
 })
