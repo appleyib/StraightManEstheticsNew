@@ -3,11 +3,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var userNameSchema = new Schema({
-    userName: { type: String, required:true, unique: true },
-
-})
-
 var commentSchema = new Schema({
     id: Number,
     userName: { type: String, required: true },
@@ -20,7 +15,7 @@ var postSchema = new Schema({
         content: { type: String, required: true },
         commentedTotal: { type: Number, required: true },
         comment: [commentSchema],
-        likes: [userNameSchema],
+        likes: [],
         time: Date
     })
     /**
@@ -34,8 +29,8 @@ var userSchema = new Schema({
     introduction: String,
     password: String,
     postedTotal: Number,
-    follow: [userNameSchema],
-    followers: [userNameSchema],
+    follow: [],
+    followers: [],
     posts: [postSchema],
     admin: Boolean
 }, {
