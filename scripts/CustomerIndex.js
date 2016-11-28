@@ -85,7 +85,6 @@ $(document).ready(function(){
 	    });
     }
 	textfield.value = "";
-	changeDivHeight();
 }
 
 /* helper function to add post*/
