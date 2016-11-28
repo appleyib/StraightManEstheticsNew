@@ -131,6 +131,15 @@ Request body contains:
 	"followFrom":""
 }
 
+POST /login
+Request body contains:
+{
+	"userName":"",
+	"password":""
+}
+"Success"
+"Error: ......"
+
 DELETE ／deleteUser?userName=userName
 "Success"
 "Error: ......"
