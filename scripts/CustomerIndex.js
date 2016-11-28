@@ -95,9 +95,9 @@ $(document).ready(function(){
 	    });
     }
 	textfield.value = "";
-	changeDivHeight();
 }
 
+/* helper function to add post*/
 function addPost(userName, str, time) {
 	var innerht =
 		"<div class='stateShow'>\
