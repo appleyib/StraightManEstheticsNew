@@ -2,7 +2,7 @@
 // JavaScript Document
 	var hfObj;
 	var srcUser;
-	var userName="testUser1";
+	var userName="testUser2";
 
 $(document).ready(function(){
 	changeDivHeight();
