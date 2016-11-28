@@ -14,13 +14,29 @@ $(document).ready(function(){
 	 	    type:"GET",
 	  	    dataType:"JSON",
 	    	success:function(response){
-	    		var namefield=$("#nameField");
-	    		namefield.html(response.userName);
- 				console.log("kekeke " + response.userName);
+	    		loaduser(response);
 		    }
        });
     }
     loadmain();
+
+    function loaduser(user){
+    		var namefield=$("#nameField");
+	    	namefield.html(user.userName);
+	   		var postNumField = $("#postNumField");
+	   		postNumField.html(user.posts.length);
+	   		var followNumField = $("#followNumField");
+	   		followNumField.html(user.follow.length);
+			var followerNumField = $("#followerNumField");
+			followerNumField.html(user.followers.length);
+			var followingField = $("#ul2");
+			for (let i = 0;i<user.follow.length;i++){
+				followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
+			}
+			for(let i=0;i<user.posts.length;i++){
+				addPost(userName,user.posts[i].content,user.posts[i].time);
+			}
+    }
 
 })
 	/* Setting left and right part of the page's height to auto */
@@ -52,7 +68,7 @@ $(document).ready(function(){
 
     function submitState(){
 	var textfield = document.getElementById("textfield2");
-	var text=textfield.value;
+	var text = textfield.value;
 	var time = new Date();
 	console.log(time);
 	if (text.length>0){
@@ -70,53 +86,57 @@ $(document).ready(function(){
 		    	}
         	}),
 	    	success:function(response){
-                console.log(response);
-				var str = text;
-				console.log(time.toISOString());
-				// adding new post
-				var innerht =
-					"<div class='stateShow'>\
-					  <div class='stateShowWord'>\
-						<table width='450' border='0' cellpadding='0' \
-							cellspacing='0' class='stateTable'>\
-							<tr>\
-							  <td width='70' align='center' valign='top'>\
-							  	<a href='#'>\
-								 <img src='images/MainRightFirstLineTitle.gif' \
-								  alt='' width='48' height='48' />\
-								</a>\
-							  </td>\
-							  <td width='380'>\
-							  	<a href='#'>DarkDemon</a>\
-								  <img src='images/1.gif' align='absmiddle' \
-								  style='border:none;' />&nbsp;" + str +
-							 "</td>\
-							</tr>\
-						 </table>\
-					   </div>\
-					   \
-					   <div class='stateImgShow'>\
-					   </div>\
-					   \
-					   <div class='stateShowtime'>" + time +
-					  "</div>\
-				      \
-					   <div class='stateOp'>\
-					    <a class='opState' onclick='reply(this)'>Reply</a>\
-					    <a class='opState'>like(0)</a>\
-					    <a class='opState' onclick='delState(this)'>Delete</a>\
-					   </div>\
-					  \
-					  <div class='huifu'></div>\
-				    </div>";
-				var divObj = $("#mainBannerContent");
-				divObj.innerHTML = innerht + divObj.innerHTML;
+				window.location.reload();
             }
 	    });
     }
 	textfield.value = "";
-	changeDivHeight();
 }
+
+/* helper function to add post*/
+function addPost(userName, str, time) {
+	var innerht =
+		"<div class='stateShow'>\
+		  <div class='stateShowWord'>\
+			<table width='450' border='0' cellpadding='0' \
+				cellspacing='0' class='stateTable'>\
+				<tr>\
+				  <td width='70' align='center' valign='top'>\
+					<a href='#'>\
+					 <img src='images/MainRightFirstLineTitle.gif' \
+					  alt='' width='48' height='48' />\
+					</a>\
+				  </td>\
+				  <td width='380'>\
+					<a href='#'>" + userName + "</a>\
+					  <img src='images/1.gif' align='absmiddle' \
+					  style='border:none;' />&nbsp;" + str +
+				 "</td>\
+				</tr>\
+			 </table>\
+		   </div>\
+		   \
+		   <div class='stateImgShow'>\
+		   </div>\
+		   \
+		   <div class='stateShowtime'>" + time +
+		  "</div>\
+		  \
+		   <div class='stateOp'>\
+			<a class='opState' onclick='reply(this)'>Reply</a>\
+			<a class='opState'>like(0)</a>\
+			<a class='opState' onclick='delState(this)'>Delete</a>\
+		   </div>\
+		  \
+		  <div class='huifu'></div>\
+		</div>";
+		var divObj = document.getElementById("mainBannerContent");
+		divObj.innerHTML = innerht + divObj.innerHTML;
+		changeDivHeight();
+}
+
+
+
 
 // 	var hfObj;
 // 	var srcUser;
