@@ -4,11 +4,11 @@
 	var srcUser;
 	var userName="testUser1";
 
-$(document).ready(function(){
+$(document).ready(function() {
 	changeDivHeight();
 
 
-    function loadmain(){
+    function loadmain() {
  		$.ajax({
             url:'/users?userName='+userName+'&mainPage='+true,
 	 	    type:"GET",
@@ -20,7 +20,7 @@ $(document).ready(function(){
     }
     loadmain();
 
-    function loaduser(user){
+    function loaduser(user) {
     		var namefield=$("#nameField");
 	    	namefield.html(user.userName);
 	   		var postNumField = $("#postNumField");
@@ -33,21 +33,33 @@ $(document).ready(function(){
 			for (let i = 0;i<user.follow.length;i++){
 				followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
 			}
-			for(let i=0;i< user.postsOnPage.length;i++){
-				addPost(user.postsOnPage[i].userName,
-						user.postsOnPage[i].content,
-						new Date(user.postsOnPage[i].time),
-						user.postsOnPage[i].comment);
+			var posts = user.postsOnPage.sort( function(a, b) {
+				var a_t = new Date(a.time);
+				var b_t = new Date(b.time);
+				if (a_t.getTime() > b_t.getTime()) {
+					return 1;
+				} else if (a_t.getTime() < b_t.getTime()) {
+					return -1;
+				}
+				return 0;
+			});
+			for(let i=0;i< posts.length;i++) {
+
+				addPost(posts[i].userName,
+						posts[i].content,
+						new Date(posts[i].time),
+						posts[i].comment);
 			}
+
     }
 
-})
+});
 	/* Setting left and right part of the page's height to auto */
-	function initDivHeight(divObj1,divObj2){
+	function initDivHeight(divObj1,divObj2) {
 		divObj1.style.height = "auto";
 		divObj2.style.height = "auto";
 	}
-	function changeDivHeight(){
+	function changeDivHeight() {
 		var mainBanner = document.getElementById("mainBanner");
 		var mainRight = document.getElementById("mainRight");
 		initDivHeight(mainBanner,mainRight);//设置高度为自动
@@ -56,7 +68,7 @@ $(document).ready(function(){
 		mainRight.style.height = height+ "px";//
 	}
 
-    function calNum(txtobj,divobj,fg){
+    function calNum(txtobj,divobj,fg) {
 		var text = txtobj.value;
 		var n = 140;
 		n = n - Math.floor(text.length);// calculation
@@ -69,7 +81,7 @@ $(document).ready(function(){
     	divobj.innerHTML = n ;
     }
 
-    function submitState(){
+    function submitState() {
 	var textfield = document.getElementById("textfield2");
 	var text = textfield.value;
 	var time = new Date();
@@ -93,7 +105,6 @@ $(document).ready(function(){
             }
 	    });
     }
-	textfield.value = "";
 }
 
 /* helper function to add post*/
@@ -103,7 +114,7 @@ function addPost(userName, str, time, comments) {
 		text = "";
 	} else {
 		for (let item in comments) {
-			console.log(item);
+			console.log(comments[item]);
 
 		}
 	}
