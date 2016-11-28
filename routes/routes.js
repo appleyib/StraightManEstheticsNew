@@ -44,25 +44,27 @@ function findSelfOnMainPage(req, res) {
         }
         // tries to find all users followed by current user
         Users.find({ userName: { "$in": user._doc.follow } },
-        	function(err, followedByCurrent) {
-            if (err) {
-                throw err;
-            }
-            var result = user._doc;
-            result.postsOnPage = [];
-            console.log(followedByCurrent);
-            // put all posts of users followed by current user
-            // in to the respond body
-            for (index in followedByCurrent) {
-                result.postsOnPage =
-                result.postsOnPage.concat(followedByCurrent[index]._doc.posts);
-            }
-            console.log(result);
-            // removes important attributes
-            delete result.password;
-            delete result.postedTotal;
-            return res.json(result);
-        })
+            function(err, followedByCurrent) {
+                if (err) {
+                    throw err;
+                }
+                var result = user._doc;
+                result.postsOnPage = [];
+                console.log(followedByCurrent);
+                // puts all posts of users followed by current user
+                // in to the respond body
+                for (index in followedByCurrent) {
+                    result.postsOnPage =
+                        result.postsOnPage.concat(followedByCurrent[index]._doc.posts);
+                }
+                // puts current user's own posts into result
+                result.postsOnPage = result.postsOnPage.concat(user._doc.posts);
+                console.log(result);
+                // removes important attributes
+                delete result.password;
+                delete result.postedTotal;
+                return res.json(result);
+            })
     })
 }
 
@@ -88,7 +90,7 @@ function findByNameKeyWords(req, res) {
         }
         var result = [];
         for (index in users) {
-        	// adds each user to respound
+            // adds each user to respound
             result.push({
                 userName: users[index]._doc.userName,
                 gender: users[index]._doc.gender,
@@ -126,7 +128,7 @@ exports.find = function(req, res) {
  * @return {Object}
  */
 exports.post = function(req, res) {
-	// tries to find current user who posted
+    // tries to find current user who posted
     Users.findOne({ userName: req.body.userName }, function(err, user) {
         if (err) {
             throw err;
@@ -171,7 +173,7 @@ exports.post = function(req, res) {
  * @return {Object}
  */
 exports.commentAndLike = function(req, res) {
-	// tries to find the user who commented
+    // tries to find the user who commented
     Users.findOne({ userName: req.body.userName }, function(err, user) {
         if (err) {
             throw err;
@@ -183,21 +185,21 @@ exports.commentAndLike = function(req, res) {
         for (index in user._doc.posts) {
             if (user._doc.posts[index].id == req.body.id) {
 
-            	// in case of a comment
+                // in case of a comment
                 if (req.url == "/comment") {
-                	// new comment
+                    // new comment
                     var newComment = {
-                        id: user._doc.posts[index].commentedTotal,
-                        userName: req.body.comment.userName,
-                        content: req.body.comment.content,
-                        time: req.body.comment.time
-                    }
-                    // add the comment
+                            id: user._doc.posts[index].commentedTotal,
+                            userName: req.body.comment.userName,
+                            content: req.body.comment.content,
+                            time: req.body.comment.time
+                        }
+                        // add the comment
                     user.posts[index].comment =
                         (user._doc.posts)[index].comment.concat([newComment]);
                     user.posts[index].commentedTotal += 1;
                 } else {
-                	// in case of a like
+                    // in case of a like
                     var likes = Object.assign([],
                         (user._doc.posts)[index].likes);
                     console.log(likes);
@@ -235,7 +237,7 @@ exports.commentAndLike = function(req, res) {
  * @return {Object}
  */
 exports.modifyUser = function(req, res) {
-	// finds the user who want to updates information
+    // finds the user who want to updates information
     Users.findOne({ userName: req.body.userName }, function(err, user) {
         if (err) {
             throw err;
@@ -285,7 +287,7 @@ exports.modifyUser = function(req, res) {
  * @return {Object}
  */
 exports.follow = function(req, res) {
-	// finds the follower.
+    // finds the follower.
     Users.findOne({ userName: req.body.followFrom }, function(err, followFrom) {
         if (err) {
             throw err;
@@ -313,8 +315,8 @@ exports.follow = function(req, res) {
                     temp = followTo._doc.followers;
                     temp.splice(followTo._doc.followers.indexOf(req.body.followFrom), 1);
                     followTo.followers = temp;
-                   	// If such a followFrom has not followed followTo,
-                   	// let the followFrom unfollows followTo.
+                    // If such a followFrom has not followed followTo,
+                    // let the followFrom unfollows followTo.
                 } else {
                     followFrom.follow =
                         followFrom._doc.follow.concat([req.body.followTo]);
@@ -352,7 +354,7 @@ exports.follow = function(req, res) {
  * @return {Object}
  */
 exports.deleteUser = function(req, res) {
-	// tries to find the user and deletes it
+    // tries to find the user and deletes it
     Users.findOneAndRemove({ userName: req.query.userName }, function(err, user) {
         if (err) {
             throw err;
@@ -367,7 +369,7 @@ exports.deleteUser = function(req, res) {
             }
         }, function(err, users) {
             for (index in users) {
-            	// deletes the deleted user from all user's follows
+                // deletes the deleted user from all user's follows
                 if (users[index]._doc.follow.includes(req.query.userName)) {
                     var temp = users[index]._doc.follow;
                     temp.splice(
@@ -396,7 +398,7 @@ exports.deleteUser = function(req, res) {
  * @return {Object}
  */
 exports.deletePost = function(req, res) {
-	// tries to find the user of the post that need to be deleted
+    // tries to find the user of the post that need to be deleted
     Users.findOne({ userName: req.query.userName }, function(err, user) {
         if (err) {
             throw err;
@@ -407,7 +409,7 @@ exports.deletePost = function(req, res) {
 
         //loops through all posts of current user
         for (index in user._doc.posts) {
-        	// in case that such a post found
+            // in case that such a post found
             if (user._doc.posts[index].id == parseInt(req.query.postId)) {
                 var temp = user._doc.posts;
                 temp.splice(index, 1);
@@ -433,8 +435,8 @@ exports.deletePost = function(req, res) {
  * @return {Object}
  */
 exports.deleteComment = function(req, res) {
-	// tries to find the user who has the post in which there is a comment
-	// that need to be deleted
+    // tries to find the user who has the post in which there is a comment
+    // that need to be deleted
     Users.findOne({ userName: req.query.userName }, function(err, user) {
         if (err) {
             throw err;
@@ -444,11 +446,11 @@ exports.deleteComment = function(req, res) {
         }
         // loops through posts
         for (index in user._doc.posts) {
-        	// post found
+            // post found
             if (user._doc.posts[index].id == parseInt(req.query.postId)) {
-            	// loops through all comments of current post
+                // loops through all comments of current post
                 for (indexComment in user._doc.posts[index].comment) {
-                	// such a comment is found
+                    // such a comment is found
                     if (user._doc.posts[index].comment[indexComment].id ==
                         parseInt(req.query.commentId)) {
                         var temp = user._doc.posts[index].comment;
@@ -477,16 +479,16 @@ exports.deleteComment = function(req, res) {
  * @param  {Object} res respond to front end
  * @return {Object}
  */
-exports.login = function(req,res){
-	Users.findOne({ userName: req.body.userName }, function(err, user) {
+exports.login = function(req, res) {
+    Users.findOne({ userName: req.body.userName }, function(err, user) {
         if (err) {
             throw err;
         }
         if (!user) {
             return res.status(400).json("Error: no such user");
         }
-        if(user._doc.password!=req.body.password){
-        	return res.status(400).json("Error: password is not correect");
+        if (user._doc.password != req.body.password) {
+            return res.status(400).json("Error: password is not correect");
         }
         return res.json("Success")
     })
@@ -499,9 +501,9 @@ exports.login = function(req,res){
  * @param  {Object} res respond to front end
  * @return {Object}
  */
-exports.newUser = function(req, res){
-	// checks if the user already exists
-	Users.findOne({ userName: req.body.userName }, function(err, user) {
+exports.newUser = function(req, res) {
+    // checks if the user already exists
+    Users.findOne({ userName: req.body.userName }, function(err, user) {
         if (err) {
             throw err;
         }
@@ -516,18 +518,18 @@ exports.newUser = function(req, res){
         newUser.password = req.body.password;
         newUser.birthday = req.body.birthday;
         newUser.gender = req.body.gender;
-		newUser.introduction = req.body.introduction;
-		newUser.posts = [];
-		newUser.postedTotal=0;
-		newUser.follow=[];
-		newUser.followers=[];
-		newUser.admin=false;
+        newUser.introduction = req.body.introduction;
+        newUser.posts = [];
+        newUser.postedTotal = 0;
+        newUser.follow = [];
+        newUser.followers = [];
+        newUser.admin = false;
         console.log(newUser);
 
         // saves cahnges
         newUser.save(function(err, doc) {
             if (err) {
-            	console.log(err);
+                console.log(err);
                 throw err;
             }
             console.log("new use: " + req.body.userName);
