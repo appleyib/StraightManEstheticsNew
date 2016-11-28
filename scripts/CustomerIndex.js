@@ -4,11 +4,11 @@
 	var srcUser;
 	var userName="testUser1";
 
-$(document).ready(function(){
+$(document).ready(function() {
 	changeDivHeight();
 
 
-    function loadmain(){
+    function loadmain() {
  		$.ajax({
             url:'/users?userName='+userName+'&mainPage='+true,
 	 	    type:"GET",
@@ -20,7 +20,7 @@ $(document).ready(function(){
     }
     loadmain();
 
-    function loaduser(user){
+    function loaduser(user) {
     		var namefield=$("#nameField");
 	    	namefield.html(user.userName);
 	   		var postNumField = $("#postNumField");
@@ -33,18 +33,33 @@ $(document).ready(function(){
 			for (let i = 0;i<user.follow.length;i++){
 				followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
 			}
-			for(let i=0;i<user.posts.length;i++){
-				addPost(userName,user.posts[i].content,user.posts[i].time);
+			var posts = user.postsOnPage.sort( function(a, b) {
+				var a_t = new Date(a.time);
+				var b_t = new Date(b.time);
+				if (a_t.getTime() > b_t.getTime()) {
+					return 1;
+				} else if (a_t.getTime() < b_t.getTime()) {
+					return -1;
+				}
+				return 0;
+			});
+			for(let i=0;i< posts.length;i++) {
+
+				addPost(posts[i].userName,
+						posts[i].content,
+						new Date(posts[i].time),
+						posts[i].comment);
 			}
+
     }
 
-})
+});
 	/* Setting left and right part of the page's height to auto */
-	function initDivHeight(divObj1,divObj2){
+	function initDivHeight(divObj1,divObj2) {
 		divObj1.style.height = "auto";
 		divObj2.style.height = "auto";
 	}
-	function changeDivHeight(){
+	function changeDivHeight() {
 		var mainBanner = document.getElementById("mainBanner");
 		var mainRight = document.getElementById("mainRight");
 		initDivHeight(mainBanner,mainRight);//设置高度为自动
@@ -53,7 +68,7 @@ $(document).ready(function(){
 		mainRight.style.height = height+ "px";//
 	}
 
-    function calNum(txtobj,divobj,fg){
+    function calNum(txtobj,divobj,fg) {
 		var text = txtobj.value;
 		var n = 140;
 		n = n - Math.floor(text.length);// calculation
@@ -66,7 +81,7 @@ $(document).ready(function(){
     	divobj.innerHTML = n ;
     }
 
-    function submitState(){
+    function submitState() {
 	var textfield = document.getElementById("textfield2");
 	var text = textfield.value;
 	var time = new Date();
@@ -86,19 +101,23 @@ $(document).ready(function(){
 		    	}
         	}),
 	    	success:function(response){
-                console.log(response);
-				var str = text;
-				console.log(userName);
-				// adding new post
-				addPost(userName, str, time);
+				window.location.reload();
             }
 	    });
     }
-	textfield.value = "";
 }
 
 /* helper function to add post*/
-function addPost(userName, str, time) {
+function addPost(userName, str, time, comments) {
+	var text;
+	if (comments == []) {
+		text = "";
+	} else {
+		for (let item in comments) {
+			console.log(comments[item]);
+
+		}
+	}
 	var innerht =
 		"<div class='stateShow'>\
 		  <div class='stateShowWord'>\
@@ -132,10 +151,11 @@ function addPost(userName, str, time) {
 			<a class='opState' onclick='delState(this)'>Delete</a>\
 		   </div>\
 		  \
-		  <div class='huifu'></div>\
+		  <div class='comments'></div>\
 		</div>";
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
+		changeDivHeight();
 }
 
 
