@@ -95,11 +95,11 @@ $(document).ready(function(){
 					    <a class='opState' onclick='reply(this)'>Reply</a>\
 					    <a class='opState'>like(0)</a>\
 					    <a class='opState' onclick='delState(this)'>Delete</a>\
-					  </div>\
+					   </div>\
 					  \
 					  <div class='huifu'></div>\
 				    </div>";
-				var divObj = document.getElementById("mainBannerContent");
+				var divObj = $("#mainBannerContent");
 				divObj.innerHTML = innerht + divObj.innerHTML;
             }
 	    });
