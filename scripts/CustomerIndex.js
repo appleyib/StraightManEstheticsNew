@@ -33,8 +33,11 @@ $(document).ready(function(){
 			for (let i = 0;i<user.follow.length;i++){
 				followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
 			}
-			for(let i=0;i<user.posts.length;i++){
-				addPost(userName,user.posts[i].content,user.posts[i].time);
+			for(let i=0;i< user.postsOnPage.length;i++){
+				addPost(user.postsOnPage[i].userName,
+						user.postsOnPage[i].content,
+						new Date(user.postsOnPage[i].time),
+						user.postsOnPage[i].comment);
 			}
     }
 
@@ -94,7 +97,16 @@ $(document).ready(function(){
 }
 
 /* helper function to add post*/
-function addPost(userName, str, time) {
+function addPost(userName, str, time, comments) {
+	var text;
+	if (comments == []) {
+		text = "";
+	} else {
+		for (let item in comments) {
+			console.log(item);
+
+		}
+	}
 	var innerht =
 		"<div class='stateShow'>\
 		  <div class='stateShowWord'>\
@@ -128,7 +140,7 @@ function addPost(userName, str, time) {
 			<a class='opState' onclick='delState(this)'>Delete</a>\
 		   </div>\
 		  \
-		  <div class='huifu'></div>\
+		  <div class='comments'></div>\
 		</div>";
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
