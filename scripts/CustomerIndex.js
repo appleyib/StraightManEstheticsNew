@@ -33,6 +33,9 @@ $(document).ready(function(){
 			for (let i = 0;i<user.follow.length;i++){
 				followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
 			}
+			for(let i=0;i<user.posts.length;i++){
+				addPost(userName,user.posts[i].content,user.posts[i].time);
+			}
     }
 
 })
