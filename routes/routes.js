@@ -435,7 +435,12 @@ exports.login = function(req,res){
 }
 
 
-
+/**
+ * Adds a new user!
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
 exports.newUser = function(req, res){
 	Users.findOne({ userName: req.body.userName }, function(err, user) {
         if (err) {
@@ -445,9 +450,10 @@ exports.newUser = function(req, res){
             return res.status(400).json("Error: such user already exists!");
         }
         var newUser = new Users;
+        newUser.userName = req.body.userName;
         newUser.password = req.body.password;
         newUser.birthday = req.body.birthday;
-        newUuser.gender = req.body.gender;
+        newUser.gender = req.body.gender;
 		newUser.introduction = req.body.introduction;
 		newUser.posts = [];
 		newUser.postedTotal=0;
@@ -457,6 +463,7 @@ exports.newUser = function(req, res){
         console.log(newUser);
         newUser.save(function(err, doc) {
             if (err) {
+            	console.log(err);
                 throw err;
             }
             console.log("new use: " + req.body.userName);
@@ -464,6 +471,5 @@ exports.newUser = function(req, res){
                 "new": req.body.userName
             }));
         })
-        return res.json("Success")
     })
 }

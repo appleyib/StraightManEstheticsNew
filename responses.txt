@@ -149,6 +149,8 @@ Request body contains:
 	"introduction":"",
 	"password":"",
 }
+"Success"
+"Error: ......"
 
 DELETE ／deleteUser?userName=userName
 "Success"
