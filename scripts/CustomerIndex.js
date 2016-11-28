@@ -9,9 +9,17 @@ $(document).ready(function(){
 
 
     function loadmain(){
-
+ 		$.ajax({
+            url:'/users?userName='+userName+'&mainPage='+true,
+	 	    type:"GET",
+	  	    dataType:"JSON",
+	    	success:function(response){
+	    		var namefield=$()
+ 				console.log("keke");
+		    }
+       });
     }
-    loadmain()
+    loadmain();
 
 })
 	/* Setting left and right part of the page's height to auto */
@@ -70,10 +78,6 @@ $(document).ready(function(){
             }
 	    });
     }
-	// 	var innerht = "<div class='stateShow' onmouseover='stateMouseOver(this)' onmouseout='stateMouseOut(this)'><div class='stateShowWord'><table width='450' border='0' cellpadding='0' cellspacing='0' class='stateTable'><tr><td width='70' align='center' valign='top'><a href='#'><img src='images/MainRightFirstLineTitle.gif' alt='' width='48' height='48' /></a></td><td width='380'><a href='#'>DarkDemon</a><img src='images/1.gif' align='absmiddle' style='border:none;' />&nbsp;"+str+"</td></tr></table></div><div class='stateImgShow'></div><div class='stateShowtime'>"+time+"</div><div class='stateOp'><a onclick='reXianShi(this)' class='opState'>回复</a><a class='opState'>转发</a><a onclick='delState(this)' class='opState'>删除</a></div><div class='huifu'></div></div>";
-	// 	var divObj = document.getElementById("mainBannerContent");
-	// 	divObj.innerHTML = innerht + divObj.innerHTML;
-	// }
 	textfield.value = "";
 	changeDivHeight();
 }
