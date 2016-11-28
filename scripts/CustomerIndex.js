@@ -16,7 +16,9 @@ $(document).ready(function(){
 	    	success:function(response){
 	    		var namefield=$("#nameField");
 	    		namefield.html(response.userName);
- 				console.log("kekeke " + response.userName);
+	    		var postNumField = $("#postNumField");
+	    		postNumField.html(response.posts.length);
+ 				console.log(response.posts);
 		    }
        });
     }
