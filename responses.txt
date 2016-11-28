@@ -130,3 +130,15 @@ Request body contains:
 	"followTo":"",
 	"followFrom":""
 }
+
+DELETE ／deleteUser?userName=userName
+"Success"
+"Error: ......"
+
+DELETE /deletePost?userName=userName&postId=postId
+"Success"
+"Error: ......"
+
+DELETE /deleteComment?userName=userName&postId=postId&commentId=commentId
+"success"
+"Error: ......"

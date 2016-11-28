@@ -14,7 +14,7 @@ function findByUsername(req, res) {
             throw err;
         }
         if (!user) {
-            res.status(400).json("Error: no such user");
+            return res.status(400).json("Error: no such user");
         }
         console.log(user);
         var result = Object.assign({}, user._doc);
@@ -37,7 +37,7 @@ function findSelfOnMainPage(req, res) {
             throw err;
         }
         if (!user) {
-            res.status(400).json("Error: no such user");
+            return res.status(400).json("Error: no such user");
         }
         Users.find({ userName: { "$in": user._doc.follow } }, function(err, followedByCurrent) {
             if (err) {
@@ -120,7 +120,7 @@ exports.post = function(req, res) {
             throw err;
         }
         if (!user) {
-            res.status(400).json("Error: no such user");
+            return res.status(400).json("Error: no such user");
         }
         var newPost = {
             id: user._doc.postedTotal,
@@ -160,7 +160,7 @@ exports.commentAndLike = function(req, res) {
             throw err;
         }
         if (!user) {
-            res.status(400).json("Error: no such user");
+            return res.status(400).json("Error: no such user");
         }
         for (index in user._doc.posts) {
             if (user._doc.posts[index].id == req.body.id) {
@@ -216,7 +216,7 @@ exports.modifyUser = function(req, res) {
             throw err;
         }
         if (!user) {
-            res.status(400).json("Error: no such user");
+            return res.status(400).json("Error: no such user");
         }
         if (req.body.password) {
             user.password = req.body.password;
@@ -257,7 +257,7 @@ exports.follow = function(req, res) {
             throw err;
         }
         if (!followFrom) {
-            res.status(400).json("Error: no such user");
+            return res.status(400).json("Error: no such user");
         }
         Users.findOne({ userName: req.body.followTo },
             function(err, followTo) {
@@ -265,7 +265,7 @@ exports.follow = function(req, res) {
                     throw err;
                 }
                 if (!followTo) {
-                    res.status(400).json("Error: no such user");
+                    return res.status(400).json("Error: no such user");
                 }
                 if (followFrom._doc.follow.includes(
                         req.body.followTo)) {
@@ -300,5 +300,115 @@ exports.follow = function(req, res) {
                     })
                 })
             })
+    })
+}
+
+
+/**
+ * Deletes a user by given username in request.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+exports.deleteUser = function(req, res) {
+    Users.findOneAndRemove({ userName: req.query.userName }, function(err, user) {
+        if (err) {
+            throw err;
+        }
+        if (!user) {
+            return res.status(400).json("Error: no such user");
+        }
+        Users.find({
+            userName: {
+                "$in": user._doc.follow.concat(user._doc.followers)
+            }
+        }, function(err, users) {
+            for (index in users) {
+                if (users[index]._doc.follow.includes(req.query.userName)) {
+                    var temp = users[index]._doc.follow;
+                    temp.splice(
+                        users[index]._doc.follow.indexOf(req.query.userName), 1);
+                    users[index].follow = temp;
+                }
+                if (users[index]._doc.followers.includes(req.query.userName)) {
+                    var temp = users[index]._doc.followers;
+                    temp.splice(users[index]._doc.followers.indexOf(req.query.userName), 1);
+                    followTo.followers = temp;
+                }
+                users[index].save();
+            }
+        });
+        res.json(JSON.stringify("Success"));
+    })
+}
+
+
+/**
+ * Deletes a post with given username and id of the post.
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+exports.deletePost = function(req, res) {
+    Users.findOne({ userName: req.query.userName }, function(err, user) {
+        if (err) {
+            throw err;
+        }
+        if (!user) {
+            return res.status(400).json("Error: no such user");
+        }
+        for (index in user._doc.posts) {
+            if (user._doc.posts[index].id == parseInt(req.query.postId)) {
+                var temp = user._doc.posts;
+                temp.splice(index, 1);
+                user.posts = temp;
+                return user.save(function(err, user) {
+                    if (err) {
+                        throw err
+                    };
+                    return res.json(JSON.stringify("Success"));
+                })
+            }
+        }
+        return res.status(400).json(JSON.stringify("Error: no such post!"));
+    })
+}
+
+
+/**
+ * Deletes a comment by given username, id of post and id of comment
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+exports.deleteComment = function(req, res) {
+    Users.findOne({ userName: req.query.userName }, function(err, user) {
+        if (err) {
+            throw err;
+        }
+        if (!user) {
+            return res.status(400).json("Error: no such user");
+        }
+        for (index in user._doc.posts) {
+            if (user._doc.posts[index].id == parseInt(req.query.postId)) {
+                for (indexComment in user._doc.posts[index].comment) {
+                    if (user._doc.posts[index].comment[indexComment].id ==
+                        parseInt(req.query.commentId)) {
+                        var temp = user._doc.posts[index].comment;
+                        temp.splice(indexComment, 1);
+                        user.posts[index].comment = temp;
+                        return user.save(function(err, user) {
+                            if (err) {
+                                throw err
+                            };
+                            return res.json(JSON.stringify("Success"));
+                        })
+                    }
+                }
+                return res.status(400).json(JSON.stringify("Error: no such comment!"));
+            }
+
+        }
+        return res.status(400).json(JSON.stringify("Error: no such post!"));
     })
 }
