@@ -6,6 +6,7 @@
 
 $(document).ready(function(){
 
+	/* Setting left and right part of the page's height to auto */
     function initDivHeight(divObj1,divObj2){
 	    divObj1.style.height = "auto";
 	    divObj2.style.height = "auto";
@@ -21,9 +22,10 @@ $(document).ready(function(){
     function calNum(txtobj,divobj,fg){
 		var text = txtobj.value;
 		var n = 140;
-		n = n - Math.floor(text.length);//计算
+		n = n - Math.floor(text.length);// calculation
 		if(n<0){
-			divobj.style.color = "#969";//设置如果超了，变背景色为红色
+			// set backgroundColor to red if exceed chars
+			divobj.style.color = "#969";
 		}else{
 			divobj.style.color = "#000";
 		}
@@ -36,18 +38,18 @@ $(document).ready(function(){
 	var time = new Date();
 	console.log(time);
 	if (text.length>0){
-	    $.ajax({	
+	    $.ajax({
 	        url:"/post",
 	        type:"POST",
 	        dataType:"json",
 	    	contentType:"application/json; charset=utf-8",
 	    	data:JSON.stringify({
-		    	"userName":userName,   
+		    	"userName":userName,
 		    	"post":{
-			    	"userName":userName, 
+			    	"userName":userName,
 			    	"content":text,
-			    	"time":time  
-		    	}	
+			    	"time":time
+		    	}
         	}),
 	    	success:function(response){
                 console.log(response);
@@ -99,18 +101,18 @@ $(document).ready(function(){
 // 	var time = new Date();
 // 	console.log(time);
 // 	if (text.length>0){
-// 	    $.ajax({	
+// 	    $.ajax({
 // 	        url:"/post",
 // 	        type:"POST",
 // 	        dataType:"json",
 // 	    	contentType:"application/json; charset=utf-8",
 // 	    	data:JSON.stringify({
-// 		    	"userName":userName,   
+// 		    	"userName":userName,
 // 		    	"post":{
-// 			    	"userName":userName, 
+// 			    	"userName":userName,
 // 			    	"content":text,
-// 			    	"time":time  
-// 		    	}	
+// 			    	"time":time
+// 		    	}
 //         	}),
 // 	    	success:function(response){
 //                 console.log(response);
@@ -127,7 +129,7 @@ $(document).ready(function(){
 
 // window.onload = function(){
 // 	changeDivHeight();//开始的时候设置左栏和右栏的高度
-	
+
 
 // 	//隐藏 #back-top 先
 // 	$("#backtop").hide();
@@ -148,5 +150,4 @@ $(document).ready(function(){
 // 			return false;
 // 		});
 // 	});
-// } 
-
+// }
