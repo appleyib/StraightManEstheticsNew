@@ -140,6 +140,18 @@ Request body contains:
 "Success"
 "Error: ......"
 
+POST /newUser
+Request body contains:
+{
+	"userName":"",   --should always have this attribute
+	"birthday":"",
+	"gender":"",
+	"introduction":"",
+	"password":"",
+}
+"Success"
+"Error: ......"
+
 DELETE ／deleteUser?userName=userName
 "Success"
 "Error: ......"

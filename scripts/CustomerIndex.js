@@ -74,7 +74,8 @@ $(document).ready(function(){
 	    	success:function(response){
                 console.log(response);
 				var str = text;
-				console.log(time.toISOString())
+				console.log(time.toISOString());
+				// adding new post
 				var innerht =
 					"<div class='stateShow'>\
 					  <div class='stateShowWord'>\
@@ -106,11 +107,11 @@ $(document).ready(function(){
 					    <a class='opState' onclick='reply(this)'>Reply</a>\
 					    <a class='opState'>like(0)</a>\
 					    <a class='opState' onclick='delState(this)'>Delete</a>\
-					  </div>\
+					   </div>\
 					  \
 					  <div class='huifu'></div>\
 				    </div>";
-				var divObj = document.getElementById("mainBannerContent");
+				var divObj = $("#mainBannerContent");
 				divObj.innerHTML = innerht + divObj.innerHTML;
             }
 	    });
