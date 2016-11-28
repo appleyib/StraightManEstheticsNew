@@ -88,6 +88,7 @@ $(document).ready(function(){
 	changeDivHeight();
 }
 
+/* helper function to add post*/
 function addPost(userName, str, time) {
 	var innerht =
 		"<div class='stateShow'>\
