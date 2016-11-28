@@ -72,7 +72,8 @@ $(document).ready(function(){
 	    	success:function(response){
                 console.log(response);
 				var str = text;
-				console.log(time.toISOString())
+				console.log(time.toISOString());
+				// adding new post
 				var innerht =
 					"<div class='stateShow'>\
 					  <div class='stateShowWord'>\
