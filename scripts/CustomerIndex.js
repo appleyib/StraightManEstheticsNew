@@ -14,19 +14,26 @@ $(document).ready(function(){
 	 	    type:"GET",
 	  	    dataType:"JSON",
 	    	success:function(response){
-	    		var namefield=$("#nameField");
-	    		namefield.html(response.userName);
-	    		var postNumField = $("#postNumField");
-	    		postNumField.html(response.posts.length);
-	    		var followNumField = $("#followNumField");
-	    		followNumField.html(response.follow.length);
- 				console.log(response.followers.length);
- 				var followerNumField = $("#followerNumField");
- 				followerNumField.html(response.followers.length);
+	    		loaduser(response);
 		    }
        });
     }
     loadmain();
+
+    function loaduser(user){
+    		var namefield=$("#nameField");
+	    	namefield.html(user.userName);
+	   		var postNumField = $("#postNumField");
+	   		postNumField.html(user.posts.length);
+	   		var followNumField = $("#followNumField");
+	   		followNumField.html(user.follow.length);
+			var followerNumField = $("#followerNumField");
+			followerNumField.html(user.followers.length);
+			var followingField = $("#ul2");
+			for (let i = 0;i<user.follow.length;i++){
+				followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
+			}
+    }
 
 })
 	/* Setting left and right part of the page's height to auto */
