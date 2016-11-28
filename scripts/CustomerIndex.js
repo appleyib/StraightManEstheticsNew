@@ -78,51 +78,58 @@ $(document).ready(function(){
 	    	success:function(response){
                 console.log(response);
 				var str = text;
-				console.log(time.toISOString());
+				console.log(userName);
 				// adding new post
-				var innerht =
-					"<div class='stateShow'>\
-					  <div class='stateShowWord'>\
-						<table width='450' border='0' cellpadding='0' \
-							cellspacing='0' class='stateTable'>\
-							<tr>\
-							  <td width='70' align='center' valign='top'>\
-							  	<a href='#'>\
-								 <img src='images/MainRightFirstLineTitle.gif' \
-								  alt='' width='48' height='48' />\
-								</a>\
-							  </td>\
-							  <td width='380'>\
-							  	<a href='#'>DarkDemon</a>\
-								  <img src='images/1.gif' align='absmiddle' \
-								  style='border:none;' />&nbsp;" + str +
-							 "</td>\
-							</tr>\
-						 </table>\
-					   </div>\
-					   \
-					   <div class='stateImgShow'>\
-					   </div>\
-					   \
-					   <div class='stateShowtime'>" + time +
-					  "</div>\
-				      \
-					   <div class='stateOp'>\
-					    <a class='opState' onclick='reply(this)'>Reply</a>\
-					    <a class='opState'>like(0)</a>\
-					    <a class='opState' onclick='delState(this)'>Delete</a>\
-					   </div>\
-					  \
-					  <div class='huifu'></div>\
-				    </div>";
-				var divObj = document.getElementById("mainBannerContent");
-				divObj.innerHTML = innerht + divObj.innerHTML;
+				addPost(userName, str, time);
             }
 	    });
     }
 	textfield.value = "";
 	changeDivHeight();
 }
+
+function addPost(userName, str, time) {
+	var innerht =
+		"<div class='stateShow'>\
+		  <div class='stateShowWord'>\
+			<table width='450' border='0' cellpadding='0' \
+				cellspacing='0' class='stateTable'>\
+				<tr>\
+				  <td width='70' align='center' valign='top'>\
+					<a href='#'>\
+					 <img src='images/MainRightFirstLineTitle.gif' \
+					  alt='' width='48' height='48' />\
+					</a>\
+				  </td>\
+				  <td width='380'>\
+					<a href='#'>" + userName + "</a>\
+					  <img src='images/1.gif' align='absmiddle' \
+					  style='border:none;' />&nbsp;" + str +
+				 "</td>\
+				</tr>\
+			 </table>\
+		   </div>\
+		   \
+		   <div class='stateImgShow'>\
+		   </div>\
+		   \
+		   <div class='stateShowtime'>" + time +
+		  "</div>\
+		  \
+		   <div class='stateOp'>\
+			<a class='opState' onclick='reply(this)'>Reply</a>\
+			<a class='opState'>like(0)</a>\
+			<a class='opState' onclick='delState(this)'>Delete</a>\
+		   </div>\
+		  \
+		  <div class='huifu'></div>\
+		</div>";
+		var divObj = document.getElementById("mainBannerContent");
+		divObj.innerHTML = innerht + divObj.innerHTML;
+}
+
+
+
 
 // 	var hfObj;
 // 	var srcUser;
