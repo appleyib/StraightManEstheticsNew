@@ -86,11 +86,7 @@ $(document).ready(function(){
 		    	}
         	}),
 	    	success:function(response){
-                console.log(response);
-				var str = text;
-				console.log(userName);
-				// adding new post
-				addPost(userName, str, time);
+				window.location.reload();
             }
 	    });
     }
@@ -136,6 +132,7 @@ function addPost(userName, str, time) {
 		</div>";
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
+		changeDivHeight();
 }
 
 
