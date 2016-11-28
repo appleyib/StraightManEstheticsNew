@@ -54,7 +54,7 @@ $(document).ready(function(){
 
     function submitState(){
 	var textfield = document.getElementById("textfield2");
-	var text=textfield.value;
+	var text = textfield.value;
 	var time = new Date();
 	console.log(time);
 	if (text.length>0){
