@@ -14,8 +14,9 @@ $(document).ready(function(){
 	 	    type:"GET",
 	  	    dataType:"JSON",
 	    	success:function(response){
-	    		var namefield=$()
- 				console.log("keke");
+	    		var namefield=$("#nameField");
+	    		namefield.html(response.userName);
+ 				console.log("kekeke " + response.userName);
 		    }
        });
     }
