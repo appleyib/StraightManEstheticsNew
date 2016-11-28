@@ -33,6 +33,7 @@ $(document).ready(function() {
 			for (let i = 0;i<user.follow.length;i++){
 				followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
 			}
+			// sort posts by post time
 			var posts = user.postsOnPage.sort( function(a, b) {
 				var a_t = new Date(a.time);
 				var b_t = new Date(b.time);
@@ -43,8 +44,8 @@ $(document).ready(function() {
 				}
 				return 0;
 			});
+			// add post to page
 			for(let i=0;i< posts.length;i++) {
-
 				addPost(posts[i].userName,
 						posts[i].content,
 						new Date(posts[i].time),
