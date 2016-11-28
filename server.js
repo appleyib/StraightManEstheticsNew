@@ -24,6 +24,7 @@ app.post('/comment',users.commentAndLike);
 app.post('/like', users.commentAndLike);
 app.post('/user', users.modifyUser);
 app.post('/follow', users.follow);
+app.post('/login',users.login);
 app.delete('/deleteUser', users.deleteUser);
 app.delete('/deletePost', users.deletePost);
 app.delete('/deleteComment', users.deleteComment);

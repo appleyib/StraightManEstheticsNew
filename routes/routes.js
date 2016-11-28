@@ -412,3 +412,24 @@ exports.deleteComment = function(req, res) {
         return res.status(400).json(JSON.stringify("Error: no such post!"));
     })
 }
+
+/**
+ * Login!
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+exports.login = function(req,res){
+	Users.findOne({ userName: req.body.userName }, function(err, user) {
+        if (err) {
+            throw err;
+        }
+        if (!user) {
+            return res.status(400).json("Error: no such user");
+        }
+        if(user._doc.password!=req.body.password){
+        	return res.status(400).json("Error: password is not correect");
+        }
+        return res.json("Success")
+    })
+}
