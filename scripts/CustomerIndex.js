@@ -18,7 +18,11 @@ $(document).ready(function(){
 	    		namefield.html(response.userName);
 	    		var postNumField = $("#postNumField");
 	    		postNumField.html(response.posts.length);
- 				console.log(response.posts);
+	    		var followNumField = $("#followNumField");
+	    		followNumField.html(response.follow.length);
+ 				console.log(response.followers.length);
+ 				var followerNumField = $("#followerNumField");
+ 				followerNumField.html(response.followers.length);
 		    }
        });
     }
