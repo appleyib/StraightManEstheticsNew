@@ -111,7 +111,7 @@ $(document).ready(function(){
 					  \
 					  <div class='huifu'></div>\
 				    </div>";
-				var divObj = $("#mainBannerContent");
+				var divObj = document.getElementById("mainBannerContent");
 				divObj.innerHTML = innerht + divObj.innerHTML;
             }
 	    });
