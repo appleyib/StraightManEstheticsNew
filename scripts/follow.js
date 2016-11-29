@@ -2,7 +2,7 @@
 var userName="testUser2";
 
 $(document).ready(function() {
-
+    changeTrHeight();
     /* generate followed users' list on page*/
     function generateFollow(userName) {
         $.ajax({
@@ -29,10 +29,10 @@ $(document).ready(function() {
     generateFollow(userName);
 
     function addUserProf(user) {
-        $("#tb1").
+        $("#tb1 tr:last").remove();
         $("#tb1").append(
             "<tr>\
-              <td height='105' align='center' valign='middle' class='td2'>\
+              <td height='auto' align='center' valign='middle' class='td2'>\
                 <img src='images/people1.gif' width='48' height='48' alt='' />\
               </td>\
               <td height='105' align='left' valign='bottom' class='td3'>\
@@ -43,6 +43,11 @@ $(document).ready(function() {
                 <button id='focus1' onClick='unFollow("
                                             + userName + ")'>Unfollow</button>\
               </td>\
+            </tr>");
+        $("#tb1").append(
+            "<tr>\
+              <td height='41' class='td2 height'></td>\
+              <td height='41' class='td3 height'></td>\
             </tr>");
     }
 
@@ -66,4 +71,19 @@ $(document).ready(function() {
             }
         });
     }
+
+
+    function changeTrHeight() {
+		var mainBanner = document.getElementById("mainBanner");
+		var mainRight = document.getElementById("mainRight");
+		initTrHeight(mainBanner,mainRight);//设置高度为自动
+		var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
+		mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
+		mainRight.style.height = height+ "px";//
+	}
+
+    function initTrHeight(divObj1,divObj2) {
+		divObj1.style.height = "auto";
+		divObj2.style.height = "auto";
+	}
 });
