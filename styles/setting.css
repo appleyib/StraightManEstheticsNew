@@ -263,10 +263,7 @@
 					  text-align:right;
 					  }
 					  /*发布按钮*/
-					  #button1{
-						  width:81px;
-						  height:30px;
-					  }
+
 		#mainBannerTitle{
 			width:562px;
 			padding:0px;
@@ -708,6 +705,7 @@ hr.h1{
 		width:765px;
 		height:50px;
 		border:1px solid #ccc;
+		margin: 0 auto;
 	}
 	/* footer链接部分*/
 	#footerLink{
@@ -741,3 +739,23 @@ hr.h1{
 	color:#444444;
 	text-decoration:none;
 }
+
+/*save button*/
+    #savebtn{
+		width:107px;
+		height:30px;
+	    margin-right:20px;
+		background: #3cb0fd;
+		border-radius: 20px;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 15px;
+		padding: 5px 10px 5px 10px;
+		text-decoration: none;
+	  }
+
+
+	  #savebtn:hover {
+		background: #4cc792;
+		text-decoration: none;
+		}
