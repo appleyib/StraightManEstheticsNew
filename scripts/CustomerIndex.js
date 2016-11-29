@@ -10,10 +10,10 @@ $(document).ready(function() {
 
     function loadmain() {
  		$.ajax({
-            url:'/users?userName='+userName+'&mainPage='+true,
-	 	    type:"GET",
-	  	    dataType:"JSON",
-	    	success:function(response){
+            url: '/users?userName='+userName+'&mainPage='+true,
+	 	    type: "GET",
+	  	    dataType: "JSON",
+	    	success: function(response) {
 	    		loaduser(response);
 		    }
        });

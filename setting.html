@@ -25,7 +25,7 @@
             <!-- <div id="topLogoIco"> <a href="CustomerIndex.html"><img src="images/logo_ipad.png" width="72" height="72" alt="" /></a>
           </div>
             <!-- topLogo部分的icoDIV结束 -->
-            
+
             <!-- topLogo部分的wordDIV -->
             <!-- <div id="topLogoWord"> <a href="CustomerIndex.html"><img src="images/LogoMaker.gif" width="128" height="60" alt="" /></a>
           </div>
@@ -33,7 +33,7 @@
             CSC309 Twitter
         </div>
         <!-- top部分的LogoDIV结束 -->
-        
+
         <!-- top部分的文字导航 -->
         <div id="topWordMenu">
         	<ul>
@@ -84,8 +84,8 @@
                     <td width="120" height="49" align="right"><strong>Gender</strong></td>
                     <td width="20" height="49">&nbsp;</td>
                     <td width="425" height="49"><label>
-                           <input type="radio" name="gender" value="male" checked> Male<br>
-  							<input type="radio" name="gender" value="female"> Female<br>
+                           <input type="radio" name="gender" value="male" id="malefield" checked> Male<br>
+  							           <input type="radio" name="gender" value="female" id="femalefield"> Female<br>
 
                              </label></td>
                 </tr>
@@ -103,13 +103,6 @@
                        </div></td>
                 </tr>
 
-                <tr>
-                     <td width="120" height="65" align="right"><strong>Current Password</strong></td>
-                     <td width="20" height="65">&nbsp;</td>
-                     <td height="65"><label>
-                             <input name="textfield1" type="password" class="n1" id="textfield2" />
-                   <br />
-                 </tr>
                  <!-- 新密码 -->
                  <tr>
                      <td width="120" height="65" align="right"><strong>New Password</strong></td>
@@ -123,16 +116,16 @@
                      <td width="120" height="65" align="right"><strong>Repeat Password</strong></td>
                      <td width="20" height="65">&nbsp;</td>
                      <td height="65"><label>
-                             <input name="textfield3" type="password" class="n1" id="textfield3" />
+                             <input name="textfield7" type="password" class="n1" id="textfield7" />
                    </label></td>
                  </tr>
-    
+
                 <!-- 保存按钮 -->
                 <tr>
                     <td width="120" height="44" align="right">&nbsp;</td>
                     <td width="20" height="44">&nbsp;</td>
                     <td width="425" height="44"><label>
-                         <input name="button" type="submit" class="btn" id="savebtn" value="Save" />
+                         <input name="button" type="button" class="btn" id="button" value="Save" />
                             </label></td>
                 </tr>
             </table>
@@ -143,9 +136,9 @@
     <!-- banner部分DIV结束 -->
 
 </form>
-      	
-        </div> 
-            
+
+        </div>
+
             <!--id="mainBannerTitle 首页-->
             <div id="mainBannerTitle">
                 <!--id="mainBannerTitleWord"-->
@@ -154,11 +147,12 @@
                 <!--首页提示与隐藏-->
                 <!-- <div id="mainBannerTitleWord2">
                         <input type="checkbox" name="checkbox" id="checkbox" onclick="tdImgState()"/>
-                        隐藏图片 
+                        隐藏图片
                 </div> -->
-            </div> 
+            </div>
             <!--不同人的内容-->
             <div id="mainBannerContent">
+<<<<<<< HEAD
             	<!--个人展示-->
             	<div class="stateShow">
                   <div class="stateShowWord">
@@ -169,7 +163,7 @@
                       </tr>
                     </table>
                   </div>
-                               
+
                   <div class="stateShowtime"> 07-31-2016 08:02 </div>
                   <div class="stateOp"><a class="opState" onclick="reply(this)">Reply</a><a class="opState">like(0)</a><a class="opState" onclick="delState(this)">Delete</a></div>
 
@@ -183,20 +177,23 @@
                                 <!--&nbsp;&nbsp;<input type="checkbox" name="引用原微博" value="复选框"/>&nbsp;&nbsp;引用原微博-->
                                 <input name="" type="button" value=" Reply " id="sub1" onclick="submitRstate()" />
                             </div>
-                        </form>           
-                      </div> 
+                        </form>
+                      </div>
 
                   <div class="huifu">
-				              
+
                   </div>
-				  
-				  
-				  
+
+
+
 				  </div>
+=======
+
+>>>>>>> 7ca88cf5551f978bc0f74707054279abcbc28f05
                 </div>
                  <!--个人展示结束-->
 
-                
+
                     <div id="recieve">
                         <div id="ff" style="float:left;"><font style="font-size:16px; color:#FDFDFD">&nbsp;&nbsp;&nbsp;&nbsp;Reply</font></div>
                         <div id="left" style="float:right; margin-top:10px; color:#FFF; margin-right:10px;">You can enter<font id="counter2" color="#ffffff">140</font>characters&nbsp;&nbsp;&nbsp;<img src="images/hongcha1.gif" alt="" width="14" height="13" align="absmiddle" title="" onclick="windowClose()" /></div><br />
@@ -209,11 +206,11 @@
                                 <!--&nbsp;&nbsp;<input type="checkbox" name="引用原微博" value="复选框"/>&nbsp;&nbsp;引用原微博-->
                                 <input name="" type="button" value=" Reply " id="sub1" onclick="submitRstate()" />
                             </div>
-                        </form>           
-                        </div> 
+                        </form>
+                        </div>
                         <!-- 回复DIV 结束 -->
                   </div>
-                
+
             </div>
       </div>
       <!-- 左侧mainBanner DIV 结束-->
@@ -231,32 +228,38 @@
                             </div>
                             <!-- 右侧mainRightPostionFirstLineIcon DIV 结束 -->
                             <!-- 右侧mainRightPostionFirstLineWord1 DIV 开始 -->
-                            <div id="mainRightPostionFirstLineWord1">                 
+<<<<<<< HEAD
+                            <div id="mainRightPostionFirstLineWord1">
                             &nbsp;<font color="#005DC3" ><b><a href="MyWB.html" class="a1">Sam</a></b></font><br />
                             &nbsp;Male&nbsp;&nbsp;1996-01-01
+=======
+                            <div id="mainRightPostionFirstLineWord1">                  
+                            &nbsp;<font color="#005DC3" ><b><a href="MyWB.html" class="a1" id="nameField">Sam</a></b></font><br />
+                            &nbsp;Ontario&nbsp;&nbsp;Toronto
+>>>>>>> 7ca88cf5551f978bc0f74707054279abcbc28f05
                             </div>
                             </div>
                             <!-- 右侧mainRightPostionFirstLineWord1 DIV 结束 -->
                         	<!-- 右侧mainRightPostionFirstLineWord2 DIV 开始 -->
                           <div id="mainRightPostionFirstLineWord2">
                                 <ul>
-                                	<a href="MyWB.html" class="a1"><li><font class="style1">2</font><br /><font class="style2">Post</font></li></a>
-   								    <a href="friend.html" class="a1"><li><font class="style1">12</font><br /><font class="style2">Follow</font></li></a>
-   								    <a href="focusonyou.html" class="a1"><li><font class="style1">23</font><br /><font class="style2">Follower</font></li></a>
+                                	<a href="MyWB.html" class="a1"><li><font class="style1" id = "postNumField">2</font><br /><font class="style2">Post</font></li></a>
+   								    <a href="friend.html" class="a1"><li><font class="style1" id = "followNumField">12</font><br /><font class="style2">Follow</font></li></a>
+   								    <a href="focusonyou.html" class="a1"><li><font class="style1" id = "followerNumField">23</font><br /><font class="style2">Follower</font></li></a>
                                 </ul>
                            </div>
-                           <!-- 右侧mainRightPostionFirstLineWord2 DIV 结束 -->                    
+                           <!-- 右侧mainRightPostionFirstLineWord2 DIV 结束 -->
                         </div>
                         <!-- 右侧mainRightPostionFirstLine DIV 结束 -->
                     </td>
                 </tr>
-                
+
 
                 <tr>
                     <td>
                         <!-- 右侧mainRightPostionFourthLine DIV 开始 -->
                         <div id="mainRightPostionFouthLine">
-                        	<!-- 右侧mainRightPositionThirdLineContent DIV 结束 -->	
+                        	<!-- 右侧mainRightPositionThirdLineContent DIV 结束 -->
                         	<div id="mainRightPositionFourthLineContent">
                             <form action="" method="get">
                               <input type="text" name="textfield" id="textfield1" placeholder="Search Users" />
@@ -265,12 +268,12 @@
                             <a href="#" onclick="" class="a1"><font class="style4">People You May Know</font>
                             <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a>
                             <ul id="ul2" style="line-height:25px;">
-                            	<a href="#" class="a1"><li><font class="style2">Tom</font></li></a>
-                                <a href="#" class="a1"><li><font class="style2">Marry</font></li></a>
+<!--                             	<a href="#" class="a1"><li><font class="style2">Tom</font></li></a>
+                                <a href="#" class="a1"><li><font class="style2">Marry</font></li></a> -->
 
                             </ul>
                             </div>
-                            <!-- 右侧mainRightPositionThirdLineContent DIV 结束 -->	
+                            <!-- 右侧mainRightPositionThirdLineContent DIV 结束 -->
                         </div>
                         <!-- 右侧mainRightPostionFoutrhLine DIV 结束 -->
                     </td>
@@ -290,12 +293,12 @@
 
         <!-- footer网站版权信息 -->
   <div id="footerCopy">
-        	Copyright&copy;2016-2017 
+        	Copyright&copy;2016-2017
         </div>
         <!-- footer网站版权信息结束 -->
     </div>
     <!-- footer部分结束 -->
-    
+
 </div>
 <!--总容器 container结束-->
  <p id="backtop"><a id="backtop1" href="#totop"><span></span>Top</a></p>
