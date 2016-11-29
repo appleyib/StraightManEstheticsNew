@@ -138,7 +138,7 @@
 		}
 		  #mainBannerTop{
 			  width:562px;
-			  height:462px;
+			  height:400px;
 			  padding:0px;
 			  margin:0px;
 			  position:relative;
@@ -707,25 +707,7 @@ hr.h1{
 		border:1px solid #ccc;
 		margin: 0 auto;
 	}
-	/* footer链接部分*/
-	#footerLink{
-		width:600px;
-		height:30px;
-		margin:0px auto;
-		position:relative;
-		line-height:30px;
-	}
-		/* footer部分的链接 */
-		#footerLink ul{
-			list-style:none;
-			padding:0px;
-			margin:0px;
-		}
-		#footerLink li{
-			/*float:left;*/
-			display:inline;
-			margin:0px 10px;
-		}
+
 	/* footer部分的版权信息 */
 	#footerCopy{
 		width:250px;

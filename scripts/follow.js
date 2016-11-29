@@ -32,7 +32,7 @@ $(document).ready(function() {
         $("#tb1 tr:last").remove();
         $("#tb1").append(
             "<tr>\
-              <td height='auto' align='center' valign='middle' class='td2'>\
+              <td height='105' align='center' valign='middle' class='td2'>\
                 <img src='images/people1.gif' width='48' height='48' alt='' />\
               </td>\
               <td height='105' align='left' valign='bottom' class='td3'>\

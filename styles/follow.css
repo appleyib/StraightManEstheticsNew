@@ -126,9 +126,9 @@
 		height:auto;
 	}
 		/* 左侧mainBannerDIV */
-			#banner{
+		#banner{
 		width:560px;
-		height:447px;
+		height:auto;
 		float:left;
 		border:#cccccc;
 		border-style:solid;
@@ -137,9 +137,11 @@
 		/* 页面主体表格 */
 		#tb1{
 			width:565px;
-			height:447px;
+			height:auto;
+			padding-bottom: 40px;
 			background-color:#FFF;
 			float:left;
+			margin: 0 auto;
 			}
 		  /* 表壳左、右边的间距 */
 		  #tb1 .td1{
@@ -460,17 +462,6 @@ hr.h1{
 		margin: 0 auto;
 	}
 
-		/* footer部分的链接 */
-		#footerLink ul{
-			list-style:none;
-			padding:0px;
-			margin:0px;
-		}
-		#footerLink li{
-			/*float:left;*/
-			display:inline;
-			margin:0px 10px;
-		}
 	/* footer部分的版权信息 */
 	#footerCopy{
 		width:250px;
