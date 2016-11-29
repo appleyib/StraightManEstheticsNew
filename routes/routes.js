@@ -98,7 +98,7 @@ function findByNameKeyWords(req, res) {
             });
         }
         console.log(result);
-        res.send(result);
+        res.json(result);
     })
 }
 
