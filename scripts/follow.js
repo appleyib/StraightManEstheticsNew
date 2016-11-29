@@ -1,6 +1,7 @@
 
 var userName="testUser2";
 
+
 $(document).ready(function() {
     changeTrHeight();
     /* generate followed users' list on page*/
@@ -11,22 +12,32 @@ $(document).ready(function() {
             dataType: "JSON",
             success: function(user) {
                 var fList = user.follow;
+                console.log(user);
                 for (let item in fList) {
-                    $.ajax({
-                        url: "/users?userName=" + fList[item],
-                        type: "GET",
-                        dataType: "JSON",
-                        success: function(response) {
-                            console.log(response);
-                            addUserProf(response);
-                        }
-                    });
+                    addUserProf(fList[item]);
                 }
             }
         });
     }
 
     generateFollow(userName);
+
+    $(".focus1").click();
+
+
+    function changeTrHeight() {
+        var mainBanner = document.getElementById("mainBanner");
+        var mainRight = document.getElementById("mainRight");
+        initTrHeight(mainBanner,mainRight);//设置高度为自动
+        var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
+        mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
+        mainRight.style.height = height+ "px";//
+    }
+
+    function initTrHeight(divObj1,divObj2) {
+        divObj1.style.height = "auto";
+        divObj2.style.height = "auto";
+    }
 
     function addUserProf(user) {
         $("#tb1 tr:last").remove();
@@ -37,11 +48,11 @@ $(document).ready(function() {
               </td>\
               <td height='105' align='left' valign='bottom' class='td3'>\
                 <font color='#005dc3' size='3'>\
-                  <a>" + user.userName + "</a>\
+                  <a>" + user+ "</a>\
                 </font>\
                 <img src='images/1.gif' width='17' height='15' alt='' />\
-                <button id='focus1' onClick='unFollow("
-                                            + userName + ")'>Unfollow</button>\
+                <button id='focus1' onclick=\"unfollow('" + user
+                                                    + "');\">Unfollow</button>\
               </td>\
             </tr>");
         $("#tb1").append(
@@ -51,39 +62,26 @@ $(document).ready(function() {
             </tr>");
     }
 
-    function unFollow(user) {
-        var url = "/follow";
-        $.post(url, function(req, res) {
 
-            console.log(req.body);
+});
 
-            res.send(JSON.stringify({
-                "followTo": user,
-                "followFrom": userName
-            }));
+
+function unfollow(user) {
+    $.ajax({
+        url: '/follow',
+        type: "POST",
+        dataType: "JSON",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ 'followTo': user, 'followFrom': userName }),
+        success: function(res) {
             console.log(res.body);
-            if (res == "Success") {
+            if (res == 'Success') {
                 // successfully unfollowed
-                window.alert("Successful");
+                window.alert('Successful');
                 window.location.reload();
             } else {
                 window.alert(res);
             }
-        });
-    }
-
-
-    function changeTrHeight() {
-		var mainBanner = document.getElementById("mainBanner");
-		var mainRight = document.getElementById("mainRight");
-		initTrHeight(mainBanner,mainRight);//设置高度为自动
-		var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
-		mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
-		mainRight.style.height = height+ "px";//
-	}
-
-    function initTrHeight(divObj1,divObj2) {
-		divObj1.style.height = "auto";
-		divObj2.style.height = "auto";
-	}
-});
+        }
+    });
+}
