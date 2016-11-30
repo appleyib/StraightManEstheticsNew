@@ -1,4 +1,4 @@
-var userName="testUser1";
+var userName="testUser2";
 
 $(document).ready(function() {
 	var birthdayfield = $("#textfield3");
@@ -44,6 +44,25 @@ $(document).ready(function() {
 	    });
         }
     });
+     
+    $("#searchUser").click(function(e){
+    	e.preventDefault();
+        var keyword= $("#textfield1").val();
+ 		$.ajax({
+            url:'/users?searchName='+keyword,
+	 	    type:"GET",
+	  	    dataType:"JSON",
+	    	success:function(response){
+	    		console.log(response);
+	    		var responseField = $("#ul2");
+	    		responseField.empty();
+	    		for (let i = 0;i<response.length;i++){
+					responseField.append('<a href="#" class="a1"><li><font class="style2">'+response[i].userName+'</font></li></a>');
+				}
+		    }
+       });
+
+    });
 
     loadmain();
 
@@ -59,6 +78,7 @@ $(document).ready(function() {
 		var followerNumField = $("#followerNumField");
 		followerNumField.html(user.followers.length);
 		var followingField = $("#ul2");
+		$("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
 		for (let i = 0;i<user.follow.length;i++){
 			followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
 		}
@@ -117,7 +137,7 @@ function addPost(userName, str, time, comments) {
 		}
 	}
 	var innerht =
-		"<div class='stateShow'>\
+		"<div class='stateShow' >\
 		  <div class='stateShowWord'>\
 			<table width='450' border='0' cellpadding='0' \
 				cellspacing='0' class='stateTable'>\
