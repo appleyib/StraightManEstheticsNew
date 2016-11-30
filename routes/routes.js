@@ -102,7 +102,7 @@ function findByNameKeyWords(req, res) {
     })
 }
 
-/** 
+/**
  * Handles GET request on \users
  * @param  {Object} req request from front end
  * @param  {Object} res respond to front end
