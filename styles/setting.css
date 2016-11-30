@@ -723,7 +723,7 @@ hr.h1{
 }
 
 /*save button*/
-    #savebtn{
+    .btn{
 		width:107px;
 		height:30px;
 	    margin-right:20px;
@@ -737,7 +737,7 @@ hr.h1{
 	  }
 
 
-	  #savebtn:hover {
+	  .btn:hover {
 		background: #4cc792;
 		text-decoration: none;
 		}
