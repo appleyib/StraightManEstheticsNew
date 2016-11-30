@@ -347,7 +347,7 @@
 
 
 /* 已关注部分 */
-          #focus1{
+          .focus1{
 			    width:107px;
 			    height:30px;
 			    float:right;
@@ -363,7 +363,7 @@
 			  }
 
 
-			  #focus1:hover {
+			  .focus1:hover {
   				background: #3cb0fd;
   				text-decoration: none;
 				}
