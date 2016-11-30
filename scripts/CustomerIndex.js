@@ -149,7 +149,7 @@ function addPost(userName, str, time, comments) {
 		   <div class='stateOp'>\
 			<a class='opState' onclick='reply(this)'>Reply</a>\
 			<a class='opState'>like(0)</a>\
-			<a class='opState' onclick='delState(this)'>Delete</a>\
+			<!--<a class='opState' onclick='delState(this)'>Delete</a>-->\
 		   </div>\
 		  \
 		  <div class='comments'></div>\
