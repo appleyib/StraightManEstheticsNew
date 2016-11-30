@@ -66,7 +66,7 @@
                     <td width="120" height="50" align="right"><strong>Username</strong></td>
                     <td width="20" height="60">&nbsp;</td>
                     <td width="425" height="60"><label>
-                         <input name="textfield" type="text" class="n1" id="textfield" value="Sam" readonly="readonly" />
+                         <input name="textfield" type="text" class="n1" id="textfield" value="" readonly="readonly" />
 <br />
                               </label></td>
                 </tr>
@@ -152,42 +152,6 @@
             </div>
             <!--不同人的内容-->
             <div id="mainBannerContent">
-
-            	<!--个人展示-->
-            	<div class="stateShow">
-                  <div class="stateShowWord">
-                    <table width="450" border="0" cellpadding="0" cellspacing="0" class="stateTable">
-                      <tr>
-                        <td width="70" align="center" valign="top"><a href="#"><img src="images/face/16.jpg" alt="" width="48" height="48" /></a></td>
-                        <td width="380" ><a href="#">Sam</a><img src="images/1.gif" align="absmiddle" style="border:none;" />I am pretty</td>
-                      </tr>
-                    </table>
-                  </div>
-
-                  <div class="stateShowtime"> 07-31-2016 08:02 </div>
-                  <div class="stateOp"><a class="opState" onclick="reply(this)">Reply</a><a class="opState">like(0)</a><a class="opState" onclick="delState(this)">Delete</a></div>
-
-
-                  <div id="rewt" style='display: none;'>
-                        <form action="" method="get">
-                          <textarea name="ta" cols="" rows="" id="ta1" onkeyup="calNum(this,counter2,1)" style="overflow:hidden;border:1px #0CF solid;">
-                            </textarea>
-                          <br />
-                            <div style="float:right; margin-right:25px; margin-top:7px; margin-bottom:7px;text-align:right;">
-                                <!--&nbsp;&nbsp;<input type="checkbox" name="引用原微博" value="复选框"/>&nbsp;&nbsp;引用原微博-->
-                                <input name="" type="button" value=" Reply " id="sub1" onclick="submitRstate()" />
-                            </div>
-                        </form>
-                      </div>
-
-                  <div class="huifu">
-
-                  </div>
-
-
-
-				  </div>
-
                 </div>
                  <!--个人展示结束-->
 
@@ -227,8 +191,8 @@
                             <!-- 右侧mainRightPostionFirstLineIcon DIV 结束 -->
                             <!-- 右侧mainRightPostionFirstLineWord1 DIV 开始 -->
                             <div id="mainRightPostionFirstLineWord1">
-                            &nbsp;<font color="#005DC3" ><b><a href="MyWB.html" class="a1">Sam</a></b></font><br />
-                            &nbsp;Male&nbsp;&nbsp;1996-01-01
+                            &nbsp;<font color="#005DC3" ><b><a href="MyWB.html" class="a1" id ="nameField"></a></b></font><br />
+                            <font id = "genderbodfield">&nbsp;Male&nbsp;1996-01-01</font>
                             </div>
                             <!-- 右侧mainRightPostionFirstLineWord1 DIV 结束 -->
                         	<!-- 右侧mainRightPostionFirstLineWord2 DIV 开始 -->
@@ -258,7 +222,9 @@
                         	<div id="mainRightPositionFourthLineContent">
                             <form action="" method="get">
                               <input type="text" name="textfield" id="textfield1" placeholder="Search Users" />
-                              <a href="#"><img src="images/search.gif" alt="" width="27" height="25" align="middle" title="" border="0"/></a>
+                              <button style="padding: 0px; margin: 0 auto; width: 0px;" id="searchUser">
+                              <img src="images/search.gif" alt="" width="27" height="25" align="middle" title="" border="0"/>
+                              </button>
                             </form>
                             <a href="#" onclick="" class="a1"><font class="style4">People You May Know</font>
                             <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a>

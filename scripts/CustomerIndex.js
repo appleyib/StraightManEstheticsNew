@@ -2,6 +2,7 @@
 // JavaScript Document
 	var hfObj;
 	var srcUser;
+	var userName="testUser2";
 	var userName="testUser1";
 
 $(document).ready(function() {
@@ -46,10 +47,7 @@ $(document).ready(function() {
 			});
 			// add post to page
 			for(let i=0;i< posts.length;i++) {
-				addPost(posts[i].userName,
-						posts[i].content,
-						new Date(posts[i].time),
-						posts[i].comment);
+				addPost(posts[i]);
 			}
 
     }
@@ -109,7 +107,13 @@ $(document).ready(function() {
 }
 
 /* helper function to add post*/
-function addPost(userName, str, time, comments) {
+function addPost(post) {
+	user = post.userName;
+	str = post.content;
+	time = new Date(post.time);
+	comments = post.comment;
+	id = post.id;
+	like = post.likes;
 	var text;
 	if (comments == []) {
 		text = "";
@@ -120,7 +124,7 @@ function addPost(userName, str, time, comments) {
 		}
 	}
 	var innerht =
-		"<div class='stateShow'>\
+		"<div class='stateShow' name='" + id + "'>\
 		  <div class='stateShowWord'>\
 			<table width='450' border='0' cellpadding='0' \
 				cellspacing='0' class='stateTable'>\
@@ -132,7 +136,7 @@ function addPost(userName, str, time, comments) {
 					</a>\
 				  </td>\
 				  <td width='380'>\
-					<a href='#'>" + userName + "</a>\
+					<a href='#'>" + user + "</a>\
 					  <img src='images/1.gif' align='absmiddle' \
 					  style='border:none;' />&nbsp;" + str +
 				 "</td>\
