@@ -1,9 +1,9 @@
 
-var userName="testUser2";
+var userName="testUser1";
 
 
 $(document).ready(function() {
-    changeTrHeight();
+    // changeTrHeight();
     /* generate followed users' list on page*/
     function generateFollow(userName) {
         $.ajax({
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     generateFollow(userName);
 
-    $(".focus1").click();
+
 
 
     function changeTrHeight() {
@@ -40,26 +40,23 @@ $(document).ready(function() {
     }
 
     function addUserProf(user) {
-        $("#tb1 tr:last").remove();
         $("#tb1").append(
-            "<tr>\
-              <td height='105' align='center' valign='middle' class='td2'>\
-                <img src='images/people1.gif' width='48' height='48' alt='' />\
+            '<tr>\
+              <td height="105" align="center" valign="middle" class="td2">\
+                <img src="images/people1.gif" width="48" height="48" alt="" />\
               </td>\
-              <td height='105' align='left' valign='bottom' class='td3'>\
-                <font color='#005dc3' size='3'>\
-                  <a>" + user+ "</a>\
+              <td height="105" align="left" valign="bottom" class="td3">\
+                <font color="#005dc3" size="3">\
+                  <a>'  + user + '</a>\
                 </font>\
-                <img src='images/1.gif' width='17' height='15' alt='' />\
-                <button id='focus1' onclick=\"unfollow('" + user
-                                                    + "');\">Unfollow</button>\
+                <img src="images/1.gif" width="17" height="15" alt="" />\
+                <br />\
+                <br />\
+                <button id="focus1" onclick="unfollow(\'' + user +
+                                                    '\')">Unfollow</button>\
               </td>\
-            </tr>");
-        $("#tb1").append(
-            "<tr>\
-              <td height='41' class='td2 height'></td>\
-              <td height='41' class='td3 height'></td>\
-            </tr>");
+            </tr>');
+
     }
 
 
@@ -67,21 +64,15 @@ $(document).ready(function() {
 
 
 function unfollow(user) {
+    console.log("hi");
     $.ajax({
         url: '/follow',
         type: "POST",
         dataType: "JSON",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({ 'followTo': user, 'followFrom': userName }),
-        success: function(res) {
-            console.log(res.body);
-            if (res == 'Success') {
-                // successfully unfollowed
-                window.alert('Successful');
-                window.location.reload();
-            } else {
-                window.alert(res);
-            }
+        success: function(response) {
+            window.location.reload();
         }
     });
 }

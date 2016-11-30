@@ -102,7 +102,7 @@ function findByNameKeyWords(req, res) {
     })
 }
 
-/** 
+/**
  * Handles GET request on \users
  * @param  {Object} req request from front end
  * @param  {Object} res respond to front end
@@ -288,6 +288,7 @@ exports.modifyUser = function(req, res) {
  */
 exports.follow = function(req, res) {
     // finds the follower.
+    console.log("hhah");
     Users.findOne({ userName: req.body.followFrom }, function(err, followFrom) {
         if (err) {
             throw err;
