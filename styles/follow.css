@@ -136,18 +136,28 @@
 		}
 		/* 页面主体表格 */
 		#tb1{
-			width:565px;
-			height:auto;
+			width:560px;
+			height: auto;
 			padding-bottom: 40px;
 			background-color:#FFF;
 			float:left;
 			margin: 0 auto;
 			}
+
+		#tb1 tr {
+			width: 565px;
+
+		}
+		#textfield2{
+			width:300px;
+			margin-left: 30px;
+			height:20px;
+		}
 		  /* 表壳左、右边的间距 */
 		  #tb1 .td1{
-			  width:21px;
-			  height:447px;
-			  }
+			  width:100px;
+			  margin-left: 50px;
+		}
 		  /* 表格中头像控制 */
 		  #tb1 .td2{
 			  width:67px;
@@ -156,7 +166,7 @@
 			  border-bottom-width:2px;
 
 			  }
-			  
+		  
 		  /* 表格中状态的控制 */
 		  #tb1 .td3{
 			  width:436px;
@@ -178,6 +188,7 @@
 			 font-family:微软雅黑;
 			 color:#005dc3;
 			 font-weight:bold;
+			 margin-left: 50px;
 			 }
 		  #tb1 .font2{
 			  font-size:12px;
@@ -336,7 +347,7 @@
 
 
 /* 已关注部分 */
-          #focus1{
+          .focus1{
 			    width:107px;
 			    height:30px;
 			    float:right;
@@ -352,7 +363,7 @@
 			  }
 
 
-			  #focus1:hover {
+			  .focus1:hover {
   				background: #3cb0fd;
   				text-decoration: none;
 				}

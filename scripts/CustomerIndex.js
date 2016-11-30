@@ -3,6 +3,7 @@
 	var hfObj;
 	var srcUser;
 	var userName="testUser2";
+	var userName="testUser1";
 
 $(document).ready(function() {
 	changeDivHeight();
@@ -151,8 +152,8 @@ function addPost(post) {
 		  \
 		   <div class='stateOp'>\
 			<a class='opState' onclick='reply(this)'>Reply</a>\
-			<a class='opState'>like(" + like + ")</a>\
-			<a class='opState' onclick='delState(this)'>Delete</a>\
+			<a class='opState'>like(0)</a>\
+			<!--<a class='opState' onclick='delState(this)'>Delete</a>-->\
 		   </div>\
 		  \
 		  <div class='comments'></div>\

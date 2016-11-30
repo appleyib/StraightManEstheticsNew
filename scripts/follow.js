@@ -52,7 +52,7 @@ $(document).ready(function() {
                 <img src="images/1.gif" width="17" height="15" alt="" />\
                 <br />\
                 <br />\
-                <button id="focus1" onclick="unfollow(\'' + user +
+                <button class="focus1" onclick="unfollow(\'' + user +
                                                     '\')">Unfollow</button>\
               </td>\
             </tr>');
