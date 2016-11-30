@@ -288,7 +288,6 @@ exports.modifyUser = function(req, res) {
  */
 exports.follow = function(req, res) {
     // finds the follower.
-    console.log("hhah");
     Users.findOne({ userName: req.body.followFrom }, function(err, followFrom) {
         if (err) {
             throw err;

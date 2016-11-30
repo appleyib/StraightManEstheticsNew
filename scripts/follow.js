@@ -64,7 +64,6 @@ $(document).ready(function() {
 
 
 function unfollow(user) {
-    console.log("hi");
     $.ajax({
         url: '/follow',
         type: "POST",
@@ -74,5 +73,9 @@ function unfollow(user) {
         success: function(response) {
             window.location.reload();
         }
+        // error: function(XMLHttpRequest, textStatus, errorThrown) {
+        //     alert("Status: " + textStatus);
+        //     alert("Error: " + errorThrown);
+        // }
     });
 }
