@@ -1,4 +1,4 @@
-var userName="testUser2";
+var userName="testUser1";
 
 $(document).ready(function() {
 	var birthdayfield = $("#textfield3");
