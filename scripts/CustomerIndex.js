@@ -18,7 +18,9 @@ $(document).ready(function() {
 		    }
        });
     }
+    
     loadmain();
+
     $("#profile").click(function(e){
     	e.preventDefault();
     	console.log("keke");
