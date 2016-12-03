@@ -20,9 +20,8 @@ $(document).ready(function() {
         });
     }
 
+
     generateFollow(userName);
-
-
 
 
     function changeTrHeight() {
@@ -34,10 +33,13 @@ $(document).ready(function() {
         mainRight.style.height = height+ "px";//
     }
 
+
     function initTrHeight(divObj1,divObj2) {
         divObj1.style.height = "auto";
         divObj2.style.height = "auto";
     }
+
+
 
     function addUserProf(user) {
         $("#tb1").append(
@@ -73,9 +75,5 @@ function unfollow(user) {
         success: function(response) {
             window.location.reload();
         }
-        // error: function(XMLHttpRequest, textStatus, errorThrown) {
-        //     alert("Status: " + textStatus);
-        //     alert("Error: " + errorThrown);
-        // }
     });
 }

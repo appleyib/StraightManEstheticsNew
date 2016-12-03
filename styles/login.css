@@ -2,7 +2,7 @@
 /* CSS Document */
 
 		
-  /* 页面主体 */
+
   #banner{
 	  width:765px;
 	  height:402px;
@@ -10,14 +10,14 @@
 	  position:relative;
 	  border:1px #ccc solid;
   }
-	/* 页面左部 */  
+ 
     #left{
 		width:565px;
 		height:402px;
 		position:absolute;
 		background-color:#FFF;
 		}
-		/* left部分文本框大小位置 */
+
 		#left .la{
 			width:209px;
 			height:32px;
@@ -26,11 +26,10 @@
 			font-size:20px;
 			border:1px #0CF solid;
 		}
-		/* left部分表格大小 */
+
 		#left .lb{
 			height:45px;
 		}
-		/* left部分登录按钮 */
 		#left .lc{
 			width:208px;
 			height:30px;
@@ -39,22 +38,22 @@
 			color:#FFF;
 			margin-top:20px;
 		}
-		/* left部分表格大小 */
+
 		#left .ld{
 			width:105px;
 			height:auto;
 			text-align:right;
 			padding-right:10px;
 		}
-		/* left部分表格大小 */
+
 		#left .le{
 			width:80px;
 		}
-		/* left部分表格设置 */
+
 		#left .if{
 			width:215px;
 		}
-	/* 页面右侧 */
+
 	#right{
 		width:200px;
 		height:402px;
@@ -63,7 +62,7 @@
 		margin-left:565px;
 		background-color:#d4eaf7;
 		}
-		/* right部分文字设置 */
+
 		#right .bs{
 			font-size:20px;
 			width:170px;
@@ -72,7 +71,7 @@
 			margin-top:40px;
 			text-align:center;
 		}
-		/* right部分文字设置 */
+
 		#right .cs{
 			font-size:12px;
 			width:160px;
@@ -80,7 +79,7 @@
 			margin:0px auto;
 			text-align:center;
 		}
-		/* right部分按钮设置 */
+
 		#right .ds{
 			width:156px;
 			height:50px;
@@ -89,7 +88,7 @@
 			margin-left:20px;
 		}
 	
-	/* footer部分*/
+	/* footer*/
 	#footer{
 		width:765px;
 		height:50px;
@@ -97,27 +96,7 @@
 		background-color:#C1E6F5;
 		clear:both;
 	}
-	/* footer链接部分*/
-	#footerLink{
-		width:600px;
-		height:30px;
-		margin:0px auto;
-		position:relative;
-		line-height:30px;
-		color:#444444;
-	}
-		/* footer部分的链接 */
-		#footerLink ul{
-			list-style:none;
-			padding:0px;
-			margin:0px;
-		}
-		#footerLink li{
-			/*float:left;*/
-			display:inline;
-			margin:0px 10px;
-		}
-	/* footer部分的版权信息 */
+
 	#footerCopy{
 		width:250px;
 		height:20px;
@@ -127,7 +106,7 @@
 		text-align:center;
 	}
 	
-	/* 超链接设置 */
+
 	a:link{
 		text-decoration:none;
 		border:none;
