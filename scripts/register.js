@@ -13,7 +13,7 @@ $(document).ready(function(){
         	alert("different password");
         }else{
         $.ajax({
-	        url:"/newuser",
+	        url:"/newUser",
 	        type:"POST",
 	        dataType:"JSON",
 	    	contentType:"application/json; charset=utf-8",
