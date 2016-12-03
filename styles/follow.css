@@ -56,12 +56,12 @@
 		height:80px;
 		position:relative;
 	}
-	
+
 	/* top部分的LogoDIV */
 	#topLogo{
 		width:200px;
 		height:80px;
-		font-size: 20px;	
+		font-size: 20px;
 		text-align: center;
 		padding-top: 30px;
 		padding-bottom: 30px;
@@ -116,7 +116,7 @@
 				color:#FFF;
 				text-decoration:none;
 			}
-	
+
 	/* 内容总容器 mainDIV */
 	#main{
 		border:0px;
@@ -136,28 +136,18 @@
 		}
 		/* 页面主体表格 */
 		#tb1{
-			width:560px;
+			width:565px;
 			height: auto;
 			padding-bottom: 40px;
 			background-color:#FFF;
 			float:left;
 			margin: 0 auto;
 			}
-
-		#tb1 tr {
-			width: 565px;
-
-		}
-		#textfield2{
-			width:300px;
-			margin-left: 30px;
-			height:20px;
-		}
 		  /* 表壳左、右边的间距 */
 		  #tb1 .td1{
-			  width:100px;
-			  margin-left: 50px;
-		}
+			  width:21px;
+			  height:447px;
+			  }
 		  /* 表格中头像控制 */
 		  #tb1 .td2{
 			  width:67px;
@@ -166,7 +156,7 @@
 			  border-bottom-width:2px;
 
 			  }
-		  
+
 		  /* 表格中状态的控制 */
 		  #tb1 .td3{
 			  width:436px;
@@ -188,7 +178,6 @@
 			 font-family:微软雅黑;
 			 color:#005dc3;
 			 font-weight:bold;
-			 margin-left: 50px;
 			 }
 		  #tb1 .font2{
 			  font-size:12px;
@@ -224,8 +213,8 @@
 			float:right;
 			background-color:#E9F4FA;
 			padding-bottom:10px;
-		}			
-			/* 右侧内部第一行容器 mainRightPostionFirstLine DIV */ 
+		}
+			/* 右侧内部第一行容器 mainRightPostionFirstLine DIV */
 			#mainRightPostionFirstLine{
 				width:200px;
 				height:117px;
@@ -259,7 +248,7 @@
 				border:0px;
 				padding:0px;
 				margin-top:10px;
-				}				
+				}
 				/*  mainRightFirstLineWord2 ul格式 */
 				#mainRightPostionFirstLineWord2 ul{
 					list-style:none;
@@ -270,15 +259,15 @@
 				#mainRightPostionFirstLineWord2 ul li{
 	margin:0px 15px;
 	float:left;
-				}					
-			/* 右侧内部第二行容器 mainRightPostionSecondLine DIV */ 
+				}
+			/* 右侧内部第二行容器 mainRightPostionSecondLine DIV */
 			#mainRightPostionSecondLine{
 				width:200px;
 				padding:0px;
 				margin:0px;
 				border:0px;
 				height:184px;
-				background-color:#E9F4FA;				
+				background-color:#E9F4FA;
 				border-bottom:1px solid #A6D3E3;
 			}
 				/*  右侧第二行内容 mainRightPositionSecondLineContent DIV*/
@@ -295,7 +284,7 @@
 					font-size:15px;
 					color:#005DC3;
 				}
-			/* 右侧内部第三行容器 mainRightPostionThirdLine DIV */ 
+			/* 右侧内部第三行容器 mainRightPostionThirdLine DIV */
 			#mainRightPostionThirdLine{
 				width:200px;
 				padding:0px;
@@ -314,7 +303,7 @@
 					width:170px;
 					height:30px;
 				}
-			/* 右侧内部第四行容器 mainRightPostionFourthLine DIV */ 
+			/* 右侧内部第四行容器 mainRightPostionFourthLine DIV */
 			#mainRightPostionFouthLine{
 				width:200px;
 				padding:0px;
@@ -322,8 +311,8 @@
 				border:0px;
 				height:310px;
 				background-color:#E9F4FA;
-				border-bottom:1px solid #A6D3E3;					
-			}	
+				border-bottom:1px solid #A6D3E3;
+			}
 				/* 右侧第四行内容mainRightPositionThirdLineContent DIV */
 				#mainRightPositionFourthLineContent{
 					margin-left:15px;
@@ -342,12 +331,12 @@
 						list-style:none;
 						margin:0px;
 						padding-left:15px;
-						
+
 					}
 
 
 /* 已关注部分 */
-          .focus1{
+          #focus1{
 			    width:107px;
 			    height:30px;
 			    float:right;
@@ -363,7 +352,7 @@
 			  }
 
 
-			  .focus1:hover {
+			  #focus1:hover {
   				background: #3cb0fd;
   				text-decoration: none;
 				}
@@ -378,7 +367,7 @@
 			   height:30px;
 			   float:right;
 			   margin-right:20px;
-			}	
+			}
 
 
 
@@ -409,7 +398,7 @@ font.style4{
 /* 右侧行线样式 */
 hr.h1{
 	border-top:1px dotted #79BDD1;
-	height:1px; 
+	height:1px;
 	border-bottom-style:none;
 }
 /* 回复DIV 样式 */
@@ -423,7 +412,7 @@ hr.h1{
 	background-color:#474747;
 	color:#000000;
 	top: 52px;
-	left: -31px;	
+	left: -31px;
 }
 	/* 回复DIV */
 	#ff{
@@ -462,9 +451,9 @@ hr.h1{
 		width:80px;
 		height:33px;
 		border-right:1px solid #196DC8;
-		
+
 	}
-  
+
     /* footer部分*/
 	#footer{
 		width:765px;

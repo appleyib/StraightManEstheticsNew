@@ -156,13 +156,23 @@ function addPost(post) {
 			<!--<a class='opState' onclick='delState(this)'>Delete</a>-->\
 		   </div>\
 		  \
-		  <div class='comments'></div>\
+		  <div class='comments' name='" + user + "'></div>\
 		</div>";
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
 		changeDivHeight();
 }
 
+
+function addComment(comments) {
+	for (let item in comments) {
+		comment = comments[item];
+		"<div class='stateComments' name='" + comment.id + "'>\
+		  <table width='450' border='0' cellpadding='0' \
+							cellspacing='0' class='commentTable'>"
+	}
+
+}
 
 
 
