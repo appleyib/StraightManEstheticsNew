@@ -1,8 +1,3 @@
-GET /users
-{
-	"users":[""] --stores user name in list
-}
-
 GET /users?userName=userName
 
 {
@@ -161,5 +156,9 @@ DELETE /deletePost?userName=userName&postId=postId
 "Error: ......"
 
 DELETE /deleteComment?userName=userName&postId=postId&commentId=commentId
+"success"
+"Error: ......"
+
+Delete /repopulating
 "success"
 "Error: ......"

@@ -133,4 +133,16 @@
             }
         ],
         "admin": false
-    }]
+    },
+    {
+		"userName":"admin",  
+		"birthday":"2016.1.08",
+		"gender":"male",
+		"introduction":"admin!",
+		"password":"123456789",
+		"follow":[],    
+		"followers":[],	
+		"posts":[],
+		"admin": true	
+	}
+	]
