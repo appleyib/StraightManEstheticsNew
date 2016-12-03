@@ -2,10 +2,17 @@
 // JavaScript Document
 	var hfObj;
 	var srcUser;
-	var userName="testUser1";
+	var userName;
+	$.getScript("./scripts/main.js", function() {
+		userName = getCookie();
+	})
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
+
+	if (userName == undefined) {
+		window.location = "./login.html";
+	}
 	changeDivHeight();
 
 
@@ -25,7 +32,8 @@ $(document).ready(function() {
     $("#profile").click(function(e){
     	e.preventDefault();
     	console.log("keke");
-    	window.location = "./setting.html?loginuser="+userName+"?currentuser="+userName;
+		window.location = "./setting.html?loginuser=" + userName;
+    	// window.location = "./setting.html?loginuser="+userName+"?currentuser="+userName;
     });
     function loaduser(user) {
     		var namefield=$("#nameField");

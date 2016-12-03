@@ -1,5 +1,9 @@
 
-var userName="testUser1";
+var userName;
+
+$.getScript("./scripts/main.js", function() {
+	userName = getCookie()
+})
 
 
 $(document).ready(function() {
@@ -24,20 +28,20 @@ $(document).ready(function() {
     generateFollow(userName);
 
 
-    function changeTrHeight() {
-        var mainBanner = document.getElementById("mainBanner");
-        var mainRight = document.getElementById("mainRight");
-        initTrHeight(mainBanner,mainRight);//设置高度为自动
-        var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
-        mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
-        mainRight.style.height = height+ "px";//
-    }
-
-
-    function initTrHeight(divObj1,divObj2) {
-        divObj1.style.height = "auto";
-        divObj2.style.height = "auto";
-    }
+    // function changeTrHeight() {
+    //     var mainBanner = document.getElementById("mainBanner");
+    //     var mainRight = document.getElementById("mainRight");
+    //     initTrHeight(mainBanner,mainRight);//设置高度为自动
+    //     var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
+    //     mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
+    //     mainRight.style.height = height+ "px";//
+    // }
+    //
+    //
+    // function initTrHeight(divObj1,divObj2) {
+    //     divObj1.style.height = "auto";
+    //     divObj2.style.height = "auto";
+    // }
 
 
 

@@ -1,4 +1,5 @@
-
+// var date = new Date();
+// date.setDate(date.getDate() + 5);
 
 
 $(document).ready(function(){
@@ -20,8 +21,13 @@ $(document).ready(function(){
 				"password":password
 			}),
 	    	success:function(response){
-				document.cookie = "curUser=" + username;
-	    		window.location = "./CustomerIndex.html?username="+username;
+				$.getScript("./scripts/main.js", function() {
+					createCookie(username);
+				});
+				// document.cookie = "curUser=" + username + ";expires="
+				// 										+ date.toUTCString();
+				window.location = "./CustomerIndex.html";
+	    		// window.location = "./CustomerIndex.html?username="+username;
             },
             error:function(xhr){
             	alert(xhr.responseText);
