@@ -2,8 +2,7 @@
 // JavaScript Document
 	var hfObj;
 	var srcUser;
-	var userName="testUser2";
-	var userName="testUser1";
+	var userName=document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
 	changeDivHeight();
@@ -19,8 +18,14 @@ $(document).ready(function() {
 		    }
        });
     }
+    
     loadmain();
 
+    $("#profile").click(function(e){
+    	e.preventDefault();
+    	console.log("keke");
+    	window.location = "./setting.html?loginuser="+userName+"?currentuser="+userName;
+    });
     function loaduser(user) {
     		var namefield=$("#nameField");
 	    	namefield.html(user.userName);

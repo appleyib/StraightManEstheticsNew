@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+<<<<<<< HEAD
 /* 总容器 container */
 #container{
 	width:765px;
@@ -118,6 +119,9 @@
 			}
 
 	/* 内容总容器 mainDIV */
+=======
+	/* mainDIV */
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 	#main{
 		border:0px;
 		padding:0px;
@@ -125,7 +129,7 @@
 		width:765px;
 		height:auto;
 	}
-		/* 左侧mainBannerDIV */
+		/* mainBannerDIV */
 		#banner{
 		width:560px;
 		height:auto;
@@ -134,7 +138,7 @@
 		border-style:solid;
 		border-width:1px;
 		}
-		/* 页面主体表格 */
+
 		#tb1{
 			width:565px;
 			height: auto;
@@ -143,12 +147,31 @@
 			float:left;
 			margin: 0 auto;
 			}
+<<<<<<< HEAD
 		  /* 表壳左、右边的间距 */
 		  #tb1 .td1{
 			  width:21px;
 			  height:447px;
 			  }
 		  /* 表格中头像控制 */
+=======
+
+		#tb1 tr {
+			width: 565px;
+
+		}
+		#textfield2{
+			width:300px;
+			margin-left: 30px;
+			height:20px;
+		}
+
+		  #tb1 .td1{
+			  width:100px;
+			  margin-left: 50px;
+		}
+
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 		  #tb1 .td2{
 			  width:67px;
 			  text-align:center;
@@ -156,8 +179,13 @@
 			  border-bottom-width:2px;
 
 			  }
+<<<<<<< HEAD
 
 		  /* 表格中状态的控制 */
+=======
+		  
+
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 		  #tb1 .td3{
 			  width:436px;
 			  height:41px;
@@ -172,7 +200,7 @@
 				 border-bottom-style:none;
 				 border-bottom-width:0px;
 				 }
-				/* 表格2中字的颜色和控制 */
+
 		 #tb1 .font1{
 			 font-size:16px;
 			 font-family:微软雅黑;
@@ -203,7 +231,7 @@
 
 
 
-		/* 右侧mainRightDiv */
+		/* mainRightDiv */
 		#mainRight{
 			padding:0px;
 			margin:0px;
@@ -213,15 +241,20 @@
 			float:right;
 			background-color:#E9F4FA;
 			padding-bottom:10px;
+<<<<<<< HEAD
 		}
 			/* 右侧内部第一行容器 mainRightPostionFirstLine DIV */
+=======
+		}			
+			/* mainRightPostionFirstLine DIV */ 
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 			#mainRightPostionFirstLine{
 				width:200px;
 				height:117px;
 				background-color:#E9F4FA;
 				border-bottom:1px solid #A6D3E3;
 			}
-				/* 右侧第一行图标 mainRightFirstLineIcon DIV*/
+				/* mainRightFirstLineIcon DIV*/
 				#mainRightPostionFirstLineIcon{
 					width:48px;
 					padding:0px;
@@ -231,7 +264,7 @@
 					height:48px;
 					float:left;
 				}
-				/* 右侧第一行标题 mainRightFirstLineWord1 DIV*/
+				/* mainRightFirstLineWord1 DIV*/
 				#mainRightPostionFirstLineWord1{
 					width:120px;
 					height:40px;
@@ -240,7 +273,7 @@
 					float:right;
 					margin-top:10px;
 				}
-				/* 右侧第一行标题 mainRightFirstLineWord2 DIV*/
+				/* mainRightFirstLineWord2 DIV*/
 				#mainRightPostionFirstLineWord2{
 					clear:both;
 				width:210px;
@@ -248,17 +281,23 @@
 				border:0px;
 				padding:0px;
 				margin-top:10px;
+<<<<<<< HEAD
 				}
 				/*  mainRightFirstLineWord2 ul格式 */
+=======
+				}				
+				/*  mainRightFirstLineWord2 ul */
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 				#mainRightPostionFirstLineWord2 ul{
 					list-style:none;
 					margin:0px;
 					padding:0px;
 				}
-				/*  mainRightFirstLineWord2 li格式 */
+				/*  mainRightFirstLineWord2 li */
 				#mainRightPostionFirstLineWord2 ul li{
 	margin:0px 15px;
 	float:left;
+<<<<<<< HEAD
 				}
 			/* 右侧内部第二行容器 mainRightPostionSecondLine DIV */
 			#mainRightPostionSecondLine{
@@ -304,6 +343,11 @@
 					height:30px;
 				}
 			/* 右侧内部第四行容器 mainRightPostionFourthLine DIV */
+=======
+				}					
+			
+			/* mainRightPostionFourthLine DIV */ 
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 			#mainRightPostionFouthLine{
 				width:200px;
 				padding:0px;
@@ -311,9 +355,15 @@
 				border:0px;
 				height:310px;
 				background-color:#E9F4FA;
+<<<<<<< HEAD
 				border-bottom:1px solid #A6D3E3;
 			}
 				/* 右侧第四行内容mainRightPositionThirdLineContent DIV */
+=======
+				border-bottom:1px solid #A6D3E3;					
+			}	
+				/* mainRightPositionThirdLineContent DIV */
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 				#mainRightPositionFourthLineContent{
 					margin-left:15px;
 					margin-top:10px;
@@ -326,7 +376,7 @@
 						width:120px;
 						height:20px;
 					}
-					/* 右侧第四行 ul 样式 */
+					/*  ul  */
 					#ul2{
 						list-style:none;
 						margin:0px;
@@ -335,8 +385,13 @@
 					}
 
 
+<<<<<<< HEAD
 /* 已关注部分 */
           #focus1{
+=======
+
+          .focus1{
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 			    width:107px;
 			    height:30px;
 			    float:right;
@@ -356,6 +411,7 @@
   				background: #3cb0fd;
   				text-decoration: none;
 				}
+<<<<<<< HEAD
 		   #focus2{
 			   width:107px;
 			   height:30px;
@@ -368,39 +424,42 @@
 			   float:right;
 			   margin-right:20px;
 			}
+=======
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 
 
 
-/* 超链接无下划线样式 */
+
 .a1{
 	text-decoration:none;
 }
-/* 超链接无下划线颜色为#999999 */
+
 .a3{
 	text-decoration:none;
 	color:#999999;
 }
-/*  Word字体格式1 */
+/*  Word1 */
 font.style1{
 	font-weight:700;
 	color:#555555;
 	font-size:16px;
 }
-/*  Word字体格式2 */
+/*  Word2 */
 font.style2{
 	color:#005DC3;
 }
-/*  Word字体格式3 */
+/*  Word3 */
 font.style4{
 	color:#000;
 	font-size:14px;
 }
-/* 右侧行线样式 */
+
 hr.h1{
 	border-top:1px dotted #79BDD1;
 	height:1px;
 	border-bottom-style:none;
 }
+<<<<<<< HEAD
 /* 回复DIV 样式 */
 #recieve{
 	visibility:hidden;
@@ -455,6 +514,11 @@ hr.h1{
 	}
 
     /* footer部分*/
+=======
+
+  
+    /* footer*/
+>>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 	#footer{
 		width:765px;
 		height:50px;
@@ -462,7 +526,7 @@ hr.h1{
 		margin: 0 auto;
 	}
 
-	/* footer部分的版权信息 */
+
 	#footerCopy{
 		width:250px;
 		height:20px;

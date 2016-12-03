@@ -1,4 +1,4 @@
-var userName="testUser2";
+var userName=document.URL.split('?')[2].split("=")[1];;
 
 $(document).ready(function() {
 	var birthdayfield = $("#textfield3");

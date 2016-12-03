@@ -1,7 +1,109 @@
 @charset "utf-8";
 /* CSS Document */
 
-/* 全局设置 */
+
+/* container */
+#container{
+	width:765px;
+	height:auto;
+	margin:0px auto;
+}
+
+	#backtop {
+		position:fixed;
+		bottom: 0px;
+		right:0px;
+	}
+
+	#backtop a {
+		width: 60px;
+		display: block;
+		text-align: center;
+		font-size:11px;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #bbb;
+
+		-webkit-transition: 1s;
+		-moz-transition: 1s;
+		transition: 1s;
+	}
+	#backtop a:hover {
+		color: #000;
+	}
+
+	#backtop span {
+		width: 60px;
+		height: 60px;
+		display: block;
+		margin-bottom: 7px;
+		background: #C1E6F5 url(../images/up-arrow.png) no-repeat center center;
+		/* 圆角 */
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		border-radius: 15px;
+		/* 背景颜色过渡 */
+		-webkit-transition: 1s;
+		-moz-transition: 1s;
+		transition: 1s;
+	}
+	#backtop a:hover span {
+		background-color: #B8DDEB;
+	}
+
+	/* topDIV */
+	#top{
+		width:765px;
+		height:80px;
+		position:relative;
+		background-image: url(../images/sky.jpg);
+	}
+	
+	/* top LogoDIV */
+	#topLogo{
+		width:200px;
+		height:80px;
+		font-size: 25px;	
+		text-align: center;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		color: #1773CE;
+	}
+
+	#topWordMenu{
+		width:330px;
+		height:30px;
+		position:absolute;
+		top:33px;
+		left:430px;
+	}
+		/* top ul */
+		#topWordMenu ul{
+			margin:0px;
+			padding:0px;
+			list-style:none;
+		}
+			/* top li */
+			#topWordMenu ul li{
+				display:inline;
+				/*float:left;*/
+				margin:0px 8px;
+				font-size: 20px;
+			}
+
+			#topWordMenu a:link{
+				text-decoration:none;
+			}
+			#topWordMenu a:visited{
+				text-decoration:none;
+			}
+			#topWordMenu a:hover{
+				color:green;
+				text-decoration:none;
+			}
+
+
+/* global */
 body{
 	font-size:12px;
 	font-family:Comic Sans MS, Times, Monospace;
