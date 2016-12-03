@@ -98,7 +98,7 @@ function findByNameKeyWords(req, res) {
             });
         }
         console.log(result);
-        res.json(result);
+        return res.json(result);
     })
 }
 
@@ -160,7 +160,7 @@ exports.post = function(req, res) {
                 throw err;
             }
             console.log("posted from " + req.body.post.userName);
-            res.json(JSON.stringify({ "posted from": req.body.post.userName }));
+            return res.json(JSON.stringify({ "posted from": req.body.post.userName }));
         })
     })
 }
@@ -226,7 +226,7 @@ exports.commentAndLike = function(req, res) {
                 return
             }
         }
-        res.status(400).json("Error: no such post");
+        return res.status(400).json("Error: no such post");
     })
 }
 
@@ -271,7 +271,7 @@ exports.modifyUser = function(req, res) {
                 throw err;
             }
             console.log("information update of " + req.body.userName);
-            res.json(JSON.stringify({
+            return res.json(JSON.stringify({
                 "information undate of ": req.body.userName
             }));
         })
@@ -336,7 +336,7 @@ exports.follow = function(req, res) {
                         }
                         console.log("follow from " +
                             req.body.followFrom + " to " + req.body.followTo);
-                        res.json(JSON.stringify({
+                        return res.json(JSON.stringify({
                             "followFrom": req.body.followFrom,
                             "followTo": req.body.followTo
                         }))
@@ -383,13 +383,13 @@ exports.deleteUser = function(req, res) {
                 if (users[index]._doc.followers.includes(req.query.userName)) {
                     var temp = users[index]._doc.followers;
                     temp.splice(users[index]._doc.followers.indexOf(req.query.userName), 1);
-                    followTo.followers = temp;
+                    users[index].followers = temp;
                 }
                 // saves current user's changes
                 users[index].save();
             }
         });
-        res.json(JSON.stringify("Success"));
+        return res.json(JSON.stringify("Success"));
     })
 }
 
@@ -408,7 +408,7 @@ exports.deleteAllUser = function(req, res){
 		if(!users){
 			return res.status(400).json("Error: database has already been populated");
 		}
-		res.json("Success");
+		return res.json("Success");
 	})
 }
 
@@ -555,7 +555,7 @@ exports.newUser = function(req, res) {
                 throw err;
             }
             console.log("new use: " + req.body.userName);
-            res.json(JSON.stringify({
+            return res.json(JSON.stringify({
                 "new": req.body.userName
             }));
         })

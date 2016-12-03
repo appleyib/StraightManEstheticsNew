@@ -14,9 +14,8 @@ $(document).ready(function(){
 
 	getUsers();
 	function addUser(user){
-		console.log(user.userName);
-		$("#userfield").append(
-	   '<tr>\
+		$("#tb2").append(
+	   '<tr id = "'+user.userName+'">\
         <td height="105" align="center" valign="middle" class="td2"><img src="images/people1.gif" width="48" height="48" alt="" /></td>\
         <td height="105" align="left" valign="bottom" class="td3"><font color="#005dc3" size="3" ><a>'+user.userName+'</a></font>\
         <img src="images/1.gif" width="17" height="15" alt="" />\
@@ -29,8 +28,46 @@ $(document).ready(function(){
 			);
 	}
 
+    $("#clearDatabase").click(function(){
+    	$.ajax({
+    		url:"/repopulating",
+    		type:"DELETE",
+    		dataType:"JSON",
+    		success:function(response){
+    			console.log(response);
+    			window.location.reload();
+    		},
+		    error:function(xhr){
+            	alert(xhr.responseText);
+            }
+
+    	});
+    })
+    $("#searchUser").click(function(e){
+    	e.preventDefault();
+        var keyword= $("#textfield2").val();
+ 		$.ajax({
+            url:'/users?searchName='+keyword,
+	 	    type:"GET",
+	  	    dataType:"JSON",
+	    	success:function(response){
+	    		console.log(response);
+	    		var responseField = $("#tb2");
+	    		responseField.empty();
+	    		for (let i = 0;i<response.length;i++){
+					addUser(response[i]);
+				}
+		    },
+		    error:function(xhr){
+            	alert(xhr.responseText);
+            }
+       });
+
+    });
 
 })
+
+
 
     function remove(username){
     	console.log(username);

@@ -17,16 +17,16 @@ $(document).ready(function(){
         	alert("different password");
         }else{
         $.ajax({
-	        url: "/newuser",
-	        type: "POST",
-	        dataType: "JSON",
-	    	contentType: "application/json; charset=utf-8",
-	    	data: JSON.stringify({
-				"userName": username,
-				"birthday": dob,
-				"gender": gender,
-				"introduction": introduction,
-				"password": password1
+	        url:"/newUser",
+	        type:"POST",
+	        dataType:"JSON",
+	    	contentType:"application/json; charset=utf-8",
+	    	data:JSON.stringify({
+				"userName":username,
+				"birthday":dob,
+				"gender":gender,
+				"introduction":introduction,
+				"password":password1
 			}),
 	    	success:function(response){
 	    		console.log(response);
