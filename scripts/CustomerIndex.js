@@ -198,8 +198,8 @@ function addComment(comments, pId, user) {
 			  </table>\
 			  \
 			   <div class='commentOp'>\
-				<a class='opComment' onclick=\"delComment('" + comment.id
-								+ ", " + pId +  ", " + user + "');\">Delete</a>\
+				<a class='opComment' onclick=\"delComment(" + comment.id
+								+ ", " + pId +  ", '" + user + "');\">Delete</a>\
 			   </div>\
 			 </div>";
 		 	parent.append(text);

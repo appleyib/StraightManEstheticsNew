@@ -362,6 +362,9 @@ exports.deleteUser = function(req, res) {
         if (!user) {
             return res.status(400).json("Error: no such user");
         }
+        if (user._doc.admin){
+        	return res.status(400).json("Error: admin cannot be deleted.");
+        }
         // tries to find all follows and followers of this deleted user
         Users.find({
             userName: {
@@ -388,6 +391,25 @@ exports.deleteUser = function(req, res) {
         });
         res.json(JSON.stringify("Success"));
     })
+}
+
+/**
+ * Deletes all users except the admin (repopulating data).
+ * @param  {Object} req request from front end
+ * @param  {Object} res respond to front end
+ * @return {Object}
+ */
+exports.deleteAllUser = function(req, res){
+	Users.remove({admin:false}, function(err,users){
+		if(err){
+			throw err;
+		}
+		console.log(users);
+		if(!users){
+			return res.status(400).json("Error: database has already been populated");
+		}
+		res.json("Success");
+	})
 }
 
 

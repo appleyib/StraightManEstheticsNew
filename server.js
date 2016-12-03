@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 app.get('/', function(req, res) {
-    res.sendfile('CustomerIndex.html');
+    res.sendfile('Admin.html');
 });
 
 app.get('/users', users.find);
@@ -29,6 +29,7 @@ app.post('/newUser',users.newUser);
 app.delete('/deleteUser', users.deleteUser);
 app.delete('/deletePost', users.deletePost);
 app.delete('/deleteComment', users.deleteComment);
+app.delete('/repopulating',users.deleteAllUser);
 
 
 
