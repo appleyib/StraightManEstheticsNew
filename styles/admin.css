@@ -13,16 +13,16 @@
 		/* mainBannerDIV */
 			#banner{
 		width:765px;
-		height:447px;
+		height:auto;
 		float:left;
 		border:#cccccc;
 		border-style:solid;
 		border-width:1px;
 		}
 		
-		#tb1{
+		#tb1, #tb2{
 			width:765px;
-			height:447px;
+			height:auto;
 			background-color:#FFF;
 			float:left;
 			}
@@ -75,7 +75,7 @@
 
 
 
-          #focus1, #addUserBtn{
+          #focus1{
 			    width:75px;
 			    height: 25px;
 			    float:right;
@@ -171,6 +171,24 @@ hr.h1{
   }
 
 #addUserBtn:hover {
+	background: #4cc792;
+	text-decoration: none;
+}
+
+#clearDatabase{
+    width:200px;
+    height: 25px;
+    float:right;
+    margin: 10px;
+	background: #3cb0fd;
+	border-radius: 20px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 15px;
+	text-decoration: none;
+  }
+
+#clearDatabase:hover {
 	background: #4cc792;
 	text-decoration: none;
 }

@@ -1,145 +1,111 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CSC309 Twitter</title>
+<title>Tree Hole Admin</title>
 <link href="styles/admin.css" type="text/css" rel="stylesheet" />
 <link href="styles/global.css" type="text/css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script language="javascript" src="scripts/admin.js" ></script>
-<!-- <script language="javascript" src="scriptFake/account.js" ></script>
-<script language="javascript" src="scriptFake/trim.js" ></script>
-<script language="javascript" src="scriptFake/jquery-1.6.2.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
 </head>
 
 <body style="filter:alpha(opacity=100)" id="totop">
-<!-- 总容器 container开 始-->
+<!-- container-->
 <div>
 <div id="container">
-	    <!-- topDIV 开始 -->
+	    <!-- topDIV started -->
   <div id="top">
-    <!-- top部分的LogoDIV -->
+    <!-- top LogoDIV -->
     	<div id="topLogo">
 
-            CSC309 Twitter
+            TreeHole
         </div>
-        <!-- top部分的LogoDIV结束 -->
+        <!-- top LogoDIV ended -->
         
-        <!-- top部分的文字导航 -->
+
         <div id="topWordMenu">
         	<ul>
             	<li><a href="CustomerIndex.html">Home</a></li>
-                <li><a href="MyWB.html">Profile</a></li>
-                <li><a href="index.html">Quit</a></li>
+                <li><a href="login.html">Quit</a></li>
             </ul>
         </div>
-        <!-- top部分的文字导航结束 -->
     </div>
-    <!-- topDIv 结束-->
-    <!-- 内容总容器 mainDIV 开 始-->
+    <!-- topDIv  ended-->
+    <!-- mainDIV started-->
    <div id="main">
-        <!-- 左侧mainBannerDIV 开始 -->
+        <!-- mainBannerDIV started -->
     <div id="mainBanner">
-        	<!-- mainBannerTop DIV 开始 -->
+        	<!-- mainBannerTop DIV started -->
       <div id="mainBannerTop">
-      	<form id="form1" name="form1" method="post" action="">
+      	<id="form1" name="form1" method="post" action="">
 
-    <!-- banner部分DIV -->
+    <!-- banner DIV -->
     <div id="banner">
-        <!-- banner部分的leftDIV -->
+        <!-- banner leftDIV -->
         <div class="left" id="left">
             <table width="765" border="0" cellpadding="0" cellspacing="0" id="tb1">
       <tr>
-        <td width="21" rowspan="6" class="td1"></td>
+
         <td height="60" align="center" valign="middle" bgcolor="#FFFFFF" class="td2">
         <font color="#000000" size="3"><b>Administration</b></font>
         </td>
-        <td height="60" class="td3"></td>
-        <td rowspan="6" class="td1 height"></td>
+        <td height="60" class="td3">
+          <button id="clearDatabase">Repopulating Database</button>
+        </td>
+
+        
+        </td>
       </tr>
       <tr>
         <td height="47" align="center" valign="middle" bgcolor="#e3f1fa" class="td2">
         <button id="addUserBtn">Add user</button></td>
         <td height="47" align="left" valign="middle" bgcolor="#e3f1fa" class="td4 font1">
-        <form id="form2" name="form2" method="post" action="">
+        <div id="form2" >
         <div id="search">
           Search
           <input type="text" name="textfield2" id="textfield2" />
-          <img src="images/sousuo1.gif" alt="" width="27" height="25" align="absmiddle" />
+          <input type="image" id="searchUser" src="images/search.gif" alt="" width="27" height="25" align="middle" title="" border="0"/>
+          <!-- <img src="images/sousuo1.gif" alt="" width="27" height="25" align="absmiddle" /> -->
         </div>
-        </form></td>
+        </div></td>
       </tr>
-      <div id = "userfield">
-<!--       <tr>
-        <td height="105" align="center" valign="middle" class="td2"><img src="images/face/8.jpg" width="48" height="48" alt="" /></td>
-        <td height="105" align="left" valign="bottom" class="td3"><font color="#005dc3" size="3" face="微软小黑"><a>Papa Midnight</a></font>
-        <img src="images/1.gif" width="17" height="15" alt="" />
-        <br /><font color="#000000" size="2">male</font>
-        <br /><font color="#000000" size="2">Wodo is best!</font>
-       <button id="focus1">Edit</button>
-        <button id="focus1">Remove</button></td>
-      </tr>
-      <tr>
-        <td width="67" height="105" align="center" valign="middle" class="td2"><img src="images/face/5.jpg" width="48" height="48" alt="" /></td>
-        <td height="105" align="left" valign="bottom" class="td3"><font color="#005dc3" size="3" face="微软小黑"><a>Constantin</a></font>
-        <img src="images/1.gif" width="17" height="15" alt="" /><br /><font color="#000000" size="2">Male</font>
-        <br /><font color="#000000" size="2">I like smoking</font>
-        <button id="focus1">Edit</button>
-        <button id="focus1">Remove</button></td>
-      </tr>
-      <tr>
-        <td height="78" align="center" valign="middle" class="td2"><img src="images/face/3.jpg" width="48" height="48" alt="" /></td>
-        <td height="105" align="left" valign="bottom" class="td3"><font color="#005dc3" size="3" face="微软小黑"><a>Zed</a></font>
-        <img src="images/1.gif" width="17" height="15" alt="" /><br /><font color="#000000" size="2">female</font>
-        <br /><font color="#000000" size="2">I wan to see a real angel</font>
-        <button id="focus1">Edit</button>
-        <button id="focus1">Remove</button></td>
-      </tr> -->
-      </div>
-      <tr>
-        <td height="41" class="td2 height"></td>
-        <td height="41" class="td3 height"></td>
-      </tr>
+
+
+
+      <tr><table width="765" border="0" cellpadding="0" cellspacing="0" id="tb2">
+     </table></tr>
     </table>
 
+
+
         </div>
-        <!-- banner_left部分DIV结束 -->
+        <!-- banner_left DIV ended -->
 
     </div>
-    <!-- banner部分DIV结束 -->
+    <!-- banner DIV ended -->
 
 </form>
       	
         </div> 
-            
-
-            
-
-                
+        
             </div>
 
-
-
-
-
       </div>
-      <!-- 左侧mainBanner DIV 结束-->
+      <!-- mainBanner DIV  ended-->
 
 
-<!-- footer部分 -->
+<!-- footer  -->
   	<div id="footer">
 
-        <!-- footer网站版权信息 -->
+
   <div id="footerCopy">
         	Copyright&copy;2016-2017 
         </div>
-        <!-- footer网站版权信息结束 -->
+
     </div>
-    <!-- footer部分结束 -->
+    <!-- footer  ended -->
     
 </div>
-<!--总容器 container结束-->
+<!--container ended-->
  <p id="backtop"><a id="backtop1" href="#totop"><span></span>Top</a></p>
 </body>
 </html>
