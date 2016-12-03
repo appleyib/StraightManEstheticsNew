@@ -11,7 +11,7 @@
 		width:765px;
 		height:auto;
 	}
-		/* 左侧mainBannerDIV */
+		/* mainBannerDIV */
 		#banner{
 		width:560px;
 		height:auto;
@@ -20,7 +20,7 @@
 		border-style:solid;
 		border-width:1px;
 		}
-		/* 页面主体表格 */
+
 		#tb1{
 			width:560px;
 			height: auto;
@@ -39,12 +39,12 @@
 			margin-left: 30px;
 			height:20px;
 		}
-		  /* 表壳左、右边的间距 */
+
 		  #tb1 .td1{
 			  width:100px;
 			  margin-left: 50px;
 		}
-		  /* 表格中头像控制 */
+
 		  #tb1 .td2{
 			  width:67px;
 			  text-align:center;
@@ -53,7 +53,7 @@
 
 			  }
 		  
-		  /* 表格中状态的控制 */
+
 		  #tb1 .td3{
 			  width:436px;
 			  height:41px;
@@ -68,7 +68,7 @@
 				 border-bottom-style:none;
 				 border-bottom-width:0px;
 				 }
-				/* 表格2中字的颜色和控制 */
+
 		 #tb1 .font1{
 			 font-size:16px;
 			 font-family:微软雅黑;
@@ -100,7 +100,7 @@
 
 
 
-		/* 右侧mainRightDiv */
+		/* mainRightDiv */
 		#mainRight{
 			padding:0px;
 			margin:0px;
@@ -111,14 +111,14 @@
 			background-color:#E9F4FA;
 			padding-bottom:10px;
 		}			
-			/* 右侧内部第一行容器 mainRightPostionFirstLine DIV */ 
+			/* mainRightPostionFirstLine DIV */ 
 			#mainRightPostionFirstLine{
 				width:200px;
 				height:117px;
 				background-color:#E9F4FA;
 				border-bottom:1px solid #A6D3E3;
 			}
-				/* 右侧第一行图标 mainRightFirstLineIcon DIV*/
+				/* mainRightFirstLineIcon DIV*/
 				#mainRightPostionFirstLineIcon{
 					width:48px;
 					padding:0px;
@@ -128,7 +128,7 @@
 					height:48px;
 					float:left;
 				}
-				/* 右侧第一行标题 mainRightFirstLineWord1 DIV*/
+				/*  mainRightFirstLineWord1 DIV*/
 				#mainRightPostionFirstLineWord1{
 					width:120px;
 					height:40px;
@@ -137,7 +137,7 @@
 					float:right;
 					margin-top:10px;
 				}
-				/* 右侧第一行标题 mainRightFirstLineWord2 DIV*/
+				/* mainRightFirstLineWord2 DIV*/
 				#mainRightPostionFirstLineWord2{
 					clear:both;
 				width:210px;
@@ -146,61 +146,18 @@
 				padding:0px;
 				margin-top:10px;
 				}				
-				/*  mainRightFirstLineWord2 ul格式 */
+				/*  mainRightFirstLineWord2 ul */
 				#mainRightPostionFirstLineWord2 ul{
 					list-style:none;
 					margin:0px;
 					padding:0px;
 				}
-				/*  mainRightFirstLineWord2 li格式 */
+				/*  mainRightFirstLineWord2 li */
 				#mainRightPostionFirstLineWord2 ul li{
 	margin:0px 15px;
 	float:left;
 				}					
-			/* 右侧内部第二行容器 mainRightPostionSecondLine DIV */ 
-			#mainRightPostionSecondLine{
-				width:200px;
-				padding:0px;
-				margin:0px;
-				border:0px;
-				height:184px;
-				background-color:#E9F4FA;				
-				border-bottom:1px solid #A6D3E3;
-			}
-				/*  右侧第二行内容 mainRightPositionSecondLineContent DIV*/
-				#mainRightPositionSecondLineContent{
-					margin-top:10px;
-					margin-left:15px;
-					padding:0px;
-					border:0px;
-					width:170px;
-					height:auto;
-				}
-				/*  右侧第二行内容 mainRightPositionSecondLineContent字体格式3 */
-				#mainRightPositionSecondLineContent font.style3{
-					font-size:15px;
-					color:#005DC3;
-				}
-			/* 右侧内部第三行容器 mainRightPostionThirdLine DIV */ 
-			#mainRightPostionThirdLine{
-				width:200px;
-				padding:0px;
-				margin:0px;
-				border:0px;
-				height:90px;
-				background-color:#E9F4FA;
-				border-bottom:1px solid #A6D3E3;
-			}
-				/* 右侧第三行内容mainRightPositionThirdLineContent DIV*/
-				#mainRightPositionThirdLineContent{
-					margin-left:15px;
-					margin-top:10px;
-					padding:0px;
-					border:0px;
-					width:170px;
-					height:30px;
-				}
-			/* 右侧内部第四行容器 mainRightPostionFourthLine DIV */ 
+			
 			#mainRightPostionFouthLine{
 				width:200px;
 				padding:0px;
@@ -210,7 +167,7 @@
 				background-color:#E9F4FA;
 				border-bottom:1px solid #A6D3E3;					
 			}	
-				/* 右侧第四行内容mainRightPositionThirdLineContent DIV */
+				/* mainRightPositionThirdLineContent DIV */
 				#mainRightPositionFourthLineContent{
 					margin-left:15px;
 					margin-top:10px;
@@ -223,7 +180,7 @@
 						width:120px;
 						height:20px;
 					}
-					/* 右侧第四行 ul 样式 */
+
 					#ul2{
 						list-style:none;
 						margin:0px;
@@ -232,7 +189,7 @@
 					}
 
 
-/* 已关注部分 */
+
           #focus1{
 			    width:107px;
 			    height:30px;
@@ -268,37 +225,37 @@
 
 
 
-/* 超链接无下划线样式 */
+
 .a1{
 	text-decoration:none;
 }
-/* 超链接无下划线颜色为#999999 */
+
 .a3{
 	text-decoration:none;
 	color:#999999;
 }
-/*  Word字体格式1 */
+/*  Word1 */
 font.style1{
 	font-weight:700;
 	color:#555555;
 	font-size:16px;
 }
-/*  Word字体格式2 */
+/*  Word2 */
 font.style2{
 	color:#005DC3;
 }
-/*  Word字体格式3 */
+/*  Word3 */
 font.style4{
 	color:#000;
 	font-size:14px;
 }
-/* 右侧行线样式 */
+
 hr.h1{
 	border-top:1px dotted #79BDD1;
 	height:1px; 
 	border-bottom-style:none;
 }
-/* 回复DIV 样式 */
+
 #recieve{
 	visibility:hidden;
 	background-attachment:scroll;
@@ -311,12 +268,12 @@ hr.h1{
 	top: 52px;
 	left: -31px;	
 }
-	/* 回复DIV */
+
 	#ff{
 		margin-top:10px;
 		margin-left:5px;
 	}
-	/* 白色区域 */
+
 	#wt{
 		height:120px;
 		width:528px;
@@ -333,7 +290,7 @@ hr.h1{
 		margin-bottom:11px;
 		background-color:#FEFEFE;
 	}
-	/* 回复输入框样式 */
+
 	#ta1{
 		text-align:left;
 		margin-left:50px;
@@ -341,7 +298,7 @@ hr.h1{
 		width:450px;
 		height:60px;
 	}
-	/* 提交按钮 */
+
 	#sub1{
 		border:0px;
 		background-color:#1A90CE;
@@ -351,7 +308,7 @@ hr.h1{
 		
 	}
   
-    /* footer部分*/
+    /* footer*/
 	#footer{
 		width:765px;
 		height:50px;
@@ -359,7 +316,7 @@ hr.h1{
 		margin: 0 auto;
 	}
 
-	/* footer部分的版权信息 */
+
 	#footerCopy{
 		width:250px;
 		height:20px;
