@@ -13,7 +13,7 @@
 		/* mainBannerDIV */
 			#banner{
 		width:765px;
-		height:447px;
+		height:auto;
 		float:left;
 		border:#cccccc;
 		border-style:solid;
@@ -22,7 +22,7 @@
 		
 		#tb1{
 			width:765px;
-			height:447px;
+			height:auto;
 			background-color:#FFF;
 			float:left;
 			}
