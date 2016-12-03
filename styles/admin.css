@@ -13,16 +13,16 @@
 		/* mainBannerDIV */
 			#banner{
 		width:765px;
-		height:447px;
+		height:auto;
 		float:left;
 		border:#cccccc;
 		border-style:solid;
 		border-width:1px;
 		}
 		
-		#tb1{
+		#tb1, #tb2{
 			width:765px;
-			height:447px;
+			height:auto;
 			background-color:#FFF;
 			float:left;
 			}
