@@ -29,6 +29,7 @@ app.post('/newUser',users.newUser);
 app.delete('/deleteUser', users.deleteUser);
 app.delete('/deletePost', users.deletePost);
 app.delete('/deleteComment', users.deleteComment);
+app.delete('/repopulating',users.deleteAllUser);
 
 
 

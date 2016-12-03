@@ -38,11 +38,11 @@
 		display: block;
 		margin-bottom: 7px;
 		background: #C1E6F5 url(../images/up-arrow.png) no-repeat center center;
-		/* 圆角 */
+
 		-webkit-border-radius: 15px;
 		-moz-border-radius: 15px;
 		border-radius: 15px;
-		/* 背景颜色过渡 */
+
 		-webkit-transition: 1s;
 		-moz-transition: 1s;
 		transition: 1s;

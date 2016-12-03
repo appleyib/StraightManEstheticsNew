@@ -1,127 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
-<<<<<<< HEAD
-/* 总容器 container */
-#container{
-	width:765px;
-	height:auto;
-	margin:0px auto;
-}
-	/* 回到顶部 */
-	#backtop {
-		position:fixed;
-		bottom: 0px;
-		right:0px;
-	}
-	/* 回到顶部样式 */
-	#backtop a {
-		width: 60px;
-		display: block;
-		text-align: center;
-		font-size:11px;
-		text-transform: uppercase;
-		text-decoration: none;
-		color: #bbb;
-		/* 背景颜色过渡 */
-		-webkit-transition: 1s;
-		-moz-transition: 1s;
-		transition: 1s;
-	}
-	#backtop a:hover {
-		color: #000;
-	}
-	/* 回到顶部按钮(span) */
-	#backtop span {
-		width: 60px;
-		height: 60px;
-		display: block;
-		margin-bottom: 7px;
-		background: #C1E6F5 url(../images/up-arrow.png) no-repeat center center;
-		/* 圆角 */
-		-webkit-border-radius: 15px;
-		-moz-border-radius: 15px;
-		border-radius: 15px;
-		/* 背景颜色过渡 */
-		-webkit-transition: 1s;
-		-moz-transition: 1s;
-		transition: 1s;
-	}
-	#backtop a:hover span {
-		background-color: #B8DDEB;
-	}
 
-	/* 上面topDIV */
-	#top{
-		width:765px;
-		height:80px;
-		position:relative;
-	}
-
-	/* top部分的LogoDIV */
-	#topLogo{
-		width:200px;
-		height:80px;
-		font-size: 20px;
-		text-align: center;
-		padding-top: 30px;
-		padding-bottom: 30px;
-		color: #39F;
-	}
-		/* topLogo部分的icoDIV */
-		#topLogoIco{
-			width:72px;
-			height:72px;
-			margin-top:4px;
-			float:left;
-		}
-		/* topLogo部分的wordDIV */
-		#topLogoWord{
-			width:128px;
-			height:60px;
-			float:left;
-			margin-top:12px;
-		}
-			/* topLogo下的img */
-			#topLogo img{
-				border:none;
-			}
-	/* top部分的文字导航 */
-	#topWordMenu{
-		width:330px;
-		height:30px;
-		position:absolute;
-		top:33px;
-		left:430px;
-	}
-		/* top部分的ul */
-		#topWordMenu ul{
-			margin:0px;
-			padding:0px;
-			list-style:none;
-		}
-			/* top部分的li */
-			#topWordMenu ul li{
-				display:inline;
-				/*float:left;*/
-				margin:0px 8px;
-			}
-			/* top部分的文字链接 */
-			#topWordMenu a:link{
-				text-decoration:none;
-			}
-			#topWordMenu a:visited{
-				text-decoration:none;
-			}
-			#topWordMenu a:hover{
-				color:#FFF;
-				text-decoration:none;
-			}
-
+	
 	/* 内容总容器 mainDIV */
-=======
-	/* mainDIV */
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 	#main{
 		border:0px;
 		padding:0px;
@@ -140,21 +22,13 @@
 		}
 
 		#tb1{
-			width:565px;
+			width:560px;
 			height: auto;
 			padding-bottom: 40px;
 			background-color:#FFF;
 			float:left;
 			margin: 0 auto;
 			}
-<<<<<<< HEAD
-		  /* 表壳左、右边的间距 */
-		  #tb1 .td1{
-			  width:21px;
-			  height:447px;
-			  }
-		  /* 表格中头像控制 */
-=======
 
 		#tb1 tr {
 			width: 565px;
@@ -171,7 +45,6 @@
 			  margin-left: 50px;
 		}
 
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 		  #tb1 .td2{
 			  width:67px;
 			  text-align:center;
@@ -179,13 +52,8 @@
 			  border-bottom-width:2px;
 
 			  }
-<<<<<<< HEAD
-
-		  /* 表格中状态的控制 */
-=======
 		  
 
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 		  #tb1 .td3{
 			  width:436px;
 			  height:41px;
@@ -206,6 +74,7 @@
 			 font-family:微软雅黑;
 			 color:#005dc3;
 			 font-weight:bold;
+			 margin-left: 50px;
 			 }
 		  #tb1 .font2{
 			  font-size:12px;
@@ -241,13 +110,8 @@
 			float:right;
 			background-color:#E9F4FA;
 			padding-bottom:10px;
-<<<<<<< HEAD
-		}
-			/* 右侧内部第一行容器 mainRightPostionFirstLine DIV */
-=======
 		}			
 			/* mainRightPostionFirstLine DIV */ 
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 			#mainRightPostionFirstLine{
 				width:200px;
 				height:117px;
@@ -264,7 +128,7 @@
 					height:48px;
 					float:left;
 				}
-				/* mainRightFirstLineWord1 DIV*/
+				/*  mainRightFirstLineWord1 DIV*/
 				#mainRightPostionFirstLineWord1{
 					width:120px;
 					height:40px;
@@ -281,13 +145,8 @@
 				border:0px;
 				padding:0px;
 				margin-top:10px;
-<<<<<<< HEAD
-				}
-				/*  mainRightFirstLineWord2 ul格式 */
-=======
 				}				
 				/*  mainRightFirstLineWord2 ul */
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 				#mainRightPostionFirstLineWord2 ul{
 					list-style:none;
 					margin:0px;
@@ -297,57 +156,8 @@
 				#mainRightPostionFirstLineWord2 ul li{
 	margin:0px 15px;
 	float:left;
-<<<<<<< HEAD
-				}
-			/* 右侧内部第二行容器 mainRightPostionSecondLine DIV */
-			#mainRightPostionSecondLine{
-				width:200px;
-				padding:0px;
-				margin:0px;
-				border:0px;
-				height:184px;
-				background-color:#E9F4FA;
-				border-bottom:1px solid #A6D3E3;
-			}
-				/*  右侧第二行内容 mainRightPositionSecondLineContent DIV*/
-				#mainRightPositionSecondLineContent{
-					margin-top:10px;
-					margin-left:15px;
-					padding:0px;
-					border:0px;
-					width:170px;
-					height:auto;
-				}
-				/*  右侧第二行内容 mainRightPositionSecondLineContent字体格式3 */
-				#mainRightPositionSecondLineContent font.style3{
-					font-size:15px;
-					color:#005DC3;
-				}
-			/* 右侧内部第三行容器 mainRightPostionThirdLine DIV */
-			#mainRightPostionThirdLine{
-				width:200px;
-				padding:0px;
-				margin:0px;
-				border:0px;
-				height:90px;
-				background-color:#E9F4FA;
-				border-bottom:1px solid #A6D3E3;
-			}
-				/* 右侧第三行内容mainRightPositionThirdLineContent DIV*/
-				#mainRightPositionThirdLineContent{
-					margin-left:15px;
-					margin-top:10px;
-					padding:0px;
-					border:0px;
-					width:170px;
-					height:30px;
-				}
-			/* 右侧内部第四行容器 mainRightPostionFourthLine DIV */
-=======
 				}					
 			
-			/* mainRightPostionFourthLine DIV */ 
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 			#mainRightPostionFouthLine{
 				width:200px;
 				padding:0px;
@@ -355,15 +165,9 @@
 				border:0px;
 				height:310px;
 				background-color:#E9F4FA;
-<<<<<<< HEAD
-				border-bottom:1px solid #A6D3E3;
-			}
-				/* 右侧第四行内容mainRightPositionThirdLineContent DIV */
-=======
 				border-bottom:1px solid #A6D3E3;					
 			}	
 				/* mainRightPositionThirdLineContent DIV */
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 				#mainRightPositionFourthLineContent{
 					margin-left:15px;
 					margin-top:10px;
@@ -376,22 +180,17 @@
 						width:120px;
 						height:20px;
 					}
-					/*  ul  */
+
 					#ul2{
 						list-style:none;
 						margin:0px;
 						padding-left:15px;
-
+						
 					}
 
 
-<<<<<<< HEAD
-/* 已关注部分 */
-          #focus1{
-=======
 
           .focus1{
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 			    width:107px;
 			    height:30px;
 			    float:right;
@@ -407,25 +206,11 @@
 			  }
 
 
-			  #focus1:hover {
+			  .focus1:hover {
   				background: #3cb0fd;
   				text-decoration: none;
 				}
-<<<<<<< HEAD
-		   #focus2{
-			   width:107px;
-			   height:30px;
-			   float:right;
-			   margin-right:20px;
-			  }
-		   #focus3{
-			   width:107px;
-			   height:30px;
-			   float:right;
-			   margin-right:20px;
-			}
-=======
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
+
 
 
 
@@ -456,69 +241,13 @@ font.style4{
 
 hr.h1{
 	border-top:1px dotted #79BDD1;
-	height:1px;
+	height:1px; 
 	border-bottom-style:none;
 }
-<<<<<<< HEAD
-/* 回复DIV 样式 */
-#recieve{
-	visibility:hidden;
-	background-attachment:scroll;
-	width:540px;
-	height:195px;
-	position:absolute;
-	z-index:2;
-	background-color:#474747;
-	color:#000000;
-	top: 52px;
-	left: -31px;
-}
-	/* 回复DIV */
-	#ff{
-		margin-top:10px;
-		margin-left:5px;
-	}
-	/* 白色区域 */
-	#wt{
-		height:120px;
-		width:528px;
-		margin-top:41px;
-		margin-left:6px;
-		margin-bottom:11px;
-		background-color:#FEFEFE;
-	}
-	#rewt{
-		height:120px;
-		width:450px;
-		margin-top:41px;
-		margin-left:6px;
-		margin-bottom:11px;
-		background-color:#FEFEFE;
-	}
-	/* 回复输入框样式 */
-	#ta1{
-		text-align:left;
-		margin-left:50px;
-		margin-top:14px;
-		width:450px;
-		height:60px;
-	}
-	/* 提交按钮 */
-	#sub1{
-		border:0px;
-		background-color:#1A90CE;
-		width:80px;
-		height:33px;
-		border-right:1px solid #196DC8;
 
-	}
-
-    /* footer部分*/
-=======
 
   
     /* footer*/
->>>>>>> 3fdd5a713726c05edb38d1449db5df37686f28a3
 	#footer{
 		width:765px;
 		height:50px;
@@ -540,4 +269,3 @@ hr.h1{
 	text-decoration:none;
 }
 
-/*unfollow button*/
