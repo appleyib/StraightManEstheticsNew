@@ -69,6 +69,7 @@ $(document).ready(function() {
 });
 
 
+
 function unfollow(user) {
     $.ajax({
         url: '/follow',
