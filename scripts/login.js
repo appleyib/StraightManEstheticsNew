@@ -1,4 +1,9 @@
+
+
+
 $(document).ready(function(){
+
+
 	$("#button").click(function(){
         var username=$("#userId").val();
         var password=$("#passWord").val();
@@ -15,6 +20,7 @@ $(document).ready(function(){
 				"password":password
 			}),
 	    	success:function(response){
+				document.cookie = "curUser=" + username;
 	    		window.location = "./CustomerIndex.html?username="+username;
             },
             error:function(xhr){
@@ -25,5 +31,5 @@ $(document).ready(function(){
 
     });
 
-    
+
 })
