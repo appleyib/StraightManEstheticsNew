@@ -2,7 +2,8 @@
 // JavaScript Document
 	var hfObj;
 	var srcUser;
-	var userName=document.URL.split('?')[1].split("=")[1];
+	var userName="testUser1";
+	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
 	changeDivHeight();
@@ -18,7 +19,7 @@ $(document).ready(function() {
 		    }
        });
     }
-    
+
     loadmain();
 
     $("#profile").click(function(e){
@@ -161,22 +162,71 @@ function addPost(post) {
 			<!--<a class='opState' onclick='delState(this)'>Delete</a>-->\
 		   </div>\
 		  \
-		  <div class='comments' name='" + user + "'></div>\
+		  <div class='comments' id='" + userName + id + "'></div>\
 		</div>";
+		addComment(comments, id, userName);
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
 		changeDivHeight();
 }
 
 
-function addComment(comments) {
-	for (let item in comments) {
-		comment = comments[item];
-		"<div class='stateComments' name='" + comment.id + "'>\
-		  <table width='450' border='0' cellpadding='0' \
-							cellspacing='0' class='commentTable'>"
-	}
 
+
+function addComment(comments, pId, user) {
+	var parent = $("#" + user + pId);
+	for (let item in comments) {
+		let comment = comments[item];
+		let text =
+			"<div class='stateComments' id='" + "" + user + pId
+															+ comment.id + "'>\
+			  <table width='450' border='0' cellpadding='0' \
+								cellspacing='0' class='commentTable'>\
+				<tr>\
+				  <td width='70' align='center' valign='top'>\
+					<a href='#'>\
+					 <img src='images/MainRightFirstLineTitle.gif' \
+					  alt='' width='48' height='48' />\
+					</a>\
+				  </td>\
+				  <td width='380'>\
+					<a href='#'>" + comment.userName + "</a>\
+					  <img src='images/1.gif' align='absmiddle' \
+					  style='border:none;' />&nbsp;" + comment.content +
+				 "</td>\
+				</tr>\
+			  </table>\
+			  \
+			   <div class='commentOp'>\
+				<a class='opComment' onclick=\"delComment('" + comment.id
+								+ ", " + pId +  ", " + user + "');\">Delete</a>\
+			   </div>\
+			 </div>";
+		 	parent.append(text);
+	}
+}
+
+
+
+
+function delComment(cId, pId, user) {
+	var urlD = "/deleteComment?userName=" + user + "&postId=" + pId
+														+ "&commentId=" + cId;
+	$.ajax({
+		url: urlD,
+		type: "DELETE",
+		// dataType: "json",
+		// contentType: "application/json; charset=utf-8",
+		success: function(response) {
+			var field = $("#" + user + pId + cId).remove();
+			if (response == "success") {
+				parent
+				window.alert(response);
+			} else {
+				window.alert(response);
+			}
+		}
+	});
 }
 
 
