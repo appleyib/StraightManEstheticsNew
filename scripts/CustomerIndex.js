@@ -9,8 +9,6 @@ var result;
 result = getCookie();
 userName = result[0];
 isadmin = result[1];
-console.log(isadmin);
-console.log(userName);
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
@@ -20,7 +18,6 @@ $(document).ready(function() {
 
     $("#profile").click(function(e) {
     	e.preventDefault();
-    	console.log("keke");
 		window.location = "./setting.html?loginuser=" + userName;
     });
 
@@ -114,7 +111,6 @@ function submitState() {
 	var textfield = document.getElementById("textfield2");
 	var text = textfield.value;
 	var time = new Date();
-	console.log(time);
 	if (text.length>0){
 	    $.ajax({
 	        url:"/post",
@@ -159,7 +155,7 @@ function addPost(post) {
 												+ "', " + id + ");\">Delete</a>";
 	}
 	var innerht =
-		"<div class='stateShow' name='" + id + "'>\
+		"<div class='stateShow' id='" + "post" + user + id + "'>\
 		  <div class='stateShowWord'>\
 			<table width='450' border='0' cellpadding='0' \
 				cellspacing='0' class='stateTable'>\
@@ -187,14 +183,14 @@ function addPost(post) {
 		  \
 		   <div class='stateOp'>\
 			<a class='opState' onclick='addComment();'>Reply</a>\
-			<a class='opState' onclick=''>like(0)</a>\
+			<a class='opState' onclick=''>like(" + like.length + ")</a>\
 			" + del + "\
 		   </div>\
 		  <div class='comments' id='" + "" + user + id + "'></div>\
 		</div>";
-		addComment(comments, id, user);
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
+		addComment(comments, id, user);
 		changeDivHeight();
 }
 
@@ -203,11 +199,27 @@ function addPost(post) {
 //
 // }
 
+function delPost(user, id) {
+	var urlD = "/deletePost?userName=" + user + "&postId=" +  id;
+	$.ajax({
+		url: urlD,
+		type: "DELETE",
+		dataType: "JSON",
+		success: function(response) {
+			// $('#post' + user + id).remove();
+			window.location.reload();
+		},
+		error: function(xhr){
+			alert(xhr.responseText);
+		}
+	});
+}
+
 function addComment(comments, pId, user) {
 	var parent = $("#" + user + pId);
 	for (let item in comments) {
 		let comment = comments[item];
-		let text =
+		var text =
 			"<div class='stateComments' id='" + "" + user + pId
 															+ comment.id + "'>\
 			  <table width='450' border='0' cellpadding='0' \
@@ -223,16 +235,14 @@ function addComment(comments, pId, user) {
 				</tr>\
 			  </table>\
 			  \
-			   <div class='commentOp'>\
+			   <div class='stateOp'>\
 				<a class='opComment' onclick=\"delComment(" + comment.id
 										+ ", " + pId +  ", '" + user
 										+ "');\">Delete</a>\
 			   </div>\
 			 </div>";
-		console.log("1");
-		 parent.innerHTML = text + parent.innerHTML;
+		parent.append(text);
 	}
-	console.log(parent);
 }
 
 
@@ -244,21 +254,19 @@ function delComment(cId, pId, user) {
 	$.ajax({
 		url: urlD,
 		type: "DELETE",
-		// dataType: "json",
+		dataType: "json",
 		// contentType: "application/json; charset=utf-8",
 		success: function(response) {
-			if (response == "Success") {
-				var field = $("#" + user + pId + cId).remove();
-				window.alert(response);
-			} else {
-				window.alert(response);
-			}
+			// $("#" + user + pId + cId).remove();
+
+			window.location.reload();
 		},
-		error:function(xhr){
+		error: function(xhr){
 			alert(xhr.responseText);
 		}
 	});
 }
+
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
