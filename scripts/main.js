@@ -21,6 +21,17 @@ function getCookie() {
     return result;
 }
 
+function createCookie(username, isadmin) {
+    var date = new Date();
+    date.setDate(date.getDate() + 5);
+    document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
+
+}
+
+function quitBtn() {
+    var date = new Date();
+    document.cookie = "val;expires=" + date.getDate();
+}
 // function getIsAdmin(){
 //     var isadmin = "isadmin=";
 //     var ca = document.cookie.split(";");
@@ -42,10 +53,3 @@ function getCookie() {
 //     date.setDate(date.getDate() + 5);
 //     document.cookie = "isadmin=" + isadmin + ";expires=" + date.toUTCString();
 // }
-
-function createCookie(username, isadmin) {
-    var date = new Date();
-    date.setDate(date.getDate() + 5);
-    document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-
-}
