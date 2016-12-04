@@ -6,8 +6,7 @@
 	var result;
 	result = getCookie();
 	userName = result[0];
-	isadmin = result[1];
-	console.log(isadmin);
+	isadmin = (result[1] == "true");
 if (userName == undefined) {
     window.location = "./login.html";
 }
@@ -95,9 +94,39 @@ $(document).ready(function() {
 
     loadmain();
 
+	$("#followUserBtn").click(function() {
+    	$.ajax({
+        	url: '/follow',
+        	type: "POST",
+        	dataType: "JSON",
+        	contentType: "application/json; charset=utf-8",
+        	data: JSON.stringify({ 'followTo': currentuserName, 'followFrom': userName }),
+        	success: function(response) {
+            	window.location.reload();
+        	}
+    	});
+	})
+
     function loaduser(user) {
+    	$("#profile").attr("href", "./setting.html?userName="+userName);
     	if (isadmin || currentuserName==userName){
     		$("#followUserBtn").css('display', 'none');
+    	}
+    	else{
+    		$("#button").css('display', 'none');
+    		$("#nprow").css('display', 'none');
+    		$("#rprow").css('display', 'none');
+    		$(':radio:not(:checked)').attr('disabled',true);
+			birthdayfield.prop("readonly",true);
+    		introductionfield.prop("readonly",true);
+   		    passwordfield1.css('display', 'none');
+            passwordfield2.css('display', 'none');
+            if (user.followers.indexOf(userName)!=-1){
+            	$("#followUserBtn").html("unfollow");
+            	$("#followUserBtn").css("background", "grey");
+            }else{
+            	$("#followUserBtn").html("follow");
+            	$("#followUserBtn").css("background", "#3cb0fd");}
     	}
     	console.log(isadmin + 'hahaha');
     	if (isadmin == true){
