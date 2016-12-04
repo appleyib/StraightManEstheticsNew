@@ -354,6 +354,10 @@ exports.follow = function(req, res) {
  * @return {Object}
  */
 exports.deleteUser = function(req, res) {
+    // if an admin is deleted
+    if (req.query.userName == "admin"){
+            return res.status(400).json("Error: admin cannot be deleted.");
+        }
     // tries to find the user and deletes it
     Users.findOneAndRemove({ userName: req.query.userName }, function(err, user) {
         if (err) {
@@ -361,9 +365,6 @@ exports.deleteUser = function(req, res) {
         }
         if (!user) {
             return res.status(400).json("Error: no such user");
-        }
-        if (user._doc.admin){
-        	return res.status(400).json("Error: admin cannot be deleted.");
         }
         // tries to find all follows and followers of this deleted user
         Users.find({

@@ -8,18 +8,19 @@
     padding:0px;
     margin:0px auto;
     width:765px;
-    height:auto;
+    height: auto;
   }
     /* mainBannerDIV */
     #mainBanner{
       border:0px;
       padding:0px;
       margin:0px;
-      height:auto;
+      height: auto;
       width:565px;
       float:left;
       background-color:#FFF;
       padding-bottom:10px;
+      overflow: auto;
     }
       #mainBannerTop{
         width:562px;
