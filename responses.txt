@@ -111,7 +111,7 @@ Request body contains:
 		}	
 }
 
-POST /likes
+POST /like
 Request body contains:
 {
 	"userName":"",

@@ -127,9 +127,46 @@ function submitState() {
         	}),
 	    	success:function(response){
 				window.location.reload();
-            }
+            },
+			error: function(xhr){
+				alert(xhr.responseText);
+			}
 	    });
     }
+}
+
+function submitComment(user, id) {
+	var textfield = document.getElementById("reply" + user + id);
+	var text = textfield.value;
+	if (text.length > 0) {
+		$.ajax({
+			url: "/comment",
+			type: "POST",
+	        dataType: "json",
+	    	contentType:"application/json; charset=utf-8",
+			data:JSON.stringify({
+				"userName": user,
+				"id": id,
+				"comment":{
+					"userName": userName,
+					"content": text,
+				}
+			}),
+			success: function(response) {
+				var comment = [
+					{
+						"userName": userName,
+						"content": text,
+					}
+				];
+				addComment(comment, id, user);
+				window.location.reload();
+			},
+			error: function(xhr){
+				alert(xhr.responseText);
+			}
+		});
+	}
 }
 
 /* helper function to add post*/
@@ -140,6 +177,7 @@ function addPost(post) {
 	comments = post.comment;
 	id = post.id;
 	like = post.likes;
+	var likeText = "";
 	// var text;
 	// if (comments == []) {
 	// 	text = "";
@@ -150,9 +188,15 @@ function addPost(post) {
 	// 	}
 	// }
 	var del = "";
-	if (user == userName) {
+	if (user == userName || isadmin == "true") {
 		del = "<a class='opState' onclick=\"delPost('" + user
-												+ "', " + id + ");\">Delete</a>";
+											+ "', " + id + ");\">Delete</a>";
+	}
+	if (userName in like) {
+		likeText = "onclick=\"likePost('" + user + "', " + id + ");\">like("
+															+ like.length + ")";
+	} else {
+		likeText = ">liked";
 	}
 	var innerht =
 		"<div class='stateShow' id='" + "post" + user + id + "'>\
@@ -180,12 +224,31 @@ function addPost(post) {
 		   \
 		   <div class='stateShowtime'>" + time +
 		  "</div>\
-		  \
 		   <div class='stateOp'>\
-			<a class='opState' onclick='addComment();'>Reply</a>\
-			<a class='opState' onclick=''>like(" + like.length + ")</a>\
-			" + del + "\
-		   </div>\
+			<!--<a class='opState' onclick='addComment();'>Reply</a>-->\
+			<a class='opState' " + likeText + "</a>\
+			" + del + "<br>\
+			<div style='float:right;'>You can enter&nbsp;<font id='counter"
+							+ user + id +"'>140</font>&nbsp;characters!</div>\
+  			<div id='mainBannerTopIssueForm'>\
+  				  <div id='mainBannerTopIssueFrame'>\
+  					<textarea name='reply' rows='1' class='Size' id='" + "reply"
+						+ user + id + "'  style='overflow:hidden;border:1px \
+						#0CF solid;' onkeyup='calNum(this,counter" + user + id
+						+ ",0)'></textarea>\
+  				  </div>\
+  			  <div id='mainBannerTopIssueInsert'>\
+  			  </div>\
+  			  <div id='mainBannerTopIssueSure'>\
+  				<div id='mainBannerTopIssueSure2'>\
+  				  <input type='button' id='button" + user + id
+				  			+ "' value='Reply' style='background-color:#3295E6;\
+						      border:none' onclick=\"submitComment('" + user
+							  + "', " + id + ")\" />\
+  				</div>\
+  			  </div>\
+  			  </div>\
+			  </div>\
 		  <div class='comments' id='" + "" + user + id + "'></div>\
 		</div>";
 		var divObj = document.getElementById("mainBannerContent");
@@ -195,9 +258,25 @@ function addPost(post) {
 }
 
 
-// function like() {
-//
-// }
+function likePost(user, id) {
+	$.ajax({
+		url: "/like",
+		type: "POST",
+		dataType: "JSON",
+		data: JSON.stringify({
+			"userName": userName,
+			"userNameLiked": user,
+			"id": id
+
+		}),
+		success: function(response) {
+			window.location.reload();
+		},
+		error: function(xhr){
+			alert(xhr.responseText);
+		}
+	});
+}
 
 function delPost(user, id) {
 	var urlD = "/deletePost?userName=" + user + "&postId=" +  id;
