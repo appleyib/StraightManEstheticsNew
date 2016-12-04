@@ -7,7 +7,7 @@ var isadmin;
 var result;
 result = getCookie();
 userName = result[0];
-isadmin = result[1];
+isadmin = (result[1]=="true");
 console.log(isadmin);
 
 if (userName == undefined) {
@@ -25,7 +25,6 @@ $(document).ready(function() {
             success: function(user) {
                 load(user);
                 var fList = user.follow;
-                console.log(user);
                 for (let item in fList) {
                     addUserProf(fList[item]);
                 }
@@ -33,6 +32,10 @@ $(document).ready(function() {
         });
     }
     function load(user){
+        if (isadmin){
+            $("#profile").css('display', 'none');
+            $("#home").attr("href", "./Admin.html");
+        }
         $("#namefield").html(currentuserName);
         $("#postnum").html(user.posts.length);
         $("#follownum").html(user.follow.length);

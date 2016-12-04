@@ -132,11 +132,8 @@ $(document).ready(function() {
             	$("#followUserBtn").html("follow");
             	$("#followUserBtn").css("background", "#3cb0fd");}
     	}
-    	console.log(isadmin + 'hahaha');
     	if (isadmin == true){
     		$("#home").attr("href", "./Admin.html");
-    		
-    		console.log($("#home").attr("href"));
     		$("#mainRightPostionFouthLine").css('display', 'none');
     		$("#profile").css('display', 'none');
     	}
