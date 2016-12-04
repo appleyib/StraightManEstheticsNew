@@ -1,5 +1,5 @@
 # StraightManEsthetics
-Note: please run in ***Chrome***.
+Note: please run in ***Chrome***, because we have added extra features to use cookies to store current user information locally! Firefox does not support local cookies.
 
 How to Run Locally:
 
