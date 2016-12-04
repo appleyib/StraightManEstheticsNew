@@ -33,7 +33,9 @@ $(document).ready(function() {
         });
     }
     function load(user){
+        // console.log(isadmin);
         if (isadmin){
+            console.log("kekekke");
             $("#profile").css('display', 'none');
             $("#home").attr("href", "./Admin.html");
         }
