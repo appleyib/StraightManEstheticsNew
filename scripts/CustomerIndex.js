@@ -17,6 +17,9 @@ $(document).ready(function() {
     if (userName == undefined) {
         alert("You have not logged in or you are currently using firefox!\
 		 										Use Chrome to log in first!");
+		$.getScript("./scripts/main.js", function() {
+			quitBtn();
+		});
         window.location = "./login.html";
     }
 

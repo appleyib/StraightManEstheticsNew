@@ -9,6 +9,14 @@ if (document.cookie !== undefined) {
 
 
 $(document).ready(function(){
+	if (userName == undefined) {
+		alert("You have not logged in or you are currently using firefox!\
+												Use Chrome to log in first!");
+		$.getScript("./scripts/main.js", function() {
+			quitBtn();
+		});
+		window.location = "./login.html";
+	}
 
     // function to get information of all users
 	function getUsers(){
@@ -138,7 +146,7 @@ $(document).ready(function(){
     function edit(username){
          window.location="./setting.html?username="+username;
     }
-	
+
     // get cookie
 	function getCookie() {
 	    var result = [undefined, undefined];
