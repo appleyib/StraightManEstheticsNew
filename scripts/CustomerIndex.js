@@ -10,11 +10,10 @@
 		userName = result[0];
 		isadmin = result[1];
 	})
-	console.log(result);
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
-
+	console.log(userName);
 	if (userName == undefined) {
 		window.location = "./login.html";
 	}
@@ -136,15 +135,15 @@ function addPost(post) {
 	comments = post.comment;
 	id = post.id;
 	like = post.likes;
-	var text;
-	if (comments == []) {
-		text = "";
-	} else {
-		for (let item in comments) {
-			console.log(comments[item]);
-
-		}
-	}
+	// var text;
+	// if (comments == []) {
+	// 	text = "";
+	// } else {
+	// 	for (let item in comments) {
+	// 		console.log(comments[item]);
+	//
+	// 	}
+	// }
 	var innerht =
 		"<div class='stateShow' name='" + id + "'>\
 		  <div class='stateShowWord'>\
@@ -153,7 +152,7 @@ function addPost(post) {
 				<tr>\
 				  <td width='70' align='center' valign='top'>\
 					<a href='#'>\
-					 <img src='images/MainRightFirstLineTitle.gif' \
+					 <img src='images/icon.jpg' \
 					  alt='' width='48' height='48' />\
 					</a>\
 				  </td>\
@@ -191,6 +190,7 @@ function addPost(post) {
 
 function addComment(comments, pId, user) {
 	var parent = $("#" + user + pId);
+	console.log(parent);
 	for (let item in comments) {
 		let comment = comments[item];
 		let text =
@@ -215,7 +215,7 @@ function addComment(comments, pId, user) {
 										+ "');\">Delete</a>\
 			   </div>\
 			 </div>";
-		 	parent.append(text);
+		 parent.append(text);
 	}
 }
 
