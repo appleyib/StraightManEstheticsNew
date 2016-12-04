@@ -99,8 +99,11 @@ $(document).ready(function() {
     	if (isadmin || currentuserName==userName){
     		$("#followUserBtn").css('display', 'none');
     	}
-    	if (isadmin){
+    	console.log(isadmin + 'hahaha');
+    	if (isadmin == true){
     		$("#home").attr("href", "./Admin.html");
+    		
+    		console.log($("#home").attr("href"));
     		$("#mainRightPostionFouthLine").css('display', 'none');
     		$("#profile").css('display', 'none');
     	}
