@@ -217,20 +217,20 @@ $(document).ready(function() {
 
 });
 
-    // function initDivHeight(divObj1,divObj2) {
-    //     divObj1.style.height = "auto";
-    //     divObj2.style.height = "auto";
-    // }
-    //
-    // function changeDivHeight() {
-    //     var mainBanner = document.getElementById("mainBanner");
-    //     var mainRight = document.getElementById("mainRight");
-    //     initDivHeight(mainBanner,mainRight);
-    //     var height = mainBanner.offsetHeight > mainRight.offsetHeight
-    //                     ? mainBanner.offsetHeight : mainRight.offsetHeight;
-    //     mainBanner.style.height = height + "px";
-    //     mainRight.style.height = height+ "px";//
-    // }
+    function initDivHeight(divObj1,divObj2) {
+        divObj1.style.height = "auto";
+        divObj2.style.height = "auto";
+    }
+
+    function changeDivHeight() {
+        var mainBanner = document.getElementById("mainBanner");
+        var mainRight = document.getElementById("mainRight");
+        initDivHeight(mainBanner,mainRight);
+        var height = mainBanner.offsetHeight > mainRight.offsetHeight
+                        ? mainBanner.offsetHeight : mainRight.offsetHeight;
+        mainBanner.style.height = height + "px";
+        mainRight.style.height = height+ "px";//
+    }
 
     // delete user's posts
     // function delPost(user, id) {

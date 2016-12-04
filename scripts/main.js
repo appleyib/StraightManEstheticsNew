@@ -21,6 +21,10 @@
 //     return result;
 // }
 
+/* Create document cookie with curUser: username,
+ * isadmin: a string containing true or false
+ * Cookie expires current date added by 5
+ */
 function createCookie(username, isadmin) {
     var date = new Date();
     date.setDate(date.getDate() + 5);
@@ -31,6 +35,9 @@ function createCookie(username, isadmin) {
     console.log(isadmin);
 }
 
+/*
+ * Delete Cookie
+ */
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate());
