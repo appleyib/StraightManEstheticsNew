@@ -9,21 +9,25 @@ var result;
 result = getCookie();
 userName = result[0];
 isadmin = result[1];
-	//document.URL.split('?')[1].split("=")[1];
 
+
+// Calls when the page is ready.
 $(document).ready(function() {
 	console.log(document.cookie);
+	// no user information has been set
 	if (userName == undefined) {
-		alert("You have not logged in!");
+		alert("You have not logged in or you are currently using firefox! Use Chrome to log in first!");
 		window.location = "./login.html";
 	}
 
+    // when user clicks profile tag	
     $("#profile").click(function(e) {
     	e.preventDefault();
 		window.location = "./setting.html?profileUser=" + userName;
-    	// window.location = "./setting.html?loginuser="+userName+"?currentuser="+userName;
+
     });
 
+	// when user clicks quit tag
 	$("#quitBtn").click(function(e) {
 		e.preventDefault();
 		var date = new Date();
@@ -33,6 +37,7 @@ $(document).ready(function() {
 		window.location = "./login.html";
 	});
 
+    // when user clicks search tag
     $("#searchUser").click(function(e){
         e.preventDefault();
         var keyword= $("#textfield1").val();
@@ -60,13 +65,17 @@ $(document).ready(function() {
 
 
 
+// function that loads the user
 function loaduser(user) {
+            // sets the link
 	    $("#nameField").attr("href", "./setting.html?userName="+userName);
 	    $("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
         $("#getfollow").attr("href", "./follow.html?userName="+userName);
         $("#getfollower").attr("href", "./follower.html?userName="+userName);
 		var namefield=$("#nameField");
 		namefield.html(user.userName);
+		
+		// sets values of each field appearing on top right 
 		var postNumField = $("#postNumField");
 		postNumField.html(user.posts.length);
 		var followNumField = $("#followNumField");
@@ -100,6 +109,7 @@ function loaduser(user) {
 }
 
 
+/* When this page is loaded, get the user information first. */
 function loadmain() {
 	$.ajax({
 		url: '/users?userName='+userName+'&mainPage='+true,
@@ -116,6 +126,8 @@ function initDivHeight(divObj1,divObj2) {
 	divObj1.style.height = "auto";
 	divObj2.style.height = "auto";
 }
+
+/* function that can change the Div Height */
 function changeDivHeight() {
 	var mainBanner = document.getElementById("mainBanner");
 	var mainRight = document.getElementById("mainRight");
@@ -125,12 +137,15 @@ function changeDivHeight() {
 	mainRight.style.height = height+ "px";//
 }
 
+// gets the cal number
 function calNum(txtobj,divobj,fg) {
 	$.getScript("./scripts/main.js", function() {
 		calNum(txtobj,divobj,fg);
 	});
 }
 
+
+// calls when user wants to make a post
 function submitState() {
 	var textfield = document.getElementById("textfield2");
 	var text = textfield.value;
@@ -159,42 +174,24 @@ function submitState() {
     }
 }
 
-// function submitComment(user, id) {
-// 	$.getScript("./scripts/main.js", function() {
-// 		submitComment(user, id, userName);
-// 	});
-// }
 
 
-
-// function likePost(user, id) {
-// 	$.getScript("./scripts/main.js", function() {
-// 		console.log("cust" + userName);
-// 		likePost(user, id, userName);
-// 	});
-// }
-
+// calls when user wants to delete a post
 function delPost(user, id) {
 	$.getScript("./scripts/main.js", function() {
 		delPost(user, id);
 	});
 }
 
-// function addComment(comments, pId, user) {
-// 	$.getScript("./scripts/main.js", function() {
-// 		addComment(comments, pId, user, userName);
-// 	});
-// }
 
-
-
-
+// calls when user wants to delete a comment
 function delComment(cId, pId, user) {
 	$.getScript("./scripts/main.js", function() {
 		delComment(comments, pId, user);
 	});
 }
 
+// gets cookie(current user information)
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
@@ -215,6 +212,8 @@ function getCookie() {
     return result;
 }
 
+
+// calls when quit button is clicked
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate() - 1);
