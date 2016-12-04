@@ -191,10 +191,11 @@ function addPost(post) {
 	var del = "";
 	if (user == userName) {
 		del = "<a class='opState' onclick=\"delPost('" + user
-												+ "', " + id + ");\">Delete</a>";
+											+ "', " + id + ");\">Delete</a>";
 	}
 	if (userName in like) {
-		likeText = "onclick=\"likePost('" + user + "', " + id + ");\">like(" + like.length + ")";
+		likeText = "onclick=\"likePost('" + user + "', " + id + ");\">like("
+															+ like.length + ")";
 	} else {
 		likeText = ">liked";
 	}
@@ -228,16 +229,23 @@ function addPost(post) {
 			<!--<a class='opState' onclick='addComment();'>Reply</a>-->\
 			<a class='opState' " + likeText + "</a>\
 			" + del + "<br>\
-			<div style='float:right;'>You can enter&nbsp;<font id='counter" + user + id +"'>140</font>&nbsp;characters!</div>\
+			<div style='float:right;'>You can enter&nbsp;<font id='counter"
+							+ user + id +"'>140</font>&nbsp;characters!</div>\
   			<div id='mainBannerTopIssueForm'>\
   				  <div id='mainBannerTopIssueFrame'>\
-  					<textarea name='reply' rows='1' class='Size' id='" + "reply" + user + id + "'  style='overflow:hidden;border:1px #0CF solid;' onkeyup='calNum(this,counter" + user + id + ",0)'></textarea>\
+  					<textarea name='reply' rows='1' class='Size' id='" + "reply"
+						+ user + id + "'  style='overflow:hidden;border:1px \
+						#0CF solid;' onkeyup='calNum(this,counter" + user + id
+						+ ",0)'></textarea>\
   				  </div>\
   			  <div id='mainBannerTopIssueInsert'>\
   			  </div>\
   			  <div id='mainBannerTopIssueSure'>\
   				<div id='mainBannerTopIssueSure2'>\
-  				  <input type='button' id='button" + user + id + "' value='Reply' style='background-color:#3295E6; border:none' onclick=\"submitComment('" + user + "', " + id + ")\" />\
+  				  <input type='button' id='button" + user + id
+				  			+ "' value='Reply' style='background-color:#3295E6;\
+						      border:none' onclick=\"submitComment('" + user
+							  + "', " + id + ")\" />\
   				</div>\
   			  </div>\
   			  </div>\
