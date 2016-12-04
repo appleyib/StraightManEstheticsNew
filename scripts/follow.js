@@ -1,21 +1,24 @@
-var currentuserName=document.URL.split('?')[1].split("=")[1];//we are on this user's page
+//we are on this user's page
+var currentuserName=document.URL.split('?')[1].split("=")[1];
 
 var userName;
 var isadmin;
 
-
+// get current login user
+// and whether it is admin
 var result;
 result = getCookie();
 userName = result[0];
 isadmin = (result[1]=="true");
 console.log(isadmin);
 
+// if userName undeined back to login page
 if (userName == undefined) {
     window.location = "./login.html";
 }
 
 $(document).ready(function() {
-    // changeTrHeight();
+    
     /* generate followed users' list on page*/
     function generateFollow(userName) {
         $.ajax({
@@ -31,7 +34,12 @@ $(document).ready(function() {
             }
         });
     }
+    // load information of current requested user 
+    // date of birth, username, etc
     function load(user){
+        // if corrent login user is admin
+        // ignore profile button
+        // click home will back to admin page
         if (isadmin){
             $("#profile").css('display', 'none');
             $("#home").attr("href", "./Admin.html");
@@ -46,6 +54,7 @@ $(document).ready(function() {
         $("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
         $("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
     }
+    //logout
     $("#quitBtn").click(function(e) {
 		e.preventDefault();
 		var date = new Date();
@@ -55,9 +64,13 @@ $(document).ready(function() {
 		window.location = "./login.html";
 	});
 
+    // generate the users current requested user follows
     generateFollow(currentuserName);
 
+    // add infomation of user such that current requested user follow that user
     function addUserProf(user) {
+        // if login user is current user
+        // able to show "unfollow" button
         if (currentuserName==userName){
         $("#tb1").append(
             '<tr>\
@@ -92,13 +105,10 @@ $(document).ready(function() {
             </tr>');            
         }
     }
-
-
-
 });
 
 
-
+// unfollow one user
 function unfollow(user) {
     $.ajax({
         url: '/follow',
@@ -112,6 +122,7 @@ function unfollow(user) {
     });
 }
 
+// get cookie
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
@@ -132,6 +143,7 @@ function getCookie() {
     return result;
 }
 
+// logout
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate() - 1);

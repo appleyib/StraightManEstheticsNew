@@ -11,6 +11,7 @@ if (document.cookie !== undefined) {
 	isadmin = result[1];
 }
 $(document).ready(function(){
+    // quit
 	$("#quitBtn").click(function(e) {
 		e.preventDefault();
 		var date = new Date();
@@ -19,7 +20,9 @@ $(document).ready(function(){
 	    document.cookie = "isadmin=;expires=" + date.toUTCString();
 		window.location = "./login.html";
 	});
+    // when save button is clicked
 	$("#savebtn").click(function(){
+        //get all information of new user
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();
         var gender =
@@ -28,12 +31,14 @@ $(document).ready(function(){
         var introduction = $("#textfield5").val();
         var password1 = $("#textfield2").val();
         var password2 = $("#textfield3").val();
-
+        // check whether username is empty or password is empty
         if (username=="" | password1=="" | password2 ==""){
         	alert("username or password cannot be empty");
+        // if two password do not match
         }else if(password1 != password2){
         	alert("different password");
         }else{
+        // send ajax
         $.ajax({
 	        url:"/newUser",
 	        type:"POST",
@@ -46,6 +51,7 @@ $(document).ready(function(){
 				"introduction":introduction,
 				"password":password1
 			}),
+            // if success, go to the main page of new user
 	    	success:function(response){
 	    		console.log(response);
 				quitBtn();
@@ -54,8 +60,8 @@ $(document).ready(function(){
 				});
 				if (isadmin){ window.location = "./Admin.html"}
 			    else {window.location = "./CustomerIndex.html"};
-	    		// window.location = "./CustomerIndex.html?username="+username;
             },
+            //error
             error:function(xhr){
             	alert(xhr.responseText);
             }
@@ -66,11 +72,12 @@ $(document).ready(function(){
 
 
 })
-
+//get cookie
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
     var check = "isadmin=";
+    //split by ;
     var ca = document.cookie.split(";");
     for (let i = 0; i < ca.length; i++) {
         let cur = ca[i];
@@ -93,9 +100,3 @@ function quitBtn() {
     document.cookie = "curUser=;expires=" + date.toUTCString();
     document.cookie = "isadmin=;expires=" + date.toUTCString();
 }
-// function createCookie(username, isadmin) {
-//     var date = new Date();
-//     date.setDate(date.getDate() + 5);
-//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-//
-// }

@@ -1,4 +1,6 @@
 
+// get current login user's name
+// whether it is admin
 if (document.cookie !== undefined) {
 	result = getCookie();
 	userName = result[0];
@@ -7,6 +9,8 @@ if (document.cookie !== undefined) {
 
 
 $(document).ready(function(){
+
+    // function to get information of all users
 	function getUsers(){
         $.ajax({
             url: "/users",
@@ -19,6 +23,7 @@ $(document).ready(function(){
             }
         });
 	}
+    // logout
 	$("#quitBtn").click(function(e) {
 		e.preventDefault();
 		var date = new Date();
@@ -27,7 +32,9 @@ $(document).ready(function(){
 	    document.cookie = "isadmin=;expires=" + date.toUTCString();
 		window.location = "./login.html";
 	});
+    //get infomation of all users
 	getUsers();
+    // load each user's infomation
 	function addUser(user){
 		$("#tb2").append(
 	   '<tr id = "'+user.userName+'">\
@@ -43,7 +50,7 @@ $(document).ready(function(){
       </tr>'
 			);
 	}
-
+    // admin is able to clear Database
     $("#clearDatabase").click(function(){
     	$.ajax({
     		url:"/repopulating",
@@ -58,6 +65,8 @@ $(document).ready(function(){
 
     	});
     })
+
+    // can search user by key words
     $("#searchUser").click(function(e){
     	e.preventDefault();
         var keyword= $("#textfield2").val();
@@ -78,18 +87,19 @@ $(document).ready(function(){
        });
 
     });
-
+    // click home will stay at admin page
     $("#home").click(function(){
 
         window.location="./Admin.html";
     })
+    // admin is able to add a new user
     $("#addUserBtn").click(function(e){
         e.preventDefault();
         console.log("kk");
         window.location = "./register.html";
     })
-
 })
+    // function to remove user in the database by username
     function remove(username){
          $.ajax({
             url: "/deleteUser?userName="+username,
@@ -105,10 +115,12 @@ $(document).ready(function(){
         });
 
     }
+    // when click edit button
+    // transfer to setting page
     function edit(username){
          window.location="./setting.html?username="+username;
     }
-
+    // get cookie
 	function getCookie() {
 	    var result = [undefined, undefined];
 	    var name = "curUser=";
@@ -129,9 +141,3 @@ $(document).ready(function(){
 	    return result;
 	}
 
-	// function createCookie(username, isadmin) {
-	//     var date = new Date();
-	//     date.setDate(date.getDate() + 5);
-	//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-	//
-	// }

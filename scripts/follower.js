@@ -8,15 +8,14 @@ var result;
 result = getCookie();
 userName = result[0];
 isadmin = (result[1]=="true");
-console.log(isadmin);
 
 if (userName == undefined) {
     window.location = "./login.html";
 }
 
 $(document).ready(function() {
-    // changeTrHeight();
-    /* generate followed users' list on page*/
+    // function to generate users who current user follows
+    // username, date of birth,number of posts
     function generateFollow(userName) {
         $.ajax({
             url: "/users?userName=" + userName,
@@ -32,10 +31,14 @@ $(document).ready(function() {
             }
         });
     }
+    
+    // load information of current requested user
+    // username, date of birth,number of posts
     function load(user){
-        // console.log(isadmin);
+        // if current login user is admin
+        // profile button should not be shown
+        // and home back to Admin.html
         if (isadmin){
-            console.log("kekekke");
             $("#profile").css('display', 'none');
             $("#home").attr("href", "./Admin.html");
         }
@@ -49,17 +52,22 @@ $(document).ready(function() {
         $("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
         $("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
     }
+    // logout
     $("#quitBtn").click(function(e) {
 		e.preventDefault();
 		var date = new Date();
 	    date.setDate(date.getDate() - 1);
+        //set expire date
         document.cookie = "curUser=;expires=" + date.toUTCString();
         document.cookie = "isadmin=;expires=" + date.toUTCString();
+        // to login.html
 		window.location = "./login.html";
 	});
 
+    // generate users currentuser follows
     generateFollow(currentuserName);
 
+    // add information of user that current user follow
     function addUserProf(user) {
         $("#tb1").append(
             '<tr>\
@@ -82,7 +90,7 @@ $(document).ready(function() {
 });
 
 
-
+// unfollow one user
 function unfollow(user) {
     $.ajax({
         url: '/follow',
@@ -96,10 +104,12 @@ function unfollow(user) {
     });
 }
 
+// get cookie
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
     var check = "isadmin=";
+    //split message by ;
     var ca = document.cookie.split(";");
     for (let i = 0; i < ca.length; i++) {
         let cur = ca[i];
@@ -116,6 +126,7 @@ function getCookie() {
     return result;
 }
 
+//logout
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate() - 1);

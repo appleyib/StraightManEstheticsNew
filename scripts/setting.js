@@ -1,13 +1,16 @@
 
 var curUser = document.URL.split('?')[1].split("=")[1];
 
-
+//get current login user's name 
+// whether it is admin
 var userName;
 var isadmin;
 var result;
 result = getCookie();
 userName = result[0];
 isadmin = (result[1] == "true");
+// if current user is not log in 
+// back to login page
 if (userName == undefined) {
     window.location = "./login.html";
 }
@@ -19,7 +22,7 @@ $(document).ready(function() {
     var malefiled = $("#malefiled");
     var passwordfield1 = $("#textfield2");
     var passwordfield2 = $("#textfield7");
-
+    // load information of requested user
     function loadmain() {
         $.ajax({
             url: '/users?userName=' + curUser,
@@ -30,14 +33,7 @@ $(document).ready(function() {
             }
        });
     }
-
-    // $("#home").click(function(){
-    //  if (isadmin){
-    //      window.location = "./Admin.html";
-    //  }else {
-    //      window.location = "./CustomerIndex.html";
-    //  }
-    // })
+    // logout
     $("#quitBtn").click(function(e) {
         e.preventDefault();
         var date = new Date();
@@ -46,16 +42,16 @@ $(document).ready(function() {
         document.cookie = "isadmin=;expires=" + date.toUTCString();
         window.location = "./login.html";
     });
-
+    // when user click save button
     $("#button").click(function(){
+        //get all new information
         var user = {
             "userName": curUser,
             "birthday": birthdayfield.val(),
             "introduction": introductionfield.val(),
             "gender": ($('input[type=radio]:checked').val())
         };
-        console.log(passwordfield1.val());
-        console.log(passwordfield2.val());
+        // if two password match
         if (passwordfield2.val() == passwordfield1.val()
                                                 && passwordfield1.val() != ""){
             user["password"] = passwordfield1.val();
@@ -63,6 +59,7 @@ $(document).ready(function() {
         if (passwordfield2.val() != passwordfield1.val()){
             alert("two password do not match!");
         }else{
+            //update
             $.ajax(
                 {
                     url: "/user",
@@ -78,10 +75,11 @@ $(document).ready(function() {
             );
         }
     });
-
+    // users are able to search user by keyword
     $("#searchUser").click(function(e){
         e.preventDefault();
         var keyword= $("#textfield1").val();
+        //send ajax
         $.ajax({
             url:'/users?searchName='+keyword,
             type:"GET",
@@ -99,9 +97,9 @@ $(document).ready(function() {
        });
 
     });
-
+    // call function to load requested user's information
     loadmain();
-
+    // current login can follow/unfollow current requested user
     $("#followUserBtn").click(function() {
         $.ajax({
             url: '/follow',
@@ -114,14 +112,16 @@ $(document).ready(function() {
             }
         });
     })
-
+    // helper function to load page by infomation of user
     function loaduser(user) {
+        // only admin or user self can change profile
         if (isadmin || curUser==userName){
             $("#profile").attr("href", "./setting.html?userName="+userName);
             $("#getfollow").attr("href", "./follow.html?userName="+curUser);
             $("#getfollower").attr("href", "./follower.html?userName="+curUser);
             $("#followUserBtn").css('display', 'none');
         }
+        // other users only see some readonly profile
         else{
             $("#profile").attr("href", "./setting.html?userName="+userName);
             $("#getfollow").attr("href", "./follow.html?userName="+curUser);
@@ -141,11 +141,16 @@ $(document).ready(function() {
                 $("#followUserBtn").html("follow");
                 $("#followUserBtn").css("background", "#3cb0fd");}
         }
+        // if current login user is admin
         if (isadmin == true){
+            // he will back to Admin.html when click  home
             $("#home").attr("href", "./Admin.html");
+            // cannot search
             $("#mainRightPostionFouthLine").css('display', 'none');
+            // hide profile
             $("#profile").css('display', 'none');
         }
+        //load info like name, dob, numof posts/follow/folloers
         var namefield=$("#nameField");
         namefield.html(user.userName);
         namefield = $("#textfield");
@@ -171,6 +176,7 @@ $(document).ready(function() {
         }
         introductionfield.val(user.introduction);
 
+          // sort posts of requested user
             var posts = user.posts.sort( function(a, b) {
                 var a_t = new Date(a.time);
                 var b_t = new Date(b.time);
@@ -199,52 +205,32 @@ $(document).ready(function() {
     function changeDivHeight() {
         var mainBanner = document.getElementById("mainBanner");
         var mainRight = document.getElementById("mainRight");
-        initDivHeight(mainBanner,mainRight);//设置高度为自动
-        var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
-        mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
+        initDivHeight(mainBanner,mainRight);
+        var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;
+        mainBanner.style.height = height + "px";
         mainRight.style.height = height+ "px";//
     }
 
-    // function submitComment(user, id) {
-    //  $.getScript("./scripts/main.js", function() {
-    //      submitComment(user, id, userName);
-    //  });
-    // }
-
-
-
-    // function likePost(user, id) {
-    //  $.getScript("./scripts/main.js", function() {
-    //      likePost(user, id, userName);
-    //  });
-    // }
-
+    // delete user's posts
     function delPost(user, id) {
         $.getScript("./scripts/main.js", function() {
             delPost(user, id);
         });
     }
 
-    // function addComment(comments, pId, user) {
-    //  $.getScript("./scripts/main.js", function() {
-    //      addComment(comments, pId, user, userName);
-    //  });
-    // }
-
-
-
-
+    // delete current login user's comment
     function delComment(cId, pId, user) {
         $.getScript("./scripts/main.js", function() {
             delComment(comments, pId, user);
         });
     }
 
-
+// get cookie
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
     var check = "isadmin=";
+    // split by ;
     var ca = document.cookie.split(";");
     for (let i = 0; i < ca.length; i++) {
         let cur = ca[i];
@@ -261,6 +247,7 @@ function getCookie() {
     return result;
 }
 
+//logout
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate() - 1);
