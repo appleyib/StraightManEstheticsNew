@@ -1,7 +1,7 @@
 
 var curUser = document.URL.split('?')[1].split("=")[1];
 
-//get current login user's name 
+//get current login user's name
 // whether it is admin
 var userName;
 var isadmin;
@@ -9,7 +9,7 @@ var result;
 result = getCookie();
 userName = result[0];
 isadmin = (result[1] == "true");
-// if current user is not log in 
+// if current user is not log in
 // back to login page
 if (userName == undefined) {
     window.location = "./login.html";
@@ -188,11 +188,9 @@ $(document).ready(function() {
                 return 0;
             });
             // add post to page
-            for(let i=0;i< posts.length;i++) {
-                $.getScript("./scripts/main.js", function() {
-                    addPost(posts[i], userName, isadmin);
-                });
-            }
+            $.getScript("./scripts/main.js", function() {
+                addPosts(posts, userName, isadmin);
+            });
     }
 
 });

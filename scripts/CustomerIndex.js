@@ -23,7 +23,7 @@ $(document).ready(function() {
     if (isadmin == "true") {
         window.location = "./Admin.html";
     }
-    // when user clicks profile tag	
+    // when user clicks profile tag
     $("#profile").click(function(e) {
         e.preventDefault();
         window.location = "./setting.html?profileUser=" + userName;
@@ -78,7 +78,7 @@ function loaduser(user) {
     var namefield = $("#nameField");
     namefield.html(user.userName);
 
-    // sets values of each field appearing on top right 
+    // sets values of each field appearing on top right
     var postNumField = $("#postNumField");
     postNumField.html(user.posts.length);
     var followNumField = $("#followNumField");
@@ -101,11 +101,11 @@ function loaduser(user) {
         return 0;
     });
     // add post to page
-    for (let i = 0; i < posts.length; i++) {
-        $.getScript("./scripts/main.js", function() {
-            addPost(posts[i], userName, isadmin);
-        });
-    }
+
+    $.getScript("./scripts/main.js", function() {
+        addPosts(posts, userName, isadmin);
+    });
+
 
 }
 

@@ -36,6 +36,11 @@ function quitBtn() {
     document.cookie = "isadmin=;expires=" + date.toUTCString();
 }
 
+function addPosts(posts, userName, isadmin) {
+    for(let i=0;i< posts.length;i++) {
+        addPost(posts[i], userName, isadmin);
+    }
+}
 
 /* helper function to add post*/
 function addPost(post, userName, isadmin) {
