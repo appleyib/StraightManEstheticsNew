@@ -64,10 +64,6 @@ $(document).ready(function(){
 
     });
 
-    $("#home").click(function(){
-        
-        window.location="./Admin.html";
-    })
     $("#addUserBtn").click(function(e){
         e.preventDefault();
         console.log("kk");

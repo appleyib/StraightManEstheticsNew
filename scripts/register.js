@@ -39,10 +39,11 @@ $(document).ready(function(){
 				"password":password1
 			}),
 	    	success:function(response){
-	    		console.log(response);
-				$.getScript("./scripts/main.js", function() {
-					createCookie(username);
-				});
+	    		if (!isadmin){
+					$.getScript("./scripts/main.js", function() {
+						createCookie(username);
+					});
+				}
 				if (isadmin){ window.location = "./Admin.html"}
 			    else {window.location = "./CustomerIndex.html"};
 	    		// window.location = "./CustomerIndex.html?username="+username;
