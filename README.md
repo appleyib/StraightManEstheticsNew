@@ -24,7 +24,7 @@ Open ***CHROME*** and type localhost:3000. You will see the login page!
 
 Open terminal and execute following command:
 
-node test
+npm test
 
 
 Project
