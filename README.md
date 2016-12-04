@@ -1,7 +1,16 @@
 # StraightManEsthetics
 Note: please run in ***Chrome***, because we have added extra features to use cookies to store current user information locally! Firefox does not support local cookies.
 
-How to Run Locally:
+***How to run the app:***
+
+Just directly go to this url through Chrome:
+
+obscure-scrubland-69547.herokuapp.com
+
+will let you see our final product.
+
+
+***How to Run Locally:***
 
 Open terminal and cd to project dir. Use npm install to install all needed node modules.
 
@@ -68,6 +77,9 @@ In the profile page, an admin can edit anyone's personal information and passwor
 
 
 Creativity Additional Features:
+
+We successfully deploy the app on the heroku.
+
 
 We use mongodb to store all data and we put the database remotely in mLab and it can continuously run.
 
