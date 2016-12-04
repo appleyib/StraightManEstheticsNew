@@ -93,7 +93,8 @@ $(document).ready(function() {
                 for (let i = 0;i<response.length;i++){
                     responseField.append('<li><a href="./setting.html?userName='+
                         response[i].userName+'" class="a1">\
-                        <font class="style2" >'+response[i].userName+'</font></a></li>');
+                        <font class="style2" href="./setting.html?userName='+
+                        response[i].userName+'">'+response[i].userName+'</font></a></li>');
                 }
             }
        });
