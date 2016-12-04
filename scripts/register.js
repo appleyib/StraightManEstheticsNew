@@ -13,6 +13,7 @@ if (document.cookie !== undefined) {
 $(document).ready(function(){
 
 	$("#savebtn").click(function(){
+		quitBtn();
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();
         var gender =
@@ -41,6 +42,7 @@ $(document).ready(function(){
 			}),
 	    	success:function(response){
 	    		console.log(response);
+				quitBtn();
 				$.getScript("./scripts/main.js", function() {
 					createCookie(username);
 				});
@@ -58,6 +60,7 @@ $(document).ready(function(){
 
 
 })
+
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
@@ -78,9 +81,12 @@ function getCookie() {
     return result;
 }
 
-function createCookie(username, isadmin) {
-    var date = new Date();
-    date.setDate(date.getDate() + 5);
-    document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-
+function quitBtn() {
+    $.cookie("userid", "", -1);
 }
+// function createCookie(username, isadmin) {
+//     var date = new Date();
+//     date.setDate(date.getDate() + 5);
+//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
+//
+// }

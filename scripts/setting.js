@@ -4,11 +4,9 @@
 	var userName;
 	var isadmin;
 	var result;
-	$.getScript("./scripts/main.js", function() {
-		result = getCookie();
-		userName = result[0];
-		isadmin = result[1];
-	})
+	result = getCookie();
+	userName = result[0];
+	isadmin = result[1];
 console.log(isadmin);
 console.log(userName);
 if (userName == undefined) {
@@ -189,4 +187,29 @@ function addPost(userName, str, time, comments) {
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
 		changeDivHeight();
+}
+
+
+function getCookie() {
+    var result = [undefined, undefined];
+    var name = "curUser=";
+    var check = "isadmin=";
+    var ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+        let cur = ca[i];
+        while (cur.charAt(0) == ' ') {
+            cur = cur.substring(1);
+        }
+        if (cur.indexOf(name) == 0) {
+            result[0] = cur.substring(name.length, cur.length);
+        }
+        if (cur.indexOf(check) == 0) {
+            result[1] = cur.substring(check.length, cur.length);
+        }
+    }
+    return result;
+}
+
+function quitBtn() {
+    $.cookie("userid", "", -1);
 }

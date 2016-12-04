@@ -123,13 +123,12 @@ $(document).ready(function(){
 	    return result;
 	}
 
-	function createCookie(username, isadmin) {
-	    var date = new Date();
-	    date.setDate(date.getDate() + 5);
-	    document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-
-	}
+	// function createCookie(username, isadmin) {
+	//     var date = new Date();
+	//     date.setDate(date.getDate() + 5);
+	//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
+	//
+	// }
 	function quitBtn() {
-	    var date = new Date();
-	    document.cookie = "val;expires=" + date.getDate();
+	    $.cookie("userid", "", -1);
 	}

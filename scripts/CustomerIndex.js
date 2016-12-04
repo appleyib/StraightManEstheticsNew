@@ -1,15 +1,14 @@
 
 // JavaScript Document
-	var hfObj;
-	var srcUser;
-	var userName;
-	var isadmin;
-	var result;
-	$.getScript("./scripts/main.js", function() {
-		result = getCookie();
-		userName = result[0];
-		isadmin = result[1];
-	})
+var hfObj;
+var srcUser;
+var userName;
+var isadmin;
+var result;
+
+result = getCookie();
+userName = result[0];
+isadmin = result[1];
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
@@ -243,7 +242,29 @@ function delComment(cId, pId, user) {
 		}
 	});
 }
+function getCookie() {
+    var result = [undefined, undefined];
+    var name = "curUser=";
+    var check = "isadmin=";
+    var ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+        let cur = ca[i];
+        while (cur.charAt(0) == ' ') {
+            cur = cur.substring(1);
+        }
+        if (cur.indexOf(name) == 0) {
+            result[0] = cur.substring(name.length, cur.length);
+        }
+        if (cur.indexOf(check) == 0) {
+            result[1] = cur.substring(check.length, cur.length);
+        }
+    }
+    return result;
+}
 
+function quitBtn() {
+    $.cookie("userid", "", -1);
+}
 
 
 // 	var hfObj;
