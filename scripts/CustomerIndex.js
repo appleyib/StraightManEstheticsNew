@@ -59,6 +59,9 @@ $(document).ready(function() {
                    			<font class="style2" >'
 							+ response[i].userName + '</font></a></li>');
                 }
+            },
+            error: function(xhr) {
+                alert(xhr.responseText);
             }
         });
 
@@ -123,7 +126,10 @@ function loadmain() {
         dataType: "JSON",
         success: function(response) {
             loaduser(response);
-        }
+        },
+		error: function(xhr) {
+			alert(xhr.responseText);
+		}
     });
 }
 
@@ -184,19 +190,19 @@ function submitState() {
 
 
 // calls when user wants to delete a post
-function delPost(user, id) {
-    $.getScript("./scripts/main.js", function() {
-        delPost(user, id);
-    });
-}
+// function delPost(user, id) {
+//     $.getScript("./scripts/main.js", function() {
+//         delPost(user, id);
+//     });
+// }
 
 
 // calls when user wants to delete a comment
-function delComment(cId, pId, user) {
-    $.getScript("./scripts/main.js", function() {
-        delComment(comments, pId, user);
-    });
-}
+// function delComment(cId, pId, user) {
+//     $.getScript("./scripts/main.js", function() {
+//         delComment(comments, pId, user);
+//     });
+// }
 
 // gets cookie(current user information)
 function getCookie() {

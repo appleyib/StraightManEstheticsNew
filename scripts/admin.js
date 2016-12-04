@@ -20,6 +20,9 @@ $(document).ready(function(){
                 for (let item in users) {
                     addUser(users[item]);
                 }
+            },
+            error: function(xhr) {
+                alert(xhr.responseText);
             }
         });
 	}
@@ -32,8 +35,10 @@ $(document).ready(function(){
 	    document.cookie = "isadmin=;expires=" + date.toUTCString();
 		window.location = "./login.html";
 	});
+
     //get infomation of all users
 	getUsers();
+
     // load each user's infomation
 	function addUser(user){
 		$("#tb2").append(
@@ -111,6 +116,7 @@ $(document).ready(function(){
         window.location = "./register.html";
     })
 })
+
     // function to remove user in the database by username
     function remove(username){
          $.ajax({
@@ -125,13 +131,14 @@ $(document).ready(function(){
             	alert(xhr.responseText);
             }
         });
-
     }
+
     // when click edit button
     // transfer to setting page
     function edit(username){
          window.location="./setting.html?username="+username;
     }
+	
     // get cookie
 	function getCookie() {
 	    var result = [undefined, undefined];

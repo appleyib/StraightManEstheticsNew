@@ -1,25 +1,25 @@
 
 
 
-function getCookie() {
-    var result = [undefined, undefined];
-    var name = "curUser=";
-    var check = "isadmin=";
-    var ca = document.cookie.split(";");
-    for (let i = 0; i < ca.length; i++) {
-        let cur = ca[i];
-        while (cur.charAt(0) == ' ') {
-            cur = cur.substring(1);
-        }
-        if (cur.indexOf(name) == 0) {
-            result[0] = cur.substring(name.length, cur.length);
-        }
-        if (cur.indexOf(check) == 0) {
-            result[1] = cur.substring(check.length, cur.length);
-        }
-    }
-    return result;
-}
+// function getCookie() {
+//     var result = [undefined, undefined];
+//     var name = "curUser=";
+//     var check = "isadmin=";
+//     var ca = document.cookie.split(";");
+//     for (let i = 0; i < ca.length; i++) {
+//         let cur = ca[i];
+//         while (cur.charAt(0) == ' ') {
+//             cur = cur.substring(1);
+//         }
+//         if (cur.indexOf(name) == 0) {
+//             result[0] = cur.substring(name.length, cur.length);
+//         }
+//         if (cur.indexOf(check) == 0) {
+//             result[1] = cur.substring(check.length, cur.length);
+//         }
+//     }
+//     return result;
+// }
 
 function createCookie(username, isadmin) {
     var date = new Date();
@@ -165,7 +165,7 @@ function submitComment(user, id, userName) {
 				addComment(comment, id, user, userName);
 				window.location.reload();
 			},
-			error: function(xhr){
+			error: function(xhr) {
 				alert(xhr.responseText);
 			}
 		});
@@ -173,11 +173,6 @@ function submitComment(user, id, userName) {
 }
 
 function likePost(user, id, userName) {
-    console.log({
-        "userName": user,
-        "userNameLiked": userName,
-        "id": id
-    });
 	$.ajax({
 		url: "/like",
 		type: "POST",
@@ -191,13 +186,13 @@ function likePost(user, id, userName) {
 		success: function(response) {
 			window.location.reload();
 		},
-		error: function(xhr){
+		error: function(xhr) {
 			alert(xhr.responseText);
 		}
 	});
 }
 
-
+// delete user's posts
 function delPost(user, id) {
 	var urlD = "/deletePost?userName=" + user + "&postId=" +  id;
 	$.ajax({
@@ -213,6 +208,7 @@ function delPost(user, id) {
 		}
 	});
 }
+
 
 function addComment(comments, pId, user, userName) {
 	var parent = $("#" + user + pId);
@@ -251,7 +247,7 @@ function addComment(comments, pId, user, userName) {
 
 
 
-
+// delete current login user's comment
 function delComment(cId, pId, user) {
 	var urlD = "/deleteComment?userName=" + user + "&postId=" + pId
 														+ "&commentId=" + cId;
@@ -265,7 +261,7 @@ function delComment(cId, pId, user) {
 
 			window.location.reload();
 		},
-		error: function(xhr){
+		error: function(xhr) {
 			alert(xhr.responseText);
 		}
 	});

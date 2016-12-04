@@ -31,6 +31,9 @@ $(document).ready(function() {
             dataType: "JSON",
             success: function(response){
                 loaduser(response);
+            },
+            error: function(xhr) {
+                alert("User: " + curUser + " has been removed.");
             }
        });
     }
@@ -71,6 +74,9 @@ $(document).ready(function() {
                     success: function(response){
                         console.log(response);
                         window.location.reload();
+                    },
+                    error: function(xhr) {
+                        alert(xhr.responseText);
                     }
                 }
             );
@@ -95,6 +101,9 @@ $(document).ready(function() {
                         <font class="style2" >' + response[i].userName
                                                         + '</font></a></li>');
                 }
+            },
+            error: function(xhr) {
+                alert(xhr.responseText);
             }
        });
 
@@ -116,6 +125,9 @@ $(document).ready(function() {
             ),
             success: function(response) {
                 window.location.reload();
+            },
+            error: function(xhr) {
+                alert(xhr.responseText);
             }
         });
     })
@@ -221,18 +233,18 @@ $(document).ready(function() {
     // }
 
     // delete user's posts
-    function delPost(user, id) {
-        $.getScript("./scripts/main.js", function() {
-            delPost(user, id);
-        });
-    }
-
-    // delete current login user's comment
-    function delComment(cId, pId, user) {
-        $.getScript("./scripts/main.js", function() {
-            delComment(comments, pId, user);
-        });
-    }
+    // function delPost(user, id) {
+    //     $.getScript("./scripts/main.js", function() {
+    //         delPost(user, id);
+    //     });
+    // }
+    //
+    // // delete current login user's comment
+    // function delComment(cId, pId, user) {
+    //     $.getScript("./scripts/main.js", function() {
+    //         delComment(comments, pId, user);
+    //     });
+    // }
 
 // get cookie
 function getCookie() {

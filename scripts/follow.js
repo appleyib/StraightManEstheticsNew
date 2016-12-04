@@ -32,6 +32,9 @@ $(document).ready(function() {
                 for (let item in fList) {
                     addUserProf(fList[item]);
                 }
+            },
+            error: function(xhr) {
+                alert(xhr.responseText);
             }
         });
     }
@@ -122,6 +125,9 @@ function unfollow(user) {
         data: JSON.stringify({ 'followTo': user, 'followFrom': userName }),
         success: function(response) {
             window.location.reload();
+        },
+        error: function(xhr) {
+            alert(xhr.responseText);
         }
     });
 }

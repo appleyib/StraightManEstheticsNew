@@ -70,8 +70,7 @@ $(document).ready(function() {
 				if (isadmin){ window.location = "./Admin.html"}
 			    else {window.location = "./CustomerIndex.html"};
             },
-            //error
-            error:function(xhr){
+            error:function(xhr) {
             	alert(xhr.responseText);
             }
 	    });
