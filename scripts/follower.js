@@ -14,12 +14,9 @@ if (userName == undefined) {
 }
 
 $(document).ready(function() {
-<<<<<<< HEAD
-    /* generate followed users' list on page*/
-=======
+
     // function to generate users who current user follows
     // username, date of birth,number of posts
->>>>>>> 25443f65faaefa36876f0f4eef4ce4a8804037fa
     function generateFollow(userName) {
         $.ajax({
             url: "/users?userName=" + userName,
@@ -108,11 +105,8 @@ function unfollow(user) {
     });
 }
 
-<<<<<<< HEAD
+
 //gets user information
-=======
-// get cookie
->>>>>>> 25443f65faaefa36876f0f4eef4ce4a8804037fa
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
@@ -134,11 +128,8 @@ function getCookie() {
     return result;
 }
 
-<<<<<<< HEAD
+
 // calls when quit button is called
-=======
-//logout
->>>>>>> 25443f65faaefa36876f0f4eef4ce4a8804037fa
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate() - 1);
