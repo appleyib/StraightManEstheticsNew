@@ -9,8 +9,6 @@ if (document.cookie !== undefined) {
 	result = getCookie();
 	userName = result[0];
 	isadmin = result[1];
-
-
 }
 
 $(document).ready(function(){

@@ -1,20 +1,21 @@
 // var date = new Date();
 // date.setDate(date.getDate() + 5);
 
-	var userName;
-	var isadmin;
-	var result;
-	$.getScript("./scripts/main.js", function() {
-		result = getCookie();
-		userName = result[0];
-		isadmin = result[1];
-	})
+var userName;
+var isadmin;
+var result;
+if (document.cookie !== undefined) {
+	console.log(document.cookie);
+	result = getCookie();
+	userName = result[0];
+	isadmin = result[1];
+}
 $(document).ready(function(){
 
 	$("#savebtn").click(function(){
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();
-        var gender = 
+        var gender =
         $("input[name='gender']:checked").val()
         console.log(gender);
         var introduction = $("#textfield5").val();
