@@ -89,19 +89,22 @@ In the profile page, an admin can edit anyone's personal information and passwor
 We successfully deploy the app on the heroku.
 
 
-We uses cookies to handle the front end data and the information can remain  between different views!
+We uses cookies to handle the front end data and the user information data can remain  between different views!
 
 
 We use mongodb to store all data and we put the database remotely in mLab and it can continuously run.
 
 
-For security, we will never put password to front end: all actions that involves password will be done in the back end.
+For security, we will never put password to front end: all actions that involves password will be done in the back end. There is no way to retrieve password from front end.
 
 
 Users can follow/unfollow each others.
 
 
-Users can comment on each other's posts.
+Users can ***comment*** and ***like*** each other's posts.
 
 
-We used Mocha Unit Test on backend node.js!
+We used Mocha to unit test the backend node.js!
+
+
+We spent some time to make a very user friendly UI and it is a really innovative one!
