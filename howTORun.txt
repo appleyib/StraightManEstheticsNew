@@ -6,3 +6,7 @@ mongod --dbpath=$PWD/data
 open another terminal
 terminal 2:
 mongoimport --db usersdb --collection users --type json --file testUsers.json --jsonArray --drop
+
+
+shock!!! surprising way to repopulating online database!!!!!
+mongoimport -h ds159767.mlab.com:59767 -d usersdb -c users -u treeHole -p treeHole --type json --file testUsers.json --jsonArray --drop

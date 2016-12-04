@@ -37,6 +37,6 @@ var userSchema = new Schema({
     collection: "users"
 })
 
-mongoose.connect("mongodb://localhost/usersdb");
+mongoose.connect("mongodb://treeHole:treeHole@ds159767.mlab.com:59767/usersdb");
 
 module.exports = mongoose.model('Users', userSchema);
