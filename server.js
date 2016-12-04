@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 app.get('/', function(req, res) {
-    res.sendfile('login.html');
+    res.sendFile('login.html');
 });
 
 app.get('/users', users.find);
