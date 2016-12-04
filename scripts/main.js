@@ -71,7 +71,8 @@ function addPost(post, userName, isadmin) {
 					</a>\
 				  </td>\
 				  <td width='380'>\
-					<a href='./setting.html?profileUser=" + user + "'>" + user + "</a>\
+					<a href='./setting.html?profileUser=" + user
+                                                        + "'>" + user + "</a>\
 					  <img src='images/1.gif' align='absmiddle' \
 					  style='border:none;' />&nbsp;" + str +
 				 "</td>\
