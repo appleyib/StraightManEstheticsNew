@@ -189,7 +189,7 @@ function addPost(post) {
 	// 	}
 	// }
 	var del = "";
-	if (user == userName) {
+	if (user == userName || isadmin == "true") {
 		del = "<a class='opState' onclick=\"delPost('" + user
 											+ "', " + id + ");\">Delete</a>";
 	}
