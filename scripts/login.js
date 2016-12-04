@@ -7,7 +7,7 @@ $(document).ready(function(){
 		$.getScript("./scripts/main.js", function() {
 			getCookie();
 		});
-		window.location = "./CustomerIndex.html";
+		// window.location = "./CustomerIndex.html";
 	}
 
 	$("#button").click(function(e){
@@ -27,17 +27,23 @@ $(document).ready(function(){
 				"password":password
 			}),
 	    	success:function(response){
-				$.getScript("./scripts/main.js", function() {
-					createCookie(username);
-				});
 				// var isadmin = response[1];
 				// $.getScript("./scripts/main.js", function() {
 				// 	createIsAdminCookie(response);
 				// });
 			// document.cookie = "curUser=" + username + ";expires="
 				// 								+ date.toUTCString();
-				if (response[1]) window.location = "./Admin.html";
-				else window.location = "./CustomerIndex.html";
+				if (response[1]) {
+					$.getScript("./scripts/main.js", function() {
+						createCookie(username, true);
+					}); 
+					window.location = "./Admin.html";
+				} else {
+					$.getScript("./scripts/main.js", function() {
+						createCookie(username, false);
+					});
+					window.location = "./CustomerIndex.html";
+				}
 	    		// window.location = "./CustomerIndex.html?username="+username;
             },
             error:function(xhr){
