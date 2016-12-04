@@ -129,7 +129,8 @@ $(document).ready(function() {
             $("#button").css('display', 'none');
             $("#nprow").css('display', 'none');
             $("#rprow").css('display', 'none');
-            $(':radio:not(:checked)').attr('disabled',true);
+            $('#malefield').attr('disabled',true);
+            $('#femalefield').attr('disabled',true);
             birthdayfield.prop("readonly",true);
             introductionfield.prop("readonly",true);
             passwordfield1.css('display', 'none');
@@ -169,7 +170,7 @@ $(document).ready(function() {
         }
         birthdayfield.val(user.birthday.substring(0,10));
         if (user.gender == 'male'){
-            $("#malefiled").prop("checked", true);
+            $("#malefield").prop("checked", true);
         }
         if (user.gender=='female'){
             $("#femalefield").prop("checked", true);
