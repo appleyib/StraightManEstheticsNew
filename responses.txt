@@ -132,7 +132,7 @@ Request body contains:
 	"userName":"",
 	"password":""
 }
-"Success"
+["Success", bool]
 "Error: ......"
 
 POST /newUser

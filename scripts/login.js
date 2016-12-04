@@ -3,7 +3,12 @@
 
 
 $(document).ready(function(){
-
+	if (document.cookie !== undefined) {
+		$.getScript("./scripts/main.js", function() {
+			getCookie();
+		});
+		window.location = "./CustomerIndex.html";
+	}
 
 	$("#button").click(function(){
         var username=$("#userId").val();
