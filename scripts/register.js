@@ -2,14 +2,13 @@
 // date.setDate(date.getDate() + 5);
 
 	var userName;
-	$.getScript("./scripts/main.js", function() {
-		userName = getCookie();
-	})
 	var isadmin;
+	var result;
 	$.getScript("./scripts/main.js", function() {
-		isadmin = getIsAdmin();
+		result = getCookie();
+		userName = result[0];
+		isadmin = result[1];
 	})
-	console.log(isadmin);
 $(document).ready(function(){
 
 	$("#savebtn").click(function(){

@@ -1,15 +1,28 @@
 // var date = new Date();
 // date.setDate(date.getDate() + 5);
-
+var userName;
+var isadmin;
+if (document.cookie !== undefined) {
+	var result;
+	$.getScript("./scripts/main.js", function() {
+		result = getCookie();
+		userName = result[0];
+		isadmin = result[1];
+	})
+	console.log(isadmin);
+	if (userName == undefined) {
+		window.location = "./login.html";
+	}
+	if (userName !== undefined) {
+		if (isadmin == "false") {
+			window.location = "./CustomerIndex.html";
+		} else {
+			window.location = "./Admin.html";
+		}
+	}
+}
 
 $(document).ready(function(){
-	if (document.cookie !== undefined) {
-		$.getScript("./scripts/main.js", function() {
-			getCookie();
-		});
-		// window.location = "./CustomerIndex.html";
-	}
-
 	$("#button").click(function(e){
 		e.preventDefault();
         var username=$("#userId").val();
@@ -36,7 +49,7 @@ $(document).ready(function(){
 				if (response[1]) {
 					$.getScript("./scripts/main.js", function() {
 						createCookie(username, true);
-					}); 
+					});
 					window.location = "./Admin.html";
 				} else {
 					$.getScript("./scripts/main.js", function() {

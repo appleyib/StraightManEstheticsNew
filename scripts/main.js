@@ -1,7 +1,8 @@
 
 
 
-function getCookie(userName, isadmin) {
+function getCookie() {
+    var result = [undefined, undefined];
     var name = "curUser=";
     var check = "isadmin=";
     var ca = document.cookie.split(";");
@@ -11,12 +12,13 @@ function getCookie(userName, isadmin) {
             cur = cur.substring(1);
         }
         if (cur.indexOf(name) == 0) {
-            userName = cur.substring(name.length, cur.length);
+            result[0] = cur.substring(name.length, cur.length);
         }
         if (cur.indexOf(check) == 0) {
-            isadmin = cur.substring(check.length, cur.length);
+            result[1] = cur.substring(check.length, cur.length);
         }
     }
+    return result;
 }
 
 // function getIsAdmin(){
@@ -32,7 +34,7 @@ function getCookie(userName, isadmin) {
 //             return cur.substring(name.length, cur.length);
 //         }
 //         return undefined;
-//     }   
+//     }
 // }
 
 // function createIsAdminCookie(isadmin){
@@ -45,5 +47,5 @@ function createCookie(username, isadmin) {
     var date = new Date();
     date.setDate(date.getDate() + 5);
     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-    
+
 }

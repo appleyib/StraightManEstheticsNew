@@ -3,9 +3,14 @@
 	var hfObj;
 	var srcUser;
 	var userName;
+	var isadmin;
+	var result;
 	$.getScript("./scripts/main.js", function() {
-		userName = getCookie();
+		result = getCookie();
+		userName = result[0];
+		isadmin = result[1];
 	})
+	console.log(isadmin);
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {

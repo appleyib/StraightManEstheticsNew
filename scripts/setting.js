@@ -1,4 +1,18 @@
-var userName=document.URL.split('?')[2].split("=")[1];;
+var user=document.URL.split('?')[2].split("=")[1];//we are on this user's page
+
+
+var userName;//current logged in user
+var isadmin;
+var result;
+$.getScript("./scripts/main.js", function() {
+    result = getCookie();
+    userName = result[0];
+    isadmin = result[1];
+})
+console.log(isadmin);
+if (userName == undefined) {
+    window.location = "./login.html";
+}
 
 $(document).ready(function() {
 	var birthdayfield = $("#textfield3");
@@ -44,7 +58,7 @@ $(document).ready(function() {
 	    });
         }
     });
-     
+
     $("#searchUser").click(function(e){
     	e.preventDefault();
         var keyword= $("#textfield1").val();
@@ -66,7 +80,7 @@ $(document).ready(function() {
 
     loadmain();
 
-    function loaduser(user) { 
+    function loaduser(user) {
     	var namefield=$("#nameField");
 	   	namefield.html(user.userName);
 	   	namefield = $("#textfield");

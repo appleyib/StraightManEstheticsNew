@@ -1,10 +1,18 @@
 
 var userName;
+var isadmin;
 
+
+var result;
 $.getScript("./scripts/main.js", function() {
-	userName = getCookie()
+    result = getCookie();
+    userName = result[0];
+    isadmin = result[1];
 })
-
+console.log(isadmin);
+if (userName == undefined) {
+    window.location = "./login.html";
+}
 
 $(document).ready(function() {
     // changeTrHeight();
