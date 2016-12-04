@@ -52,6 +52,7 @@ $(document).ready(function(){
 				} else {
 					$.getScript("./scripts/main.js", function() {
 						createCookie(username, false);
+						console.log(getCookie());
 					});
 					window.location = "./CustomerIndex.html";
 				}
