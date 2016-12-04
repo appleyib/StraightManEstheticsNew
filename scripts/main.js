@@ -24,8 +24,10 @@ function getCookie() {
 function createCookie(username, isadmin) {
     var date = new Date();
     date.setDate(date.getDate() + 5);
-    document.cookie = 'curUser=' + username + ";expires=" + date.toUTCString()+";path=/";
-    document.cookie = "isadmin=" + isadmin + ";expires=" + date.toUTCString()+";path=/";
+    document.cookie = 'curUser=' + username + ";expires="
+                                            + date.toUTCString() + ";path=/";
+    document.cookie = "isadmin=" + isadmin + ";expires="
+                                            + date.toUTCString() + ";path=/";
     console.log(isadmin);
 }
 

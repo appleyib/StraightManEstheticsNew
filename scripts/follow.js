@@ -9,7 +9,8 @@ var isadmin;
 var result;
 result = getCookie();
 userName = result[0];
-isadmin = (result[1]=="true");
+isadmin = result[1];
+// isadmin = (result[1]=="true");
 console.log(isadmin);
 
 // if userName undeined back to login page
@@ -18,7 +19,7 @@ if (userName == undefined) {
 }
 
 $(document).ready(function() {
-    
+
     /* generate followed users' list on page*/
     function generateFollow(userName) {
         $.ajax({
@@ -34,25 +35,28 @@ $(document).ready(function() {
             }
         });
     }
-    // load information of current requested user 
+    // load information of current requested user
     // date of birth, username, etc
     function load(user){
         // if corrent login user is admin
         // ignore profile button
         // click home will back to admin page
-        if (isadmin){
+        if (isadmin == "true"){
             $("#profile").css('display', 'none');
             $("#home").attr("href", "./Admin.html");
         }
-        $("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
+        $("#genderbodfield").html("&nbsp;" + user.gender + "&nbsp;"
+                                            + user.birthday.substring(0,10));
         $("#namefield").html(currentuserName);
-        // $("#namefield").attr("href", "./setting.html?=userName="+currentuserName);
+// $("#namefield").attr("href", "./setting.html?=userName="+currentuserName);
         $("#postnum").html(user.posts.length);
         $("#follownum").html(user.follow.length);
         $("#followernum").html(user.followers.length);
-        $("#profile").attr("href", "./setting.html?userName="+userName);
-        $("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
-        $("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
+        $("#profile").attr("href", "./setting.html?userName=" + userName);
+        $("#getfollow").attr("href", "./follow.html?userName="
+                                                            + currentuserName);
+        $("#getfollower").attr("href", "./follower.html?userName="
+                                                            + currentuserName);
     }
     //logout
     $("#quitBtn").click(function(e) {
@@ -102,7 +106,7 @@ $(document).ready(function() {
                 <br />\
                 <br />\
               </td>\
-            </tr>');            
+            </tr>');
         }
     }
 });

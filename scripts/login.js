@@ -43,7 +43,8 @@ $(document).ready(function(){
 				"password":password
 			}),
 	    	success:function(response){
-	    		//set cookie to store current login user name and whether it is admin
+	    	//set cookie to store current login user name and
+			// whether it is admin
 				if (response[1]) {
 					$.getScript("./scripts/main.js", function() {
 						createCookie(username, "true");
@@ -88,4 +89,3 @@ function getCookie() {
     }
     return result;
 }
-

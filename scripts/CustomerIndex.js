@@ -15,7 +15,8 @@ $(document).ready(function() {
     console.log(document.cookie);
     // no user information has been set
     if (userName == undefined) {
-        alert("You have not logged in or you are currently using firefox! Use Chrome to log in first!");
+        alert("You have not logged in or you are currently using firefox!\
+		 										Use Chrome to log in first!");
         window.location = "./login.html";
     }
 
@@ -53,9 +54,10 @@ $(document).ready(function() {
                 responseField.empty();
                 $("#people").empty();
                 for (let i = 0; i < response.length; i++) {
-                    responseField.append('<li><a href="./setting.html?userName=' +
-                        response[i].userName + '" class="a1">\
-                        <font class="style2" >' + response[i].userName + '</font></a></li>');
+                    responseField.append('<li><a href="./setting.html?userName='
+						+ response[i].userName + '" class="a1">\
+                   			<font class="style2" >'
+							+ response[i].userName + '</font></a></li>');
                 }
             }
         });
@@ -72,7 +74,8 @@ $(document).ready(function() {
 function loaduser(user) {
     // sets the link
     $("#nameField").attr("href", "./setting.html?userName=" + userName);
-    $("#genderbodfield").html("&nbsp;" + user.gender + "&nbsp;" + user.birthday.substring(0, 10));
+    $("#genderbodfield").html("&nbsp;" + user.gender + "&nbsp;"
+											+ user.birthday.substring(0, 10));
     $("#getfollow").attr("href", "./follow.html?userName=" + userName);
     $("#getfollower").attr("href", "./follower.html?userName=" + userName);
     var namefield = $("#nameField");
@@ -87,7 +90,9 @@ function loaduser(user) {
     followerNumField.html(user.followers.length);
     var followingField = $("#ul2");
     for (let i = 0; i < user.follow.length; i++) {
-        followingField.append('<a href="./setting.html?profileUser=' + user.follow[i] + '" class="a1"><li><font class="style2">' + user.follow[i] + '</font></li></a>');
+        followingField.append('<a href="./setting.html?profileUser='
+					+ user.follow[i] + '" class="a1"><li><font class="style2">'
+					+ user.follow[i] + '</font></li></a>');
     }
     // sort posts by post time
     var posts = user.postsOnPage.sort(function(a, b) {
@@ -132,10 +137,11 @@ function initDivHeight(divObj1, divObj2) {
 function changeDivHeight() {
     var mainBanner = document.getElementById("mainBanner");
     var mainRight = document.getElementById("mainRight");
-    initDivHeight(mainBanner, mainRight); //设置高度为自动
-    var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight; //获取高度高的值
-    mainBanner.style.height = height + "px"; //为他们的高度都赋高的那个值
-    mainRight.style.height = height + "px"; //
+    initDivHeight(mainBanner, mainRight); //set height as auto
+    var height = mainBanner.offsetHeight > mainRight.offsetHeight
+			? mainBanner.offsetHeight : mainRight.offsetHeight; //get height val
+    mainBanner.style.height = height + "px";
+    mainRight.style.height = height + "px";
 }
 
 // gets the cal number

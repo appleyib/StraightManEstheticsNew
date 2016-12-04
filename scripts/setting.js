@@ -90,9 +90,10 @@ $(document).ready(function() {
                 responseField.empty();
                 $("#people").empty();
                 for (let i = 0;i<response.length;i++){
-                    responseField.append('<li><a href="./setting.html?userName='+
-                        response[i].userName+'" class="a1">\
-                        <font class="style2" >'+response[i].userName+'</font></a></li>');
+                    responseField.append('<li><a href="./setting.html?userName='
+                        + response[i].userName+'" class="a1">\
+                        <font class="style2" >' + response[i].userName
+                                                        + '</font></a></li>');
                 }
             }
        });
@@ -107,7 +108,12 @@ $(document).ready(function() {
             type: "POST",
             dataType: "JSON",
             contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ 'followTo': curUser, 'followFrom': userName }),
+            data: JSON.stringify(
+                {
+                    'followTo': curUser,
+                    'followFrom': userName
+                }
+            ),
             success: function(response) {
                 window.location.reload();
             }
@@ -116,7 +122,7 @@ $(document).ready(function() {
     // helper function to load page by infomation of user
     function loaduser(user) {
         // only admin or user self can change profile
-        if (isadmin || curUser==userName){
+        if (isadmin == "true" || curUser==userName){
             $("#profile").attr("href", "./setting.html?userName="+userName);
             $("#getfollow").attr("href", "./follow.html?userName="+curUser);
             $("#getfollower").attr("href", "./follower.html?userName="+curUser);
@@ -144,7 +150,7 @@ $(document).ready(function() {
                 $("#followUserBtn").css("background", "#3cb0fd");}
         }
         // if current login user is admin
-        if (isadmin == true){
+        if (isadmin == "true"){
             // he will back to Admin.html when click  home
             $("#home").attr("href", "./Admin.html");
             // cannot search
@@ -164,10 +170,12 @@ $(document).ready(function() {
         var followerNumField = $("#followerNumField");
         followerNumField.html(user.followers.length);
         var followingField = $("#ul2");
-        $("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
-        for (let i = 0;i<user.follow.length;i++){
-            followingField.append('<a class="a1" href="./setting.html?userName='+user.follow[i]+
-                     '"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
+        $("#genderbodfield").html("&nbsp;" + user.gender + "&nbsp;"
+                                            + user.birthday.substring(0,10));
+        for (let i = 0;i < user.follow.length;i++){
+            followingField.append('<a class="a1" href="./setting.html?userName='
+                                + user.follow[i] +'"><li><font class="style2">'
+                                + user.follow[i] + '</font></li></a>');
         }
         birthdayfield.val(user.birthday.substring(0,10));
         if (user.gender == 'male'){
@@ -197,19 +205,20 @@ $(document).ready(function() {
 
 });
 
-    function initDivHeight(divObj1,divObj2) {
-        divObj1.style.height = "auto";
-        divObj2.style.height = "auto";
-    }
-
-    function changeDivHeight() {
-        var mainBanner = document.getElementById("mainBanner");
-        var mainRight = document.getElementById("mainRight");
-        initDivHeight(mainBanner,mainRight);
-        var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;
-        mainBanner.style.height = height + "px";
-        mainRight.style.height = height+ "px";//
-    }
+    // function initDivHeight(divObj1,divObj2) {
+    //     divObj1.style.height = "auto";
+    //     divObj2.style.height = "auto";
+    // }
+    //
+    // function changeDivHeight() {
+    //     var mainBanner = document.getElementById("mainBanner");
+    //     var mainRight = document.getElementById("mainRight");
+    //     initDivHeight(mainBanner,mainRight);
+    //     var height = mainBanner.offsetHeight > mainRight.offsetHeight
+    //                     ? mainBanner.offsetHeight : mainRight.offsetHeight;
+    //     mainBanner.style.height = height + "px";
+    //     mainRight.style.height = height+ "px";//
+    // }
 
     // delete user's posts
     function delPost(user, id) {
