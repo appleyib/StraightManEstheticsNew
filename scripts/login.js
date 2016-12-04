@@ -10,7 +10,8 @@ $(document).ready(function(){
 		window.location = "./CustomerIndex.html";
 	}
 
-	$("#button").click(function(){
+	$("#button").click(function(e){
+		e.preventDefault();
         var username=$("#userId").val();
         var password=$("#passWord").val();
         if (username=="" | password==""){
@@ -29,10 +30,10 @@ $(document).ready(function(){
 				$.getScript("./scripts/main.js", function() {
 					createCookie(username);
 				});
-				var isadmin = response[1];
-				$.getScript("./scripts/main.js", function() {
-					createIsAdminCookie(response);
-				});
+				// var isadmin = response[1];
+				// $.getScript("./scripts/main.js", function() {
+				// 	createIsAdminCookie(response);
+				// });
 			// document.cookie = "curUser=" + username + ";expires="
 				// 								+ date.toUTCString();
 				if (response[1]) window.location = "./Admin.html";
