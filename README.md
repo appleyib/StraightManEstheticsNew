@@ -86,13 +86,13 @@ In the profile page, an admin can edit anyone's personal information and passwor
 ***Creativity Additional Features:***
 
 
-We successfully deploy the app on the heroku.
+We successfully deployed the app on the heroku.
 
 
-We uses cookies to handle the front end data and the user data can remain  between different views until the user logs out!
+We used cookies to handle the front end data and the user data can remain  between different views until the user logs out!
 
 
-We use mongodb to store all data and we put the database remotely in mLab and it can continuously run.
+We used mongodb to store all data and we put the database remotely in mLab and it can continuously run.
 
 
 For security, we will never put password to front end: all actions that involves password will be done in the back end. There is no way to retrieve password from front end.
