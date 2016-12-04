@@ -14,6 +14,7 @@ if (userName == undefined) {
 }
 
 $(document).ready(function() {
+	var namefield = $("textfield");
 	var birthdayfield = $("#textfield3");
     var introductionfield = $("#textfield5");
     var malefiled = $("#malefiled");
@@ -31,8 +32,15 @@ $(document).ready(function() {
        });
     }
 
+    $("#home").click(function(){
+    	if (isadmin){
+    		window.location = "./Admin.html";
+    	}else {
+    		window.location = "./CustomerIndex.html";
+    	}
+    })
     $("#button").click(function(){
-    	var user = {"userName":cur,
+    	var user = {"userName":currentuserName,
                     "birthday":birthdayfield.val(),
                     "introduction":introductionfield.val(),
                     "gender":($('input[type=radio]:checked').val())};
@@ -80,10 +88,17 @@ $(document).ready(function() {
     loadmain();
 
     function loaduser(user) {
+    	if (isadmin || currentuserName==userName){
+    		$("#followUserBtn").css('display', 'none');
+    	}
+    	if (isadmin){
+    		$("#mainRightPostionFouthLine").css('display', 'none');
+    		$("#profile").css('display', 'none');
+    	}
     	var namefield=$("#nameField");
 	   	namefield.html(user.userName);
 	   	namefield = $("#textfield");
-	   	namefield.val(userName);
+	   	namefield.html(user.userName);
 	   	var postNumField = $("#postNumField");
 	   	postNumField.html(user.posts.length);
 	   	var followNumField = $("#followNumField");
