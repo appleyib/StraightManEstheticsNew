@@ -58,7 +58,7 @@ $(document).ready(function() {
         $("#tb1").append(
             '<tr>\
               <td height="105" align="center" valign="middle" class="td2">\
-                <img src="images/people1.gif" width="48" height="48" alt="" />\
+                <img src="images/icon.jpg" width="48" height="48" alt="" />\
               </td>\
               <td height="105" align="left" valign="bottom" class="td3">\
                 <font color="#005dc3" size="3">\
@@ -75,7 +75,7 @@ $(document).ready(function() {
         $("#tb1").append(
             '<tr>\
               <td height="105" align="center" valign="middle" class="td2">\
-                <img src="images/people1.gif" width="48" height="48" alt="" />\
+                <img src="images/icon.jpg" width="48" height="48" alt="" />\
               </td>\
               <td height="105" align="left" valign="bottom" class="td3">\
                 <font color="#005dc3" size="3">\

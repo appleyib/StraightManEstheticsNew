@@ -215,7 +215,7 @@ function addPost(userName, str, time, comments) {
 				<tr>\
 				  <td width='70' align='center' valign='top'>\
 					<a href='#'>\
-					 <img src='images/MainRightFirstLineTitle.gif' \
+					 <img src='images/icon.jpg' \
 					  alt='' width='48' height='48' />\
 					</a>\
 				  </td>\
