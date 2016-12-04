@@ -512,7 +512,7 @@ exports.login = function(req, res) {
         if (user._doc.password != req.body.password) {
             return res.status(400).json("Error: password is not correect");
         }
-        return res.json("Success")
+        return res.json(["Success",user.admin])
     })
 }
 
