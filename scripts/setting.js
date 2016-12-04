@@ -7,13 +7,13 @@
 	result = getCookie();
 	userName = result[0];
 	isadmin = result[1];
-console.log(isadmin);
-console.log(userName);
+	console.log(isadmin);
 if (userName == undefined) {
     window.location = "./login.html";
 }
 
 $(document).ready(function() {
+	var namefield = $("textfield");
 	var birthdayfield = $("#textfield3");
     var introductionfield = $("#textfield5");
     var malefiled = $("#malefiled");
@@ -31,6 +31,13 @@ $(document).ready(function() {
        });
     }
 
+    // $("#home").click(function(){
+    // 	if (isadmin){
+    // 		window.location = "./Admin.html";
+    // 	}else {
+    // 		window.location = "./CustomerIndex.html";
+    // 	}
+    // })
     $("#quitBtn").click(function(e) {
 		e.preventDefault();
 		var date = new Date();
@@ -41,7 +48,7 @@ $(document).ready(function() {
 	});
 
     $("#button").click(function(){
-    	var user = {"userName":cur,
+    	var user = {"userName":currentuserName,
                     "birthday":birthdayfield.val(),
                     "introduction":introductionfield.val(),
                     "gender":($('input[type=radio]:checked').val())};
@@ -89,10 +96,18 @@ $(document).ready(function() {
     loadmain();
 
     function loaduser(user) {
+    	if (isadmin || currentuserName==userName){
+    		$("#followUserBtn").css('display', 'none');
+    	}
+    	if (isadmin){
+    		$("#home").attr("href", "./Admin.html");
+    		$("#mainRightPostionFouthLine").css('display', 'none');
+    		$("#profile").css('display', 'none');
+    	}
     	var namefield=$("#nameField");
 	   	namefield.html(user.userName);
 	   	namefield = $("#textfield");
-	   	namefield.val(userName);
+	   	namefield.html(user.userName);
 	   	var postNumField = $("#postNumField");
 	   	postNumField.html(user.posts.length);
 	   	var followNumField = $("#followNumField");
