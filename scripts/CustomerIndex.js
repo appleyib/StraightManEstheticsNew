@@ -29,6 +29,7 @@ $(document).ready(function() {
 		var date = new Date();
 	    date.setDate(date.getDate() - 1);
 	    document.cookie = "curUser=;expires=" + date.toUTCString();
+	    document.cookie = "isadmin=;expires=" + date.toUTCString();
 		window.location = "./login.html";
 	});
 
@@ -152,6 +153,11 @@ function addPost(post) {
 	//
 	// 	}
 	// }
+	var del = "";
+	if (user == userName) {
+		del = "<a class='opState' onclick=\"delPost('" + user
+												+ "', " + id + ");\">Delete</a>";
+	}
 	var innerht =
 		"<div class='stateShow' name='" + id + "'>\
 		  <div class='stateShowWord'>\
@@ -180,12 +186,11 @@ function addPost(post) {
 		  "</div>\
 		  \
 		   <div class='stateOp'>\
-			<a class='opState' onclick='reply(this)'>Reply</a>\
-			<a class='opState'>like(0)</a>\
-			<!--<a class='opState' onclick='delState(this)'>Delete</a>-->\
+			<a class='opState' onclick='addComment();'>Reply</a>\
+			<a class='opState' onclick=''>like(0)</a>\
+			" + del + "\
 		   </div>\
-		  \
-		  <div class='comments' id='" + user + id + "'></div>\
+		  <div class='comments' id='" + "" + user + id + "'></div>\
 		</div>";
 		addComment(comments, id, user);
 		var divObj = document.getElementById("mainBannerContent");
@@ -194,7 +199,9 @@ function addPost(post) {
 }
 
 
-
+// function like() {
+//
+// }
 
 function addComment(comments, pId, user) {
 	var parent = $("#" + user + pId);
@@ -222,8 +229,10 @@ function addComment(comments, pId, user) {
 										+ "');\">Delete</a>\
 			   </div>\
 			 </div>";
-		 parent.append(text);
+		console.log("1");
+		 parent.innerHTML = text + parent.innerHTML;
 	}
+	console.log(parent);
 }
 
 
@@ -272,6 +281,7 @@ function getCookie() {
 
 function quitBtn() {
     var date = new Date();
-    date.setDate(date.getDate());
+    date.setDate(date.getDate() - 1);
     document.cookie = "curUser=;expires=" + date.toUTCString();
+    document.cookie = "isadmin=;expires=" + date.toUTCString();
 }

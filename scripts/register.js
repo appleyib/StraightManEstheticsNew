@@ -16,6 +16,7 @@ $(document).ready(function(){
 		var date = new Date();
 	    date.setDate(date.getDate() - 1);
 	    document.cookie = "curUser=;expires=" + date.toUTCString();
+	    document.cookie = "isadmin=;expires=" + date.toUTCString();
 		window.location = "./login.html";
 	});
 	$("#savebtn").click(function(){
@@ -90,6 +91,7 @@ function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate() - 1);
     document.cookie = "curUser=;expires=" + date.toUTCString();
+    document.cookie = "isadmin=;expires=" + date.toUTCString();
 }
 // function createCookie(username, isadmin) {
 //     var date = new Date();
