@@ -27,7 +27,7 @@ Open terminal and execute following command:
 npm test
 
 
-Project
+***Project***
 
 
 We plan to design a social network application to provide a platform for people who desire to public their ideas anonymously and discuss the ideas with other users. The purpose of this application is provide a chance to public some dissimliar thoughts without facing the risk of continuous attack from other users. Our main target users is the morden youngers who prefer to communicate with others through texts rather than face-to-face or telephone also the people who would like to try some new social networks.
