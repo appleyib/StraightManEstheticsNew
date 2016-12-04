@@ -9,10 +9,7 @@ if (document.cookie !== undefined) {
 		userName = result[0];
 		isadmin = result[1];
 	})
-	console.log(isadmin);
-	if (userName == undefined) {
-		window.location = "./login.html";
-	}
+	console.log(userName);
 	if (userName !== undefined) {
 		if (isadmin == "false") {
 			window.location = "./CustomerIndex.html";

@@ -10,7 +10,7 @@
 		userName = result[0];
 		isadmin = result[1];
 	})
-	console.log(isadmin);
+	console.log(result);
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
