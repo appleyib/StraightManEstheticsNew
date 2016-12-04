@@ -23,7 +23,6 @@ $(document).ready(function() {
             dataType: "JSON",
             success: function(user) {
                 var fList = user.follow;
-                console.log(user);
                 for (let item in fList) {
                     addUserProf(fList[item]);
                 }

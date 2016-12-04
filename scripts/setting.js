@@ -1,12 +1,13 @@
- var currentuserName=document.URL.split('?')[1].split("=")[1];//we are on this user's page
+//we are on this user's page
+var curUser = document.URL.split('?')[1].split("=")[1];
 
 
-	var userName;
-	var isadmin;
-	var result;
-	result = getCookie();
-	userName = result[0];
-	isadmin = (result[1] == "true");
+var userName;
+var isadmin;
+var result;
+result = getCookie();
+userName = result[0];
+isadmin = (result[1] == "true");
 if (userName == undefined) {
     window.location = "./login.html";
 }
@@ -21,10 +22,10 @@ $(document).ready(function() {
 
 	function loadmain() {
  		$.ajax({
-            url:'/users?userName='+currentuserName,
-	 	    type:"GET",
-	  	    dataType:"JSON",
-	    	success:function(response){
+            url: '/users?userName=' + curUser,
+	 	    type: "GET",
+	  	    dataType: "JSON",
+	    	success: function(response){
 	    		loaduser(response);
 		    }
        });
@@ -47,29 +48,34 @@ $(document).ready(function() {
 	});
 
     $("#button").click(function(){
-    	var user = {"userName":currentuserName,
-                    "birthday":birthdayfield.val(),
-                    "introduction":introductionfield.val(),
-                    "gender":($('input[type=radio]:checked').val())};
+    	var user = {
+            "userName": curUser,
+            "birthday": birthdayfield.val(),
+            "introduction": introductionfield.val(),
+            "gender": ($('input[type=radio]:checked').val())
+        };
         console.log(passwordfield1.val());
         console.log(passwordfield2.val());
-        if (passwordfield2.val()==passwordfield1.val() && passwordfield1.val()!=""){
-            user["password"]=passwordfield1.val();
+        if (passwordfield2.val() == passwordfield1.val()
+                                                && passwordfield1.val() != ""){
+            user["password"] = passwordfield1.val();
         }
-        if (passwordfield2.val()!=passwordfield1.val()){
+        if (passwordfield2.val() != passwordfield1.val()){
             alert("two password do not match!");
         }else{
-    	$.ajax({
-	        url:"/user",
-	        type:"POST",
-	        dataType:"json",
-	    	contentType:"application/json; charset=utf-8",
-	    	data:JSON.stringify(user),
-	    	success:function(response){
-	    		console.log(response);
-				window.location.reload();
-            }
-	    });
+        	$.ajax(
+                {
+        	        url: "/user",
+        	        type: "POST",
+        	        dataType: "JSON",
+        	    	contentType: "application/json; charset=utf-8",
+        	    	data: JSON.stringify(user),
+        	    	success: function(response){
+        	    		console.log(response);
+        				window.location.reload();
+                    }
+        	    }
+            );
         }
     });
 
@@ -95,7 +101,7 @@ $(document).ready(function() {
     loadmain();
 
     function loaduser(user) {
-    	if (isadmin || currentuserName==userName){
+    	if (isadmin || curUser==userName){
     		$("#followUserBtn").css('display', 'none');
     	}
     	if (isadmin=="true"){
@@ -120,7 +126,7 @@ $(document).ready(function() {
 		}
 		birthdayfield.val(user.birthday.substring(0,10));
         if (user.gender == 'male'){
-        	malefiled.prop("checked", true);
+        	$("#malefiled").prop("checked", true);
         }
 		if (user.gender=='female'){
 		    $("#femalefield").prop("checked", true);
@@ -139,14 +145,13 @@ $(document).ready(function() {
 			});
 			// add post to page
 			for(let i=0;i< posts.length;i++) {
-				addPost(posts[i].userName,
-						posts[i].content,
-						new Date(posts[i].time),
-						posts[i].comment);
+                $.getScript("./scripts/main.js", function() {
+    				addPost(posts[i], userName);
+    			});
 			}
     }
 
-})
+});
 
 	function initDivHeight(divObj1,divObj2) {
 		divObj1.style.height = "auto";
@@ -162,55 +167,40 @@ $(document).ready(function() {
 		mainRight.style.height = height+ "px";//
 	}
 
-function addPost(userName, str, time, comments) {
-	var text;
-	if (comments == []) {
-		text = "";
-	} else {
-		for (let item in comments) {
-			console.log(comments[item]);
+    function submitComment(user, id) {
+    	$.getScript("./scripts/main.js", function() {
+    		submitComment(user, id, userName);
+    	});
+    }
 
-		}
-	}
-	var innerht =
-		"<div class='stateShow' >\
-		  <div class='stateShowWord'>\
-			<table width='450' border='0' cellpadding='0' \
-				cellspacing='0' class='stateTable'>\
-				<tr>\
-				  <td width='70' align='center' valign='top'>\
-					<a href='#'>\
-					 <img src='images/MainRightFirstLineTitle.gif' \
-					  alt='' width='48' height='48' />\
-					</a>\
-				  </td>\
-				  <td width='380'>\
-					<a href='#'>" + userName + "</a>\
-					  <img src='images/1.gif' align='absmiddle' \
-					  style='border:none;' />&nbsp;" + str +
-				 "</td>\
-				</tr>\
-			 </table>\
-		   </div>\
-		   \
-		   <div class='stateImgShow'>\
-		   </div>\
-		   \
-		   <div class='stateShowtime'>" + time +
-		  "</div>\
-		  \
-		   <div class='stateOp'>\
-			<a class='opState' onclick='reply(this)'>Reply</a>\
-			<a class='opState'>like(0)</a>\
-			<a class='opState' onclick='delState(this)'>Delete</a>\
-		   </div>\
-		  \
-		  <div class='comments'></div>\
-		</div>";
-		var divObj = document.getElementById("mainBannerContent");
-		divObj.innerHTML = innerht + divObj.innerHTML;
-		changeDivHeight();
-}
+
+
+    function likePost(user, id) {
+    	$.getScript("./scripts/main.js", function() {
+    		likePost(user, id, userName);
+    	});
+    }
+
+    function delPost(user, id) {
+    	$.getScript("./scripts/main.js", function() {
+    		delPost(user, id);
+    	});
+    }
+
+    function addComment(comments, pId, user) {
+    	$.getScript("./scripts/main.js", function() {
+    		addComment(comments, pId, user, userName);
+    	});
+    }
+
+
+
+
+    function delComment(cId, pId, user) {
+    	$.getScript("./scripts/main.js", function() {
+    		delComment(comments, pId, user);
+    	});
+    }
 
 
 function getCookie() {
