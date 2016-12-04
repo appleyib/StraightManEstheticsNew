@@ -51,6 +51,7 @@ $(document).ready(function() {
     generateFollow(currentuserName);
 
     function addUserProf(user) {
+        if (currentuserName==userName){
         $("#tb1").append(
             '<tr>\
               <td height="105" align="center" valign="middle" class="td2">\
@@ -58,7 +59,7 @@ $(document).ready(function() {
               </td>\
               <td height="105" align="left" valign="bottom" class="td3">\
                 <font color="#005dc3" size="3">\
-                  <a>'  + user + '</a>\
+                  <a href="./setting.html?userName='+user+'">'  + user + '</a>\
                 </font>\
                 <img src="images/1.gif" width="17" height="15" alt="" />\
                 <br />\
@@ -67,8 +68,24 @@ $(document).ready(function() {
                                                     '\')">Unfollow</button>\
               </td>\
             </tr>');
-
+        }else{
+        $("#tb1").append(
+            '<tr>\
+              <td height="105" align="center" valign="middle" class="td2">\
+                <img src="images/people1.gif" width="48" height="48" alt="" />\
+              </td>\
+              <td height="105" align="left" valign="bottom" class="td3">\
+                <font color="#005dc3" size="3">\
+                  <a href="./setting.html?userName='+user+'">'  + user + '</a>\
+                </font>\
+                <img src="images/1.gif" width="17" height="15" alt="" />\
+                <br />\
+                <br />\
+              </td>\
+            </tr>');            
+        }
     }
+
 
 
 });
