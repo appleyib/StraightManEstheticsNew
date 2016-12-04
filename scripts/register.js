@@ -14,7 +14,9 @@ $(document).ready(function(){
 	$("#savebtn").click(function(){
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();
-        var gender = $("#genderfield").val();
+        var gender = 
+        $("input[name='gender']:checked").val()
+        console.log(gender);
         var introduction = $("#textfield5").val();
         var password1 = $("#textfield2").val();
         var password2 = $("#textfield3").val();
@@ -38,12 +40,11 @@ $(document).ready(function(){
 			}),
 	    	success:function(response){
 	    		console.log(response);
-				// document.cookie = "curUser=" + username + ";expires="
-				// 										+ date.toUTCString();
 				$.getScript("./scripts/main.js", function() {
 					createCookie(username);
 				});
-				window.location = "./CustomerIndex.html";
+				if (isadmin){ window.location = "./Admin.html"}
+			    else {window.location = "./CustomerIndex.html"};
 	    		// window.location = "./CustomerIndex.html?username="+username;
             },
             error:function(xhr){

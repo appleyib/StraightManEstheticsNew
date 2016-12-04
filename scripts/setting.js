@@ -1,15 +1,16 @@
-var user=document.URL.split('?')[2].split("=")[1];//we are on this user's page
+ var currentuserName=document.URL.split('?')[1].split("=")[1];//we are on this user's page
 
 
-var userName;//current logged in user
-var isadmin;
-var result;
-$.getScript("./scripts/main.js", function() {
-    result = getCookie();
-    userName = result[0];
-    isadmin = result[1];
-})
+	var userName;
+	var isadmin;
+	var result;
+	$.getScript("./scripts/main.js", function() {
+		result = getCookie();
+		userName = result[0];
+		isadmin = result[1];
+	})
 console.log(isadmin);
+console.log(userName);
 if (userName == undefined) {
     window.location = "./login.html";
 }
@@ -23,7 +24,7 @@ $(document).ready(function() {
 
 	function loadmain() {
  		$.ajax({
-            url:'/users?userName='+userName,
+            url:'/users?userName='+currentuserName,
 	 	    type:"GET",
 	  	    dataType:"JSON",
 	    	success:function(response){
@@ -33,7 +34,7 @@ $(document).ready(function() {
     }
 
     $("#button").click(function(){
-    	var user = {"userName":userName,
+    	var user = {"userName":currentuserName,
                     "birthday":birthdayfield.val(),
                     "introduction":introductionfield.val(),
                     "gender":($('input[type=radio]:checked').val())};

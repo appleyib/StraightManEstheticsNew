@@ -9,7 +9,6 @@ if (document.cookie !== undefined) {
 		userName = result[0];
 		isadmin = result[1];
 	})
-	console.log(userName);
 	if (userName !== undefined) {
 		if (isadmin == "false") {
 			window.location = "./CustomerIndex.html";

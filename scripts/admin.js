@@ -64,6 +64,10 @@ $(document).ready(function(){
 
     });
 
+    $("#home").click(function(){
+        
+        window.location="./Admin.html";
+    })
     $("#addUserBtn").click(function(e){
         e.preventDefault();
         console.log("kk");
@@ -72,7 +76,6 @@ $(document).ready(function(){
 
 })
     function remove(username){
-    	console.log(username);
          $.ajax({
             url: "/deleteUser?userName="+username,
             type: "DELETE",
@@ -86,4 +89,7 @@ $(document).ready(function(){
             }
         });
 
+    }
+    function edit(username){
+         window.location="./setting.html?username="+username;
     }
