@@ -22,7 +22,6 @@ $(document).ready(function() {
     	e.preventDefault();
     	console.log("keke");
 		window.location = "./setting.html?loginuser=" + userName;
-    	// window.location = "./setting.html?loginuser="+userName+"?currentuser="+userName;
     });
 
 	$("#quitBtn").click(function(e) {
