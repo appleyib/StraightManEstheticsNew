@@ -224,7 +224,6 @@ function addPost(post) {
 		   \
 		   <div class='stateShowtime'>" + time +
 		  "</div>\
-		  \
 		   <div class='stateOp'>\
 			<!--<a class='opState' onclick='addComment();'>Reply</a>-->\
 			<a class='opState' " + likeText + "</a>\
@@ -242,6 +241,7 @@ function addPost(post) {
   				</div>\
   			  </div>\
   			  </div>\
+			  </div>\
 		  <div class='comments' id='" + "" + user + id + "'></div>\
 		</div>";
 		var divObj = document.getElementById("mainBannerContent");
