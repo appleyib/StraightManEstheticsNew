@@ -1,3 +1,4 @@
+var currentuserName=document.URL.split('?')[1].split("=")[1];//we are on this user's page
 
 var userName;
 var isadmin;
@@ -22,6 +23,7 @@ $(document).ready(function() {
             type: "GET",
             dataType: "JSON",
             success: function(user) {
+                load(user);
                 var fList = user.follow;
                 console.log(user);
                 for (let item in fList) {
@@ -29,6 +31,13 @@ $(document).ready(function() {
                 }
             }
         });
+    }
+    function load(user){
+        $("#namefield").html(currentuserName);
+        $("#postnum").html(user.posts.length);
+        $("#follownum").html(user.follow.length);
+        $("#followernum").html(user.followers.length);
+        $("#profile").attr("href", "./setting.html?userName="+userName);
     }
     $("#quitBtn").click(function(e) {
 		e.preventDefault();
@@ -39,25 +48,7 @@ $(document).ready(function() {
 		window.location = "./login.html";
 	});
 
-    generateFollow(userName);
-
-
-    // function changeTrHeight() {
-    //     var mainBanner = document.getElementById("mainBanner");
-    //     var mainRight = document.getElementById("mainRight");
-    //     initTrHeight(mainBanner,mainRight);//设置高度为自动
-    //     var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
-    //     mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
-    //     mainRight.style.height = height+ "px";//
-    // }
-    //
-    //
-    // function initTrHeight(divObj1,divObj2) {
-    //     divObj1.style.height = "auto";
-    //     divObj2.style.height = "auto";
-    // }
-
-
+    generateFollow(currentuserName);
 
     function addUserProf(user) {
         $("#tb1").append(
