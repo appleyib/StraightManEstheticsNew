@@ -1,26 +1,5 @@
 
 
-
-// function getCookie() {
-//     var result = [undefined, undefined];
-//     var name = "curUser=";
-//     var check = "isadmin=";
-//     var ca = document.cookie.split(";");
-//     for (let i = 0; i < ca.length; i++) {
-//         let cur = ca[i];
-//         while (cur.charAt(0) == ' ') {
-//             cur = cur.substring(1);
-//         }
-//         if (cur.indexOf(name) == 0) {
-//             result[0] = cur.substring(name.length, cur.length);
-//         }
-//         if (cur.indexOf(check) == 0) {
-//             result[1] = cur.substring(check.length, cur.length);
-//         }
-//     }
-//     return result;
-// }
-
 /* Create document cookie with curUser: username,
  * isadmin: a string containing true or false
  * Cookie expires current date added by 5
@@ -45,6 +24,9 @@ function quitBtn() {
     document.cookie = "isadmin=;expires=" + date.toUTCString();
 }
 
+/*
+ * Call addPost for each Post in posts
+ */
 function addPosts(posts, userName, isadmin) {
     for(let i=0;i< posts.length;i++) {
         addPost(posts[i], userName, isadmin);
@@ -61,17 +43,23 @@ function addPost(post, userName, isadmin) {
 	like = post.likes;
 	var likeText = "";
 	var del = "";
+
+    // current User can delete the Post if it was posted by userName or
+    // current User is an admin
 	if (user == userName || isadmin == "true") {
 		del = "<a class='opState' onclick=\"delPost('" + user
 						+ "', " + id + ", '" + userName + "');\">Delete</a>";
 	}
-    console.log(like);
+
+    // current User can like the post if they have not liked it
 	if (like.indexOf(userName) <= -1) {
 		likeText = "onclick=\"likePost('" + user + "', " + id
                     + ", '" + userName + "');\">like(" + like.length + ")";
 	} else {
+        // cannot unlike
 		likeText = ">liked(" + like.length + ")";
 	}
+
 	var innerht =
 		"<div class='stateShow' id='" + "post" + user + id + "'>\
 		  <div class='stateShowWord'>\
@@ -100,7 +88,6 @@ function addPost(post, userName, isadmin) {
 		   <div class='stateShowtime'>" + time +
 		  "</div>\
 		   <div class='stateOp'>\
-			<!--<a class='opState' onclick='addComment();'>Reply</a>-->\
 			<a class='opState' " + likeText + "</a>\
 			" + del + "<br>\
 			<div style='float:right;'>You can enter&nbsp;<font id='counter"
@@ -126,12 +113,18 @@ function addPost(post, userName, isadmin) {
 			  </div>\
 		  <div class='comments' id='" + "" + user + id + "'></div>\
 		</div>";
+        // add Post
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
-		addComment(comments, id, user, userName);
+        // add comment to the Post
+		addComment(comments, id, user, userName, isadmin);
 		changeDivHeight();
 }
 
+/*
+ * Calculate the remaining number of character you can enter in the textbox
+ * and display it on the page
+ */
 function calNum(txtobj,divobj,fg) {
 	var text = txtobj.value;
 	var n = 140;
@@ -145,7 +138,12 @@ function calNum(txtobj,divobj,fg) {
 	divobj.innerHTML = n ;
 }
 
+/*
+ * Submit the reply by user: userName to the Post by user: user of post id: id
+ * Got the text in the textbox in that Post.
+ */
 function submitComment(user, id, userName) {
+    // get the text in the corresponding comment textfield
 	var textfield = document.getElementById("reply" + user + id);
 	var text = textfield.value;
 	if (text.length > 0) {
@@ -169,6 +167,7 @@ function submitComment(user, id, userName) {
 						"content": text,
 					}
 				];
+                // add comment to the corresponding Post
 				addComment(comment, id, user, userName);
 				window.location.reload();
 			},
@@ -179,6 +178,11 @@ function submitComment(user, id, userName) {
 	}
 }
 
+/*
+ * Onclick function
+ * like the Post posted by user: user, of Post id: id, liked by user: userName
+ *
+ */
 function likePost(user, id, userName) {
 	$.ajax({
 		url: "/like",
@@ -199,7 +203,9 @@ function likePost(user, id, userName) {
 	});
 }
 
-// delete user's posts
+/*
+ * delete user's Post with user: user, Post id: id
+ */
 function delPost(user, id) {
 	var urlD = "/deletePost?userName=" + user + "&postId=" +  id;
 	$.ajax({
@@ -216,13 +222,19 @@ function delPost(user, id) {
 	});
 }
 
-
-function addComment(comments, pId, user, userName) {
+/*
+ * Add all the comments: comments, to the Post with id: pId, and user: user,
+ * commented by user: userName
+ */
+function addComment(comments, pId, user, userName, isadmin) {
+    // get the comment div under correspoding post
 	var parent = $("#" + user + pId);
 	for (let item in comments) {
 		let comment = comments[item];
 		let delComment = "";
-		if (isadmin == true || comment.userName == userName) {
+        // You will be able to delete the comment if you are a admin
+        // or the commenter
+		if (isadmin == "true" || comment.userName == userName) {
 			delComment = "<a class='opComment' onclick=\"delComment("
 								+ comment.id + ", " + pId +  ", '" + user
 								+ "', '" + userName + "');\">Delete</a>"
@@ -254,7 +266,10 @@ function addComment(comments, pId, user, userName) {
 
 
 
-// delete current login user's comment
+/*
+ * Onclick method
+ * Delete comment under the Post with user: user, Post id: pId, comment id: cId
+ */
 function delComment(cId, pId, user) {
 	var urlD = "/deleteComment?userName=" + user + "&postId=" + pId
 														+ "&commentId=" + cId;

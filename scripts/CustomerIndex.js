@@ -189,20 +189,7 @@ function submitState() {
 
 
 
-// calls when user wants to delete a post
-// function delPost(user, id) {
-//     $.getScript("./scripts/main.js", function() {
-//         delPost(user, id);
-//     });
-// }
 
-
-// calls when user wants to delete a comment
-// function delComment(cId, pId, user) {
-//     $.getScript("./scripts/main.js", function() {
-//         delComment(comments, pId, user);
-//     });
-// }
 
 // gets cookie(current user information)
 function getCookie() {

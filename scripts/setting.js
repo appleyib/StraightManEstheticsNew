@@ -232,19 +232,6 @@ $(document).ready(function() {
         mainRight.style.height = height+ "px";//
     }
 
-    // delete user's posts
-    // function delPost(user, id) {
-    //     $.getScript("./scripts/main.js", function() {
-    //         delPost(user, id);
-    //     });
-    // }
-    //
-    // // delete current login user's comment
-    // function delComment(cId, pId, user) {
-    //     $.getScript("./scripts/main.js", function() {
-    //         delComment(comments, pId, user);
-    //     });
-    // }
 
 // get cookie
 function getCookie() {
