@@ -87,11 +87,13 @@ $(document).ready(function() {
 	 	    type:"GET",
 	  	    dataType:"JSON",
 	    	success:function(response){
-	    		console.log(response);
 	    		var responseField = $("#ul2");
 	    		responseField.empty();
+	    		$("#people").empty();
 	    		for (let i = 0;i<response.length;i++){
-					responseField.append('<a href="#" class="a1"><li><font class="style2">'+response[i].userName+'</font></li></a>');
+					responseField.append('<li><a href="./setting.html?userName='+
+						response[i].userName+'" class="a1">\
+						<font class="style2" >'+response[i].userName+'</font></a></li>');
 				}
 		    }
        });
@@ -100,11 +102,47 @@ $(document).ready(function() {
 
     loadmain();
 
+	$("#followUserBtn").click(function() {
+    	$.ajax({
+        	url: '/follow',
+        	type: "POST",
+        	dataType: "JSON",
+        	contentType: "application/json; charset=utf-8",
+        	data: JSON.stringify({ 'followTo': currentuserName, 'followFrom': userName }),
+        	success: function(response) {
+            	window.location.reload();
+        	}
+    	});
+	})
+
     function loaduser(user) {
+<<<<<<< HEAD
     	if (isadmin || curUser==userName){
+=======
+    	$("#profile").attr("href", "./setting.html?userName="+userName);
+    	$("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
+    	$("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
+    	if (isadmin || currentuserName==userName){
+>>>>>>> 2a3ee15e9dc4a5a794beff026df75b757a8ac764
     		$("#followUserBtn").css('display', 'none');
     	}
-    	if (isadmin=="true"){
+    	else{
+    		$("#button").css('display', 'none');
+    		$("#nprow").css('display', 'none');
+    		$("#rprow").css('display', 'none');
+    		$(':radio:not(:checked)').attr('disabled',true);
+			birthdayfield.prop("readonly",true);
+    		introductionfield.prop("readonly",true);
+   		    passwordfield1.css('display', 'none');
+            passwordfield2.css('display', 'none');
+            if (user.followers.indexOf(userName)!=-1){
+            	$("#followUserBtn").html("unfollow");
+            	$("#followUserBtn").css("background", "grey");
+            }else{
+            	$("#followUserBtn").html("follow");
+            	$("#followUserBtn").css("background", "#3cb0fd");}
+    	}
+    	if (isadmin == true){
     		$("#home").attr("href", "./Admin.html");
     		$("#mainRightPostionFouthLine").css('display', 'none');
     		$("#profile").css('display', 'none');
@@ -122,7 +160,8 @@ $(document).ready(function() {
 		var followingField = $("#ul2");
 		$("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
 		for (let i = 0;i<user.follow.length;i++){
-			followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
+			followingField.append('<a href="./setting.html?username='+
+				                   user.follow[i]+'" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
 		}
 		birthdayfield.val(user.birthday.substring(0,10));
         if (user.gender == 'male'){

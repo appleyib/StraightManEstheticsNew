@@ -22,7 +22,7 @@
         <div id="topWordMenu">
           <ul>
               <li><a href="CustomerIndex.html">Home</a></li>
-                <li><a href="MyWB.html">Profile</a></li>
+                <li><a href="MyWB.html" id="profile">Profile</a></li>
                 <li><a href="index.html" id="quitBtn">Quit</a></li>
             </ul>
         </div>
@@ -47,23 +47,8 @@
 
       </tr>
       <tr>
-        <td height="47" align="center" valign="middle" bgcolor="#e3f1fa" class="td1 font1">Search</td>
-        <td height="47" align="left" valign="middle" bgcolor="#e3f1fa" class="td4 font1">
-        <form id="form2" name="form2" method="post" action="">
-        <div id="search">
-          <input type="text" name="textfield2" id="textfield2" />
-          <img src="images/sousuo1.gif" alt="" width="27" height="25" align="absmiddle" />
-        </div>
-        </form></td>
-      </tr>
-      <tr>
-        <td height="105" align="center" valign="middle" class="td2"><img src="images/icon.jpg" width="48" height="48" alt="" /></td>
-        <td height="105" align="left"  class="td3"><font color="#005dc3" size="3"><a>Miss.Greentea</a></font>
-        <img src="images/1.gif" width="17" height="15" alt="" />
-        <br /><font color="#000000" size="2">Female</font>
-        <br /><font color="#000000" size="2">Just be friends</font>
-
-       
+        <td height="47" align="center" valign="middle" bgcolor="#e3f1fa" class="td1 font1"></td>
+        <td height="47" align="left" valign="middle" bgcolor="#e3f1fa" class="td4 font1"></td>
       </tr>
       
     </table>
@@ -86,7 +71,7 @@
                             <!-- mainRightPostionFirstLineIcon DIV  ended -->
                             <!-- mainRightPostionFirstLineWord1 DIV started -->
                             <div id="mainRightPostionFirstLineWord1">
-                            &nbsp;<font color="#005DC3" ><b><a href="MyWB.html" class="a1">Sam</a></b></font><br />
+                            &nbsp;<font color="#005DC3" ><b><a id="namefield" class="a1" ></a></b></font><br />
                             &nbsp;Male<br />1996-01-01
                             </div>
                             </div>
@@ -94,9 +79,9 @@
                           <!-- mainRightPostionFirstLineWord2 DIV started -->
                           <div id="mainRightPostionFirstLineWord2">
                                 <ul>
-                                  <a href="MyWB.html" class="a1"><li><font class="style1">2</font><br /><font class="style2">Post</font></li></a>
-                      <a href="friend.html" class="a1"><li><font class="style1">12</font><br /><font class="style2">Follow</font></li></a>
-                      <a href="focusonyou.html" class="a1"><li><font class="style1">23</font><br /><font class="style2">Follower</font></li></a>
+                                  <a href="MyWB.html" class="a1"><li><font class="style1" id="postnum"></font><br /><font class="style2">Post</font></li></a>
+                      <a href="friend.html" class="a1"><li><font class="style1" id="follownum"></font><br /><font class="style2">Follow</font></li></a>
+                      <a href="focusonyou.html" class="a1"><li><font class="style1" id="followernum"></font><br /><font class="style2">Follower</font></li></a>
                                 </ul>
                            </div>
                            <!-- mainRightPostionFirstLineWord2 DIV  ended -->
@@ -110,21 +95,6 @@
                     <td>
                         <!-- mainRightPostionFourthLine DIV started -->
                         <div id="mainRightPostionFouthLine">
-                          <!-- mainRightPositionThirdLineContent DIV  ended -->
-                          <div id="mainRightPositionFourthLineContent">
-                            <form action="" method="get">
-                              <input type="text" name="textfield" id="textfield1" placeholder="Search Users" />
-                              <a href="#"><img src="images/search.gif" alt="" width="27" height="25" align="middle" title="" border="0"/></a>
-                            </form>
-                            <a href="#" onclick="" class="a1"><font class="style4">People You May Know</font>
-                            <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a>
-                            <ul id="ul2" style="line-height:25px;">
-                              <a href="#" class="a1"><li><font class="style2">Tom</font></li></a>
-                                <a href="#" class="a1"><li><font class="style2">Marry</font></li></a>
-
-                            </ul>
-                            </div>
-                            <!-- mainRightPositionThirdLineContent DIV  ended -->
                         </div>
                         <!-- mainRightPostionFoutrhLine DIV  ended -->
                     </td>
@@ -159,5 +129,5 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="scripts/follow.js" ></script>
+<script src="scripts/follower.js" ></script>
 </html>
