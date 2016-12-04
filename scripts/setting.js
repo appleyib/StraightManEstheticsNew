@@ -118,8 +118,8 @@ $(document).ready(function() {
     function loaduser(user) {
     	if (isadmin || curUser==userName){
         	$("#profile").attr("href", "./setting.html?userName="+userName);
-        	$("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
-        	$("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
+        	$("#getfollow").attr("href", "./follow.html?userName="+curUser);
+        	$("#getfollower").attr("href", "./follower.html?userName="+curUser);
 
     		$("#followUserBtn").css('display', 'none');
     	}

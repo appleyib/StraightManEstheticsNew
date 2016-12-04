@@ -12,7 +12,9 @@ isadmin = result[1];
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
+	console.log(document.cookie);
 	if (userName == undefined) {
+		alert("You have not logged in!");
 		window.location = "./login.html";
 	}
 
@@ -100,16 +102,9 @@ function changeDivHeight() {
 }
 
 function calNum(txtobj,divobj,fg) {
-	var text = txtobj.value;
-	var n = 140;
-	n = n - Math.floor(text.length);// calculation
-	if(n<0){
-		// set backgroundColor to red if exceed chars
-		divobj.style.color = "#969";
-	}else{
-		divobj.style.color = "#000";
-	}
-	divobj.innerHTML = n ;
+	$.getScript("./scripts/main.js", function() {
+		calNum(txtobj,divobj,fg);
+	});
 }
 
 function submitState() {
