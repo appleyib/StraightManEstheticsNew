@@ -33,6 +33,26 @@ $(document).ready(function() {
 		window.location = "./login.html";
 	});
 
+    $("#searchUser").click(function(e){
+        e.preventDefault();
+        var keyword= $("#textfield1").val();
+        $.ajax({
+            url:'/users?searchName='+keyword,
+            type:"GET",
+            dataType:"JSON",
+            success:function(response){
+                var responseField = $("#ul2");
+                responseField.empty();
+                $("#people").empty();
+                for (let i = 0;i<response.length;i++){
+                    responseField.append('<li><a href="./setting.html?userName='+
+                        response[i].userName+'" class="a1">\
+                        <font class="style2" >'+response[i].userName+'</font></a></li>');
+                }
+            }
+       });
+
+    });
 	changeDivHeight();
 	loadmain();
 });
@@ -41,6 +61,10 @@ $(document).ready(function() {
 
 
 function loaduser(user) {
+	    $("#nameField").attr("href", "./setting.html?userName="+userName);
+	    $("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
+        $("#getfollow").attr("href", "./follow.html?userName="+userName);
+        $("#getfollower").attr("href", "./follower.html?userName="+userName);
 		var namefield=$("#nameField");
 		namefield.html(user.userName);
 		var postNumField = $("#postNumField");

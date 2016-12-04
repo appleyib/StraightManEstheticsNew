@@ -111,17 +111,17 @@
                             <!-- mainRightPostionFirstLineIcon DIV  ended -->
                             <!-- mainRightPostionFirstLineWord1 DIV started -->
                             <div id="mainRightPostionFirstLineWord1">
-                            &nbsp;<font color="#005DC3" ><b><a href="MyWB.html" id="nameField" class="a1"></a></b></font>
-
+                            &nbsp;<font color="#005DC3" ><b><a id="nameField" class="a1"></a></b></font>
+                            <font id = "genderbodfield">&nbsp;Male<br />1996-01-01</font>
                             </div>
                             </div>
                             <!-- mainRightPostionFirstLineWord1 DIV  ended -->
                         	<!-- mainRightPostionFirstLineWord2 DIV started -->
                           <div id="mainRightPostionFirstLineWord2">
                                 <ul>
-                                	<a href="MyWB.html"  class="a1"><li><font class="style1" id = "postNumField"></font><br /><font class="style2">Post</font></li></a>
-   								    <a href="friend.html" class="a1"><li><font class="style1" id = "followNumField"></font><br /><font class="style2">Follow</font></li></a>
-   								    <a href="focusonyou.html" class="a1"><li><font class="style1" id = "followerNumField"></font><br /><font class="style2">Follower</font></li></a>
+                                	<b class="a1"><li><font class="style1" id = "postNumField"></font><br /><font class="style2">Post</font></li></b>
+   								    <a id="getfollow" class="a1"><li><font class="style1" id = "followNumField"></font><br /><font class="style2">Follow</font></li></a>
+   								    <a id="getfollower" class="a1"><li><font class="style1" id = "followerNumField"></font><br /><font class="style2">Follower</font></li></a>
                                 </ul>
                            </div>
                            <!-- mainRightPostionFirstLineWord2 DIV  ended -->
@@ -134,13 +134,15 @@
                     <td>
                         <!-- mainRightPostionFourthLine DIV started -->
                         <div id="mainRightPostionFouthLine">
-                        	<!-- mainRightPositionThirdLineContent DIV  ended -->
-                        	<div id="mainRightPositionFourthLineContent">
-                            <!-- <form action="" method="get"> -->
-                              <input type="text" name="textfield" id="textfield1"/>
-                              <a href="#"><img src="images/search.gif" alt="" width="27" height="25" align="middle" title="" border="0"/></a>
-                            <!-- </form> -->
-                            <a href="#" onclick="" class="a1"><font class="style4">Following</font>
+                          <!-- mainRightPositionThirdLineContent DIV  ended -->
+                          <div id="mainRightPositionFourthLineContent">
+                            <form action="" method="get">
+                              <input type="text" name="textfield" id="textfield1" placeholder="Search Users" />
+
+                              <input type="image" id="searchUser" src="images/search.gif" alt="" width="27" height="25" align="middle" title="" border="0"/>
+
+                            </form>
+                            <a class="a1"><font class="style4" id = "people">People You May Know</font>
                             <img src="images/ThirdLineUpArrow.gif" alt="" width="12" height="14" align="right" title="" border="0"/></a>
                             <ul id="ul2" style="line-height:25px;">
 
