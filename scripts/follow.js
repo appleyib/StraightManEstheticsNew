@@ -1,3 +1,4 @@
+var currentuserName=document.URL.split('?')[1].split("=")[1];//we are on this user's page
 
 var userName;
 var isadmin;
@@ -6,7 +7,7 @@ var isadmin;
 var result;
 result = getCookie();
 userName = result[0];
-isadmin = result[1];
+isadmin = (result[1]=="true");
 console.log(isadmin);
 
 if (userName == undefined) {
@@ -22,13 +23,24 @@ $(document).ready(function() {
             type: "GET",
             dataType: "JSON",
             success: function(user) {
+                load(user);
                 var fList = user.follow;
-                console.log(user);
                 for (let item in fList) {
                     addUserProf(fList[item]);
                 }
             }
         });
+    }
+    function load(user){
+        if (isadmin){
+            $("#profile").css('display', 'none');
+            $("#home").attr("href", "./Admin.html");
+        }
+        $("#namefield").html(currentuserName);
+        $("#postnum").html(user.posts.length);
+        $("#follownum").html(user.follow.length);
+        $("#followernum").html(user.followers.length);
+        $("#profile").attr("href", "./setting.html?userName="+userName);
     }
     $("#quitBtn").click(function(e) {
 		e.preventDefault();
@@ -39,27 +51,10 @@ $(document).ready(function() {
 		window.location = "./login.html";
 	});
 
-    generateFollow(userName);
-
-
-    // function changeTrHeight() {
-    //     var mainBanner = document.getElementById("mainBanner");
-    //     var mainRight = document.getElementById("mainRight");
-    //     initTrHeight(mainBanner,mainRight);//设置高度为自动
-    //     var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
-    //     mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
-    //     mainRight.style.height = height+ "px";//
-    // }
-    //
-    //
-    // function initTrHeight(divObj1,divObj2) {
-    //     divObj1.style.height = "auto";
-    //     divObj2.style.height = "auto";
-    // }
-
-
+    generateFollow(currentuserName);
 
     function addUserProf(user) {
+        if (currentuserName==userName){
         $("#tb1").append(
             '<tr>\
               <td height="105" align="center" valign="middle" class="td2">\
@@ -67,7 +62,7 @@ $(document).ready(function() {
               </td>\
               <td height="105" align="left" valign="bottom" class="td3">\
                 <font color="#005dc3" size="3">\
-                  <a>'  + user + '</a>\
+                  <a href="./setting.html?userName='+user+'">'  + user + '</a>\
                 </font>\
                 <img src="images/1.gif" width="17" height="15" alt="" />\
                 <br />\
@@ -76,8 +71,24 @@ $(document).ready(function() {
                                                     '\')">Unfollow</button>\
               </td>\
             </tr>');
-
+        }else{
+        $("#tb1").append(
+            '<tr>\
+              <td height="105" align="center" valign="middle" class="td2">\
+                <img src="images/people1.gif" width="48" height="48" alt="" />\
+              </td>\
+              <td height="105" align="left" valign="bottom" class="td3">\
+                <font color="#005dc3" size="3">\
+                  <a href="./setting.html?userName='+user+'">'  + user + '</a>\
+                </font>\
+                <img src="images/1.gif" width="17" height="15" alt="" />\
+                <br />\
+                <br />\
+              </td>\
+            </tr>');            
+        }
     }
+
 
 
 });
