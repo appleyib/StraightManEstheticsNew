@@ -40,13 +40,13 @@ $(document).ready(function(){
 	    	success:function(response){
 				if (response[1]) {
 					$.getScript("./scripts/main.js", function() {
-						createCookie(username, true);
+						createCookie(username, "true");
 					});
 					window.location = "./Admin.html";
 				} else {
 					$.getScript("./scripts/main.js", function() {
-						createCookie(username, false);
-						console.log(getCookie());
+						createCookie(username, "false");
+						// alert("customer");
 					});
 					window.location = "./CustomerIndex.html";
 				}

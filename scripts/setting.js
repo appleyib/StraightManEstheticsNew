@@ -120,7 +120,6 @@ $(document).ready(function() {
             $("#profile").attr("href", "./setting.html?userName="+userName);
             $("#getfollow").attr("href", "./follow.html?userName="+curUser);
             $("#getfollower").attr("href", "./follower.html?userName="+curUser);
-
             $("#followUserBtn").css('display', 'none');
         }
         else{
