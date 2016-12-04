@@ -195,10 +195,6 @@ function addComment(comments, pId, user) {
 								cellspacing='0' class='commentTable'>\
 				<tr>\
 				  <td width='70' align='center' valign='top'>\
-					<a href='#'>\
-					 <img src='images/MainRightFirstLineTitle.gif' \
-					  alt='' width='48' height='48' />\
-					</a>\
 				  </td>\
 				  <td width='380'>\
 					<a href='#'>" + comment.userName + "</a>\
