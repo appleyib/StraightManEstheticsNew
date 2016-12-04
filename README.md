@@ -38,7 +38,7 @@ Our main data will be user's profile and posts, since the relationship between t
 
 
 
-Features of the application:
+***Features of the application:***
 
 When login, app will check whether the user is an admin or not.
 
