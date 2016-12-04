@@ -9,10 +9,11 @@ var result;
 result = getCookie();
 userName = result[0];
 isadmin = result[1];
+console.log(isadmin);
+console.log(userName);
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
-	console.log(userName);
 	if (userName == undefined) {
 		window.location = "./login.html";
 	}

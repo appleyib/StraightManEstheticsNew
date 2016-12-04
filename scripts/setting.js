@@ -7,8 +7,7 @@
 	result = getCookie();
 	userName = result[0];
 	isadmin = result[1];
-console.log(isadmin);
-console.log(userName);
+	console.log(isadmin);
 if (userName == undefined) {
     window.location = "./login.html";
 }
