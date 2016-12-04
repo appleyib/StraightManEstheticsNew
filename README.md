@@ -89,7 +89,7 @@ In the profile page, an admin can edit anyone's personal information and passwor
 We successfully deploy the app on the heroku.
 
 
-We uses cookies to handle the front end data and the user information data can remain  between different views!
+We uses cookies to handle the front end data and the user data can remain  between different views until the user logs out!
 
 
 We use mongodb to store all data and we put the database remotely in mLab and it can continuously run.
