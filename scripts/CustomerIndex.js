@@ -12,7 +12,9 @@ isadmin = result[1];
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
+	console.log(document.cookie);
 	if (userName == undefined) {
+		alert("You have not logged in!");
 		window.location = "./login.html";
 	}
 
