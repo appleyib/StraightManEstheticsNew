@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
 
     $("#button").click(function(){
-    	var user = {"userName":currentuserName,
+    	var user = {"userName":cur,
                     "birthday":birthdayfield.val(),
                     "introduction":introductionfield.val(),
                     "gender":($('input[type=radio]:checked').val())};
