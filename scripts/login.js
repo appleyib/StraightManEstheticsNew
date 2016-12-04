@@ -1,5 +1,5 @@
-// var date = new Date();
-// date.setDate(date.getDate() + 5);
+// get current log in user's name
+// and whether it is admin
 var userName;
 var isadmin;
 var result;
@@ -12,8 +12,8 @@ if (document.cookie !== undefined) {
 }
 
 $(document).ready(function(){
-
-	console.log(userName);
+    // if user already login
+    // go to mainpage
 	if (userName !== undefined) {
 		if (isadmin == "false") {
 			window.location = "./CustomerIndex.html";
@@ -22,11 +22,14 @@ $(document).ready(function(){
 		}
 	}
 
+
 	// when login button is clicked
 	$("#button").click(function(e){
 		e.preventDefault();
+		//get username and password
         var username=$("#userId").val();
         var password=$("#passWord").val();
+        //alert
         if (username=="" | password==""){
         	alert("username or password cannot be empty");
         }else{
@@ -40,6 +43,7 @@ $(document).ready(function(){
 				"password":password
 			}),
 	    	success:function(response){
+	    		//set cookie to store current login user name and whether it is admin
 				if (response[1]) {
 					$.getScript("./scripts/main.js", function() {
 						createCookie(username, "true");
@@ -48,12 +52,11 @@ $(document).ready(function(){
 				} else {
 					$.getScript("./scripts/main.js", function() {
 						createCookie(username, "false");
-						// alert("customer");
 					});
 					window.location = "./CustomerIndex.html";
 				}
-	    		// window.location = "./CustomerIndex.html?username="+username;
             },
+            //error
             error:function(xhr){
             	alert(xhr.responseText);
             }
@@ -65,6 +68,7 @@ $(document).ready(function(){
 
 })
 
+//get cookie
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
@@ -85,9 +89,3 @@ function getCookie() {
     return result;
 }
 
-// function createCookie(username, isadmin) {
-//     var date = new Date();
-//     date.setDate(date.getDate() + 5);
-//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-//
-// }
