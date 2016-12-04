@@ -1,6 +1,5 @@
 
 if (document.cookie !== undefined) {
-	console.log(document.cookie);
 	result = getCookie();
 	userName = result[0];
 	isadmin = result[1];
@@ -51,7 +50,6 @@ $(document).ready(function(){
     		type:"DELETE",
     		dataType:"JSON",
     		success:function(response){
-    			console.log(response);
     			window.location.reload();
     		},
 		    error:function(xhr){

@@ -24,7 +24,8 @@ $(document).ready(function() {
             dataType: "JSON",
             success: function(user) {
                 load(user);
-                var fList = user.follow;
+                var fList = user.followers;
+                console.log(user);
                 for (let item in fList) {
                     addUserProf(fList[item]);
                 }
@@ -54,7 +55,6 @@ $(document).ready(function() {
     generateFollow(currentuserName);
 
     function addUserProf(user) {
-        if (currentuserName==userName){
         $("#tb1").append(
             '<tr>\
               <td height="105" align="center" valign="middle" class="td2">\
@@ -67,28 +67,10 @@ $(document).ready(function() {
                 <img src="images/1.gif" width="17" height="15" alt="" />\
                 <br />\
                 <br />\
-                <button class="focus1" onclick="unfollow(\'' + user +
-                                                    '\')">Unfollow</button>\
-              </td>\
+               </td>\
             </tr>');
-        }else{
-        $("#tb1").append(
-            '<tr>\
-              <td height="105" align="center" valign="middle" class="td2">\
-                <img src="images/icon.jpg" width="48" height="48" alt="" />\
-              </td>\
-              <td height="105" align="left" valign="bottom" class="td3">\
-                <font color="#005dc3" size="3">\
-                  <a href="./setting.html?userName='+user+'">'  + user + '</a>\
-                </font>\
-                <img src="images/1.gif" width="17" height="15" alt="" />\
-                <br />\
-                <br />\
-              </td>\
-            </tr>');            
-        }
-    }
 
+    }
 
 
 });
