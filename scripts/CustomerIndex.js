@@ -238,7 +238,7 @@ function addPost(post) {
   			  </div>\
   			  <div id='mainBannerTopIssueSure'>\
   				<div id='mainBannerTopIssueSure2'>\
-  				  <input type='button' id='button" + user + id + "' value='Reply' style='background-color:#3295E6; border:none' onclick='submitComment(" + user + ", " + id + ")' />\
+  				  <input type='button' id='button" + user + id + "' value='Reply' style='background-color:#3295E6; border:none' onclick=\"submitComment('" + user + "', " + id + ")\" />\
   				</div>\
   			  </div>\
   			  </div>\
