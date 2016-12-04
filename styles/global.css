@@ -8,7 +8,7 @@
 	height:auto;
 	margin:0px auto;
 	margin-top: 50px;
-	position: fixed;
+	position: absolute;
   	left: 0;
   	right: 0;
   	z-index: 9999;
@@ -110,12 +110,16 @@
 
 
 /* global */
+html{
+	zoom: 110%;
+}
 body{
 	font-size:12px;
 	font-family:Comic Sans MS, Times, Monospace;
 	margin:0px;
 	padding:0px;
-	zoom: 120%;
+	
+
 	/*background-image:url(../images/bg.jpg);
 	background-color:#C1E6F5;
 	background-repeat:repeat-x;*/
@@ -166,6 +170,7 @@ a:hover{
   background-repeat: no-repeat;
   width: 1920px;
   height: 1080px;
+  overflow: hidden;
 
   -webkit-filter: blur(13px);
   -moz-filter: blur(13px);
