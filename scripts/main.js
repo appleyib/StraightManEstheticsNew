@@ -38,7 +38,7 @@ function quitBtn() {
 
 
 /* helper function to add post*/
-function addPost(post, userName) {
+function addPost(post, userName, isadmin) {
 	user = post.userName;
 	str = post.content;
 	time = new Date(post.time);
@@ -65,7 +65,7 @@ function addPost(post, userName) {
 				cellspacing='0' class='stateTable'>\
 				<tr>\
 				  <td width='70' align='center' valign='top'>\
-					<a href='./setting?profileUser=" + user + "'>\
+					<a href='./setting.html?profileUser=" + user + "'>\
 					 <img src='images/icon.jpg' \
 					  alt='' width='48' height='48' />\
 					</a>\
@@ -104,7 +104,7 @@ function addPost(post, userName) {
   				  <input type='button' id='button" + user + id
 				  			+ "' value='Reply' style='background-color:#3295E6;\
 						      border:none' onclick=\"submitComment('" + user
-							  + "', " + id + ")\" />\
+							  + "', " + id + ", '" + userName + "')\" />\
   				</div>\
   			  </div>\
   			  </div>\
@@ -113,7 +113,7 @@ function addPost(post, userName) {
 		</div>";
 		var divObj = document.getElementById("mainBannerContent");
 		divObj.innerHTML = innerht + divObj.innerHTML;
-		addComment(comments, id, user);
+		addComment(comments, id, user, userName);
 		changeDivHeight();
 }
 
@@ -142,7 +142,7 @@ function submitComment(user, id, userName) {
 						"content": text,
 					}
 				];
-				addComment(comment, id, user);
+				addComment(comment, id, user, userName);
 				window.location.reload();
 			},
 			error: function(xhr){
@@ -162,6 +162,7 @@ function likePost(user, id, userName) {
 		url: "/like",
 		type: "POST",
 		dataType: "JSON",
+        contentType:"application/json; charset=utf-8",
 		data: JSON.stringify({
 			"userName": user,
 			"userNameLiked": userName,
@@ -201,7 +202,7 @@ function addComment(comments, pId, user, userName) {
 		if (isadmin == true || comment.userName == userName) {
 			delComment = "<a class='opComment' onclick=\"delComment("
 								+ comment.id + ", " + pId +  ", '" + user
-								+ "');\">Delete</a>"
+								+ "', '" + userName + "');\">Delete</a>"
 		}
 		var text =
 			"<div class='stateComments' id='" + "" + user + pId
@@ -212,7 +213,7 @@ function addComment(comments, pId, user, userName) {
 				  <td width='70' align='center' valign='top'>\
 				  </td>\
 				  <td width='380'>\
-					<a href='./setting?profileUser=" + comment.userName
+					<a href='./setting.html?profileUser=" + comment.userName
                                             + "'>" + comment.userName + "</a>\
 					  <img src='images/1.gif' align='absmiddle' \
 					  style='border:none;' />&nbsp;" + comment.content +

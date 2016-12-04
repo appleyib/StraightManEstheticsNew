@@ -108,7 +108,7 @@ $(document).ready(function() {
         	type: "POST",
         	dataType: "JSON",
         	contentType: "application/json; charset=utf-8",
-        	data: JSON.stringify({ 'followTo': currentuserName, 'followFrom': userName }),
+        	data: JSON.stringify({ 'followTo': curUser, 'followFrom': userName }),
         	success: function(response) {
             	window.location.reload();
         	}
@@ -116,14 +116,11 @@ $(document).ready(function() {
 	})
 
     function loaduser(user) {
-<<<<<<< HEAD
     	if (isadmin || curUser==userName){
-=======
-    	$("#profile").attr("href", "./setting.html?userName="+userName);
-    	$("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
-    	$("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
-    	if (isadmin || currentuserName==userName){
->>>>>>> 2a3ee15e9dc4a5a794beff026df75b757a8ac764
+        	$("#profile").attr("href", "./setting.html?userName="+userName);
+        	$("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
+        	$("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
+
     		$("#followUserBtn").css('display', 'none');
     	}
     	else{
@@ -185,7 +182,7 @@ $(document).ready(function() {
 			// add post to page
 			for(let i=0;i< posts.length;i++) {
                 $.getScript("./scripts/main.js", function() {
-    				addPost(posts[i], userName);
+    				addPost(posts[i], userName, isadmin);
     			});
 			}
     }
@@ -206,19 +203,19 @@ $(document).ready(function() {
 		mainRight.style.height = height+ "px";//
 	}
 
-    function submitComment(user, id) {
-    	$.getScript("./scripts/main.js", function() {
-    		submitComment(user, id, userName);
-    	});
-    }
+    // function submitComment(user, id) {
+    // 	$.getScript("./scripts/main.js", function() {
+    // 		submitComment(user, id, userName);
+    // 	});
+    // }
 
 
 
-    function likePost(user, id) {
-    	$.getScript("./scripts/main.js", function() {
-    		likePost(user, id, userName);
-    	});
-    }
+    // function likePost(user, id) {
+    // 	$.getScript("./scripts/main.js", function() {
+    // 		likePost(user, id, userName);
+    // 	});
+    // }
 
     function delPost(user, id) {
     	$.getScript("./scripts/main.js", function() {
@@ -226,11 +223,11 @@ $(document).ready(function() {
     	});
     }
 
-    function addComment(comments, pId, user) {
-    	$.getScript("./scripts/main.js", function() {
-    		addComment(comments, pId, user, userName);
-    	});
-    }
+    // function addComment(comments, pId, user) {
+    // 	$.getScript("./scripts/main.js", function() {
+    // 		addComment(comments, pId, user, userName);
+    // 	});
+    // }
 
 
 

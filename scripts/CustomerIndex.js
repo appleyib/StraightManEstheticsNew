@@ -67,7 +67,7 @@ function loaduser(user) {
 		// add post to page
 		for(let i=0;i< posts.length;i++) {
 			$.getScript("./scripts/main.js", function() {
-				addPost(posts[i], userName);
+				addPost(posts[i], userName, isadmin);
 			});
 		}
 
@@ -140,11 +140,11 @@ function submitState() {
     }
 }
 
-function submitComment(user, id) {
-	$.getScript("./scripts/main.js", function() {
-		submitComment(user, id, userName);
-	});
-}
+// function submitComment(user, id) {
+// 	$.getScript("./scripts/main.js", function() {
+// 		submitComment(user, id, userName);
+// 	});
+// }
 
 
 
@@ -161,11 +161,11 @@ function delPost(user, id) {
 	});
 }
 
-function addComment(comments, pId, user) {
-	$.getScript("./scripts/main.js", function() {
-		addComment(comments, pId, user, userName);
-	});
-}
+// function addComment(comments, pId, user) {
+// 	$.getScript("./scripts/main.js", function() {
+// 		addComment(comments, pId, user, userName);
+// 	});
+// }
 
 
 
