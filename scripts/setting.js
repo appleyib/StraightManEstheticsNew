@@ -6,8 +6,7 @@
 	var result;
 	result = getCookie();
 	userName = result[0];
-	isadmin = result[1];
-	console.log(isadmin);
+	isadmin = (result[1] == "true");
 if (userName == undefined) {
     window.location = "./login.html";
 }
@@ -99,7 +98,7 @@ $(document).ready(function() {
     	if (isadmin || currentuserName==userName){
     		$("#followUserBtn").css('display', 'none');
     	}
-    	if (isadmin){
+    	if (isadmin=="true"){
     		$("#home").attr("href", "./Admin.html");
     		$("#mainRightPostionFouthLine").css('display', 'none');
     		$("#profile").css('display', 'none');
