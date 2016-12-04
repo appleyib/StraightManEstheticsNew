@@ -118,6 +118,18 @@ function addPost(post, userName, isadmin) {
 		changeDivHeight();
 }
 
+function calNum(txtobj,divobj,fg) {
+	var text = txtobj.value;
+	var n = 140;
+	n = n - Math.floor(text.length);// calculation
+	if(n<0){
+		// set backgroundColor to red if exceed chars
+		divobj.style.color = "#969";
+	}else{
+		divobj.style.color = "#000";
+	}
+	divobj.innerHTML = n ;
+}
 
 function submitComment(user, id, userName) {
 	var textfield = document.getElementById("reply" + user + id);
