@@ -9,8 +9,6 @@ if (document.cookie !== undefined) {
 	result = getCookie();
 	userName = result[0];
 	isadmin = result[1];
-
-
 }
 
 $(document).ready(function(){
@@ -90,9 +88,9 @@ function getCookie() {
     return result;
 }
 
-function createCookie(username, isadmin) {
-    var date = new Date();
-    date.setDate(date.getDate() + 5);
-    document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-
-}
+// function createCookie(username, isadmin) {
+//     var date = new Date();
+//     date.setDate(date.getDate() + 5);
+//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
+//
+// }

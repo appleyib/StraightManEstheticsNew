@@ -1,20 +1,22 @@
 // var date = new Date();
 // date.setDate(date.getDate() + 5);
 
-	var userName;
-	var isadmin;
-	var result;
-	$.getScript("./scripts/main.js", function() {
-		result = getCookie();
-		userName = result[0];
-		isadmin = result[1];
-	})
+var userName;
+var isadmin;
+var result;
+if (document.cookie !== undefined) {
+	console.log(document.cookie);
+	result = getCookie();
+	userName = result[0];
+	isadmin = result[1];
+}
 $(document).ready(function(){
 
 	$("#savebtn").click(function(){
+		quitBtn();
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();
-        var gender = 
+        var gender =
         $("input[name='gender']:checked").val()
         console.log(gender);
         var introduction = $("#textfield5").val();
@@ -39,11 +41,11 @@ $(document).ready(function(){
 				"password":password1
 			}),
 	    	success:function(response){
-	    		if (!isadmin){
-					$.getScript("./scripts/main.js", function() {
-						createCookie(username);
-					});
-				}
+	    		console.log(response);
+				quitBtn();
+				$.getScript("./scripts/main.js", function() {
+					createCookie(username);
+				});
 				if (isadmin){ window.location = "./Admin.html"}
 			    else {window.location = "./CustomerIndex.html"};
 	    		// window.location = "./CustomerIndex.html?username="+username;
@@ -58,6 +60,7 @@ $(document).ready(function(){
 
 
 })
+
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
@@ -78,9 +81,12 @@ function getCookie() {
     return result;
 }
 
-function createCookie(username, isadmin) {
-    var date = new Date();
-    date.setDate(date.getDate() + 5);
-    document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-
+function quitBtn() {
+    $.cookie("userid", "", -1);
 }
+// function createCookie(username, isadmin) {
+//     var date = new Date();
+//     date.setDate(date.getDate() + 5);
+//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
+//
+// }
