@@ -298,6 +298,12 @@ function addComment(comments, pId, user) {
 	var parent = $("#" + user + pId);
 	for (let item in comments) {
 		let comment = comments[item];
+		let delComment = "";
+		if (isadmin == true || comment.userName == userName) {
+			delComment = "<a class='opComment' onclick=\"delComment("
+								+ comment.id + ", " + pId +  ", '" + user
+								+ "');\">Delete</a>"
+		}
 		var text =
 			"<div class='stateComments' id='" + "" + user + pId
 															+ comment.id + "'>\
@@ -315,9 +321,7 @@ function addComment(comments, pId, user) {
 			  </table>\
 			  \
 			   <div class='stateOp'>\
-				<a class='opComment' onclick=\"delComment(" + comment.id
-										+ ", " + pId +  ", '" + user
-										+ "');\">Delete</a>\
+				" + delComment + "\
 			   </div>\
 			 </div>";
 		parent.append(text);
