@@ -62,12 +62,14 @@ $(document).ready(function() {
 			}),
             // if success, go to the main page of new user
 	    	success:function(response){
-	    		console.log(response);
-				quitBtn();
-				$.getScript("./scripts/main.js", function() {
-					createCookie(username);
-				});
-				if (isadmin){ window.location = "./Admin.html"}
+				if (isadmin != "true") {
+					quitBtn();
+					$.getScript("./scripts/main.js", function() {
+						createCookie(username);
+					});
+				}
+
+				if (isadmin == "true"){ window.location = "./Admin.html"}
 			    else {window.location = "./CustomerIndex.html"};
             },
             error:function(xhr) {
