@@ -8,7 +8,8 @@ var isadmin;
 var result;
 result = getCookie();
 userName = result[0];
-isadmin = (result[1] == "true");
+// isadmin = (result[1] == "true");
+isadmin = result[1];
 // if current user is not log in
 // back to login page
 if (userName == undefined) {
