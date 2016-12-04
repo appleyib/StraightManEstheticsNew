@@ -51,7 +51,8 @@ $(document).ready(function() {
         $("#genderbodfield").html("&nbsp;" + user.gender + "&nbsp;"
                                             + user.birthday.substring(0,10));
         $("#namefield").html(currentuserName);
-// $("#namefield").attr("href", "./setting.html?=userName="+currentuserName);
+        $("#namefield").attr("href", "./setting.html?userName="
+                                                            + currentuserName);
         $("#postnum").html(user.posts.length);
         $("#follownum").html(user.follow.length);
         $("#followernum").html(user.followers.length);
@@ -60,6 +61,7 @@ $(document).ready(function() {
                                                             + currentuserName);
         $("#getfollower").attr("href", "./follower.html?userName="
                                                             + currentuserName);
+
     }
     //logout
     $("#quitBtn").click(function(e) {
@@ -103,7 +105,8 @@ $(document).ready(function() {
               </td>\
               <td height="105" align="left" valign="bottom" class="td3">\
                 <font color="#005dc3" size="3">\
-                  <a href="./setting.html?userName='+user+'">'  + user + '</a>\
+                  <a href="./setting.html?userName=' + user + '">'
+                                                                + user + '</a>\
                 </font>\
                 <img src="images/1.gif" width="17" height="15" alt="" />\
                 <br />\

@@ -32,7 +32,7 @@ $(document).ready(function() {
             }
         });
     }
-    
+
     // load information of current requested user
     // username, date of birth,number of posts
     function load(user){
@@ -45,7 +45,7 @@ $(document).ready(function() {
         }
         $("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
         $("#namefield").html(currentuserName);
-        // $("#namefield").attr("href", "./setting.html?=userName="+currentuserName);
+        $("#namefield").attr("href", "./setting.html?userName="+currentuserName);
         $("#postnum").html(user.posts.length);
         $("#follownum").html(user.follow.length);
         $("#followernum").html(user.followers.length);
