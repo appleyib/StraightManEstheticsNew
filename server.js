@@ -32,7 +32,9 @@ app.delete('/deleteComment', users.deleteComment);
 app.delete('/repopulating',users.deleteAllUser);
 
 
+app.set('port', (process.env.PORT || 3000));
 
 // Start the server
-app.listen(3000);
-console.log('Listening on port 3000');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
