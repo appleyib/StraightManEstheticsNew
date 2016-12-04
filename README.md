@@ -10,7 +10,7 @@ obscure-scrubland-69547.herokuapp.com
 will let you see our final product.
 
 
-***How to Run Locally:***
+***How to run locally:***
 
 Open terminal and cd to project dir. Use npm install to install all needed node modules.
 
@@ -18,6 +18,13 @@ type: node server.js
 
 Open ***CHROME*** and type localhost:3000. You will see the login page!
 
+
+***How to unit test the backend:***
+
+
+Open terminal and execute following command:
+
+node test
 
 
 Project
@@ -43,7 +50,7 @@ If the user is an admin, he will see an admin control pannel page.
 
 
 
-Normal User:
+***Normal User:***
 
 A normal user can make a post , see/comment/like all his own/friends'(who the normal user fllows) posts and search possible users by key words(regex representation supported) through his main page.
 
@@ -64,7 +71,7 @@ A normal user can deletes his own posts and comments through main page or throug
 
 
 
-Admin:
+***Admin:***
 
 An admin can see a list of all users, search possible users by key words, deletes users, creates new users and repopulates the database through the admin control pannel page.
 
@@ -76,9 +83,13 @@ In the profile page, an admin can edit anyone's personal information and passwor
 
 
 
-Creativity Additional Features:
+***Creativity Additional Features:***
+
 
 We successfully deploy the app on the heroku.
+
+
+We uses cookies to handle the front end data and the information can remain  between different views!
 
 
 We use mongodb to store all data and we put the database remotely in mLab and it can continuously run.
