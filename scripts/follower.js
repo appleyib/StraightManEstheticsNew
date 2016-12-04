@@ -15,7 +15,6 @@ if (userName == undefined) {
 }
 
 $(document).ready(function() {
-    // changeTrHeight();
     /* generate followed users' list on page*/
     function generateFollow(userName) {
         $.ajax({
@@ -93,6 +92,7 @@ function unfollow(user) {
     });
 }
 
+//gets user information
 function getCookie() {
     var result = [undefined, undefined];
     var name = "curUser=";
@@ -113,6 +113,7 @@ function getCookie() {
     return result;
 }
 
+// calls when quit button is called
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate() - 1);

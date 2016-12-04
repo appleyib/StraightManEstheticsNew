@@ -90,7 +90,7 @@ function addPost(post, userName, isadmin) {
 			<a class='opState' " + likeText + "</a>\
 			" + del + "<br>\
 			<div style='float:right;'>You can enter&nbsp;<font id='counter"
-							+ user + id +"'>140</font>&nbsp;characters!</div>\
+							+ user + id +"'>140</font>&nbsp;characters!  </div>\
   			<div id='mainBannerTopIssueForm'>\
   				  <div id='mainBannerTopIssueFrame'>\
   					<textarea name='reply' rows='1' class='Size' id='" + "reply"

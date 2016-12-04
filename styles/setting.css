@@ -76,20 +76,31 @@
 			 #mainBannerContent .stateShow{
 				width:480px;
 				height:auto;
+				min-height: 150px;
 				padding-top:5px;
 				margin:0px auto;
 				border-bottom:1px #ccc dotted;
-				padding-bottom:5px;
+				padding-bottom:50px;
 			}
 			
-			#mainBannerContent .stateRshow{
+			#mainBannerContent .stateOp{
 				width:410px;
 				height:auto;
 				padding-top:5px;
 				margin:0px auto;
 				border-bottom:1px #ccc dotted;
 				padding-bottom:5px;
+				float: right;
+				text-align:right;
 			}
+
+		 #mainBannerTopIssueFrame .Size{
+              width:450px;
+              height:45px;
+              padding:0px;
+              margin:0px;
+              float:right;
+              }
 			
 		
 		#mainBannerContent img{
@@ -165,12 +176,6 @@
 				padding-left:70px;
 			}
 
-			#mainBannerContent .stateOp{
-				float:right;
-				text-align:right;
-				/*visibility:hidden;*/
-				color:#969696;
-			}
 			
 			.stateOp a{
 				margin:0px 10px;

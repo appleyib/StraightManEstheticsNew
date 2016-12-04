@@ -21,6 +21,8 @@ $(document).ready(function(){
 			window.location = "./Admin.html";
 		}
 	}
+
+	// when login button is clicked
 	$("#button").click(function(e){
 		e.preventDefault();
         var username=$("#userId").val();

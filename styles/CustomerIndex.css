@@ -9,6 +9,7 @@
     margin:0px auto;
     width:765px;
     height: auto;
+    opacity: 0.87;
   }
     /* mainBannerDIV */
     #mainBanner{
@@ -34,7 +35,7 @@
       /*id=mainBannerTopIssue */
       #mainBannerTopIssue{
         height:191px;
-        width:521px;
+        width:400px;
         margin:0px;
         padding:0px;
         left:20px;
@@ -43,7 +44,7 @@
         }
         /*id=mainBannerTopIssuePoint*/
         #mainBannerTopIssuePoint{
-          width:521px;
+          width:400px;
           margin:0px;
           padding:0px;
           height:37px;
@@ -53,14 +54,14 @@
           }
         /*id=mainBannerTopIssueFrom*/  
         #mainBannerTopIssueForm{
-          width:521px;
+          width:400px;
           height:149px;
           padding:0px;
           margin:0px;
           }
           /*mainBannerTopIssueFrame*/ 
           #mainBannerTopIssueFrame{
-            width:521px;
+            width:400px;
             height:90px;
             padding:0px;
             margin:0px;
@@ -68,14 +69,14 @@
             }
               
             #mainBannerTopIssueFrame .Size{
-              width:521px;
-              height:90px;
+              width:400px;
+              height:80px;
               padding:0px;
               margin:0px;
               }
 
           #mainBannerTopIssueInsert{
-            width:521px;
+            width:400px;
             height:29px;
             } 
             /*4 div*/
@@ -132,7 +133,7 @@
             
  
           #mainBannerTopIssueSure{
-            width:521px;
+            width:400px;
             height:30px;
             margin:0px;
             padding:0px;
@@ -185,20 +186,23 @@
 
        #mainBannerContent .stateShow{
         width:480px;
-        height:auto;
+        height: auto;
+        min-height: 250px;
         padding-top:5px;
         margin:0px auto;
         border-bottom:1px #ccc dotted;
-        padding-bottom:5px;
+        padding-bottom:50px;
       }
 
-      #mainBannerContent .stateRshow{
+      #mainBannerContent .stateOp{
         width:410px;
         height:auto;
         padding-top:5px;
         margin:0px auto;
         border-bottom:1px #ccc dotted;
         padding-bottom:5px;
+        float:right;
+        text-align:right;
       }
       
 
@@ -275,12 +279,7 @@
         padding-left:70px;
       }
 
-      #mainBannerContent .stateOp{
-        float:right;
-        text-align:right;
-        /*visibility:hidden;*/
-        color:#969696;
-      }
+
     
       .stateOp a{
         margin:0px 10px;
