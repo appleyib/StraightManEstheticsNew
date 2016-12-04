@@ -44,3 +44,5 @@ For security, we will never put password to front end: all actions that involves
 Users can follow/unfollow each others.
 
 Users can comment on each other's posts.
+
+We used Mocha Unit Test on backend node.js!
