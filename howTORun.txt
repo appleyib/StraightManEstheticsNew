@@ -1,8 +1,23 @@
 don’t copy, type by hand
+import initial test users into database — when database is not local:
+mongoimport -h ds159767.mlab.com:59767 -d usersdb -c users -u treeHole -p treeHole --type json --file testUsers.json --jsonArray --drop
+
+node server.js
+
+
+
+
+
+
+when database is local:
 terminal 1:
 initialize mongo set the PATH variable
 mongod --dbpath=$PWD/data
 
+
 open another terminal
 terminal 2:
 mongoimport --db usersdb --collection users --type json --file testUsers.json --jsonArray --drop
+
+
+node server.js

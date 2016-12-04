@@ -30,7 +30,8 @@ function createCookie(username, isadmin) {
 
 function quitBtn() {
     var date = new Date();
-    document.cookie = "val;expires=" + date.getDate();
+    date.setDate(date.getDate());
+    document.cookie = "curUser=;expires=" + date.toUTCString();
 }
 // function getIsAdmin(){
 //     var isadmin = "isadmin=";

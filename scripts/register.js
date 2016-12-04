@@ -11,9 +11,14 @@ if (document.cookie !== undefined) {
 	isadmin = result[1];
 }
 $(document).ready(function(){
-
+	$("#quitBtn").click(function(e) {
+		e.preventDefault();
+		var date = new Date();
+	    date.setDate(date.getDate() - 1);
+	    document.cookie = "curUser=;expires=" + date.toUTCString();
+		window.location = "./login.html";
+	});
 	$("#savebtn").click(function(){
-		quitBtn();
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();
         var gender =
@@ -82,7 +87,9 @@ function getCookie() {
 }
 
 function quitBtn() {
-    $.cookie("userid", "", -1);
+    var date = new Date();
+    date.setDate(date.getDate() - 1);
+    document.cookie = "curUser=;expires=" + date.toUTCString();
 }
 // function createCookie(username, isadmin) {
 //     var date = new Date();

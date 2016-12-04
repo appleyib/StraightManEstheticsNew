@@ -32,13 +32,21 @@ $(document).ready(function() {
        });
     }
 
-    $("#home").click(function(){
-    	if (isadmin){
-    		window.location = "./Admin.html";
-    	}else {
-    		window.location = "./CustomerIndex.html";
-    	}
-    })
+    // $("#home").click(function(){
+    // 	if (isadmin){
+    // 		window.location = "./Admin.html";
+    // 	}else {
+    // 		window.location = "./CustomerIndex.html";
+    // 	}
+    // })
+    $("#quitBtn").click(function(e) {
+		e.preventDefault();
+		var date = new Date();
+	    date.setDate(date.getDate() - 1);
+	    document.cookie = "curUser=;expires=" + date.toUTCString();
+		window.location = "./login.html";
+	});
+
     $("#button").click(function(){
     	var user = {"userName":currentuserName,
                     "birthday":birthdayfield.val(),
@@ -92,6 +100,7 @@ $(document).ready(function() {
     		$("#followUserBtn").css('display', 'none');
     	}
     	if (isadmin){
+    		$("#home").attr("href", "./Admin.html");
     		$("#mainRightPostionFouthLine").css('display', 'none');
     		$("#profile").css('display', 'none');
     	}
@@ -226,5 +235,8 @@ function getCookie() {
 }
 
 function quitBtn() {
-    $.cookie("userid", "", -1);
+    var date = new Date();
+    date.setDate(date.getDate() - 1);
+    document.cookie = "curUser=;expires=" + date.toUTCString();
+    window.reload();
 }

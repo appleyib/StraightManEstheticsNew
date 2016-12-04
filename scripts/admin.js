@@ -20,7 +20,13 @@ $(document).ready(function(){
             }
         });
 	}
-
+	$("#quitBtn").click(function(e) {
+		e.preventDefault();
+		var date = new Date();
+	    date.setDate(date.getDate() - 1);
+	    document.cookie = "curUser=;expires=" + date.toUTCString();
+		window.location = "./login.html";
+	});
 	getUsers();
 	function addUser(user){
 		$("#tb2").append(
@@ -129,6 +135,3 @@ $(document).ready(function(){
 	//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
 	//
 	// }
-	function quitBtn() {
-	    $.cookie("userid", "", -1);
-	}
