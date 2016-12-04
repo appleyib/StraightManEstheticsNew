@@ -263,7 +263,9 @@ function getCookie() {
 }
 
 function quitBtn() {
-    $.cookie("userid", "", -1);
+    var date = new Date();
+    date.setDate(date.getDate());
+    document.cookie = "curUser=;expires=" + date.toUTCString();
 }
 
 

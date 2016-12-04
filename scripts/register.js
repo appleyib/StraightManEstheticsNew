@@ -13,7 +13,6 @@ if (document.cookie !== undefined) {
 $(document).ready(function(){
 
 	$("#savebtn").click(function(){
-		quitBtn();
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();
         var gender =
@@ -82,7 +81,9 @@ function getCookie() {
 }
 
 function quitBtn() {
-    $.cookie("userid", "", -1);
+    var date = new Date();
+    date.setDate(date.getDate());
+    document.cookie = "curUser=;expires=" + date.toUTCString();
 }
 // function createCookie(username, isadmin) {
 //     var date = new Date();
