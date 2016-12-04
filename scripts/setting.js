@@ -42,7 +42,8 @@ $(document).ready(function() {
 		e.preventDefault();
 		var date = new Date();
 	    date.setDate(date.getDate() - 1);
-	    document.cookie = "curUser=;expires=" + date.toUTCString();
+        document.cookie = "curUser=;expires=" + date.toUTCString();
+        document.cookie = "isadmin=;expires=" + date.toUTCString();
 		window.location = "./login.html";
 	});
 
