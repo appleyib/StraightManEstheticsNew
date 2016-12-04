@@ -1,8 +1,17 @@
 // var date = new Date();
 // date.setDate(date.getDate() + 5);
 
-
+	var userName;
+	$.getScript("./scripts/main.js", function() {
+		userName = getCookie();
+	})
+	var isadmin;
+	$.getScript("./scripts/main.js", function() {
+		isadmin = getIsAdmin();
+	})
+	console.log(isadmin);
 $(document).ready(function(){
+
 	$("#savebtn").click(function(){
         var username = $("#usernamefield").val();
         var dob = $("#dobfield").val();

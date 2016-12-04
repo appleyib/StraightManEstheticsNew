@@ -51,7 +51,6 @@ $(document).ready(function(){
 	 	    type:"GET",
 	  	    dataType:"JSON",
 	    	success:function(response){
-	    		console.log(response);
 	    		var responseField = $("#tb2");
 	    		responseField.empty();
 	    		for (let i = 0;i<response.length;i++){
@@ -65,10 +64,13 @@ $(document).ready(function(){
 
     });
 
+    $("#addUserBtn").click(function(e){
+        e.preventDefault();
+        console.log("kk");
+        window.location = "./register.html";
+    })
+
 })
-
-
-
     function remove(username){
     	console.log(username);
          $.ajax({
