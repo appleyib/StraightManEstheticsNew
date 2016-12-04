@@ -7,6 +7,11 @@
 	width:765px;
 	height:auto;
 	margin:0px auto;
+	margin-top: 50px;
+	position: fixed;
+  	left: 0;
+  	right: 0;
+  	z-index: 9999;
 }
 
 	#backtop {
@@ -57,6 +62,7 @@
 		height:80px;
 		position:relative;
 		background-image: url(../images/sky.jpg);
+		border-bottom:1px #0CF solid;
 	}
 	
 	/* top LogoDIV */
@@ -109,9 +115,9 @@ body{
 	font-family:Comic Sans MS, Times, Monospace;
 	margin:0px;
 	padding:0px;
-	background-image:url(../images/bg.gif);
+	/*background-image:url(../images/bg.jpg);
 	background-color:#C1E6F5;
-	background-repeat:repeat-x;
+	background-repeat:repeat-x;*/
 }
 
 a:link{
@@ -126,4 +132,43 @@ a:visited{
 a:hover{
 	text-decoration:underline;
 	color:#36C;
+}
+
+	
+	/* footer*/
+	#footer{
+		width:765px;
+		height:50px;
+		margin:0px auto;
+		clear:both;
+		background-color:#C1E6F5;
+		opacity: 0.6;
+	}
+
+	#footerCopy{
+		width:250px;
+		height:20px;
+		color:#444444;
+		line-height:20px;
+		margin:0px auto;
+		text-align:center;
+	}
+
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: block;
+  background-image:url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  width: 1920px;
+  height: 1080px;
+
+  -webkit-filter: blur(13px);
+  -moz-filter: blur(13px);
+  -o-filter: blur(13px);
+  -ms-filter: blur(13px);
+  filter: blur(13px);
 }

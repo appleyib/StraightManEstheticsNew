@@ -9,6 +9,7 @@
 		margin:0px auto;
 		width:765px;
 		height:auto;
+		opacity: 0.8;
 	}
 		/* mainBannerDIV */
 		#mainBanner{
@@ -203,7 +204,6 @@
 			border:0px;
 			width:200px;
 			height:auto;
-			min-height: 520px;
 			float:right;
 			background-color:#E9F4FA;
 			padding-bottom:10px;
@@ -267,7 +267,7 @@
 				padding:0px;
 				margin:0px;
 				border:0px;
-				height:318px;
+				height:305px;
 				background-color:#E9F4FA;
 				border-bottom:1px solid #A6D3E3;					
 			}	
@@ -375,23 +375,7 @@ hr.h1{
 		
 	}
   
-    /* foote*/
-	#footer{
-		width:765px;
-		height:50px;
-		border:1px solid #ccc;
-		margin: 0 auto;
-	}
 
-
-	#footerCopy{
-		width:250px;
-		height:20px;
-		color:#5c4444;
-		line-height:20px;
-		margin:0px auto;
-		text-align:center;
-	}
 .a2{
 	color:#444444;
 	text-decoration:none;

@@ -18,7 +18,8 @@ $(document).ready(function() {
 
     $("#profile").click(function(e) {
     	e.preventDefault();
-		window.location = "./setting.html?loginuser=" + userName;
+		window.location = "./setting.html?profileUser=" + userName;
+    	// window.location = "./setting.html?loginuser="+userName+"?currentuser="+userName;
     });
 
 	$("#quitBtn").click(function(e) {
@@ -48,7 +49,9 @@ function loaduser(user) {
 		followerNumField.html(user.followers.length);
 		var followingField = $("#ul2");
 		for (let i = 0;i<user.follow.length;i++){
-			followingField.append('<a href="#" class="a1"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
+			followingField.append('<a href="./setting.html?profileUser='
+				+ user.follow[i] + '" class="a1"><li><font class="style2">'
+				+ user.follow[i]+'</font></li></a>');
 		}
 		// sort posts by post time
 		var posts = user.postsOnPage.sort( function(a, b) {
@@ -63,7 +66,9 @@ function loaduser(user) {
 		});
 		// add post to page
 		for(let i=0;i< posts.length;i++) {
-			addPost(posts[i]);
+			$.getScript("./scripts/main.js", function() {
+				addPost(posts[i], userName, isadmin);
+			});
 		}
 
 }
@@ -135,218 +140,39 @@ function submitState() {
     }
 }
 
-function submitComment(user, id) {
-	var textfield = document.getElementById("reply" + user + id);
-	var text = textfield.value;
-	if (text.length > 0) {
-		$.ajax({
-			url: "/comment",
-			type: "POST",
-	        dataType: "json",
-	    	contentType:"application/json; charset=utf-8",
-			data:JSON.stringify({
-				"userName": user,
-				"id": id,
-				"comment":{
-					"userName": userName,
-					"content": text,
-				}
-			}),
-			success: function(response) {
-				var comment = [
-					{
-						"userName": userName,
-						"content": text,
-					}
-				];
-				addComment(comment, id, user);
-				window.location.reload();
-			},
-			error: function(xhr){
-				alert(xhr.responseText);
-			}
-		});
-	}
-}
-
-/* helper function to add post*/
-function addPost(post) {
-	user = post.userName;
-	str = post.content;
-	time = new Date(post.time);
-	comments = post.comment;
-	id = post.id;
-	like = post.likes;
-	var likeText = "";
-	// var text;
-	// if (comments == []) {
-	// 	text = "";
-	// } else {
-	// 	for (let item in comments) {
-	// 		console.log(comments[item]);
-	//
-	// 	}
-	// }
-	var del = "";
-	if (user == userName || isadmin == "true") {
-		del = "<a class='opState' onclick=\"delPost('" + user
-											+ "', " + id + ");\">Delete</a>";
-	}
-	if (userName in like) {
-		likeText = "onclick=\"likePost('" + user + "', " + id + ");\">like("
-															+ like.length + ")";
-	} else {
-		likeText = ">liked";
-	}
-	var innerht =
-		"<div class='stateShow' id='" + "post" + user + id + "'>\
-		  <div class='stateShowWord'>\
-			<table width='450' border='0' cellpadding='0' \
-				cellspacing='0' class='stateTable'>\
-				<tr>\
-				  <td width='70' align='center' valign='top'>\
-					<a href='#'>\
-					 <img src='images/icon.jpg' \
-					  alt='' width='48' height='48' />\
-					</a>\
-				  </td>\
-				  <td width='380'>\
-					<a href='#'>" + user + "</a>\
-					  <img src='images/1.gif' align='absmiddle' \
-					  style='border:none;' />&nbsp;" + str +
-				 "</td>\
-				</tr>\
-			 </table>\
-		   </div>\
-		   \
-		   <div class='stateImgShow'>\
-		   </div>\
-		   \
-		   <div class='stateShowtime'>" + time +
-		  "</div>\
-		   <div class='stateOp'>\
-			<!--<a class='opState' onclick='addComment();'>Reply</a>-->\
-			<a class='opState' " + likeText + "</a>\
-			" + del + "<br>\
-			<div style='float:right;'>You can enter&nbsp;<font id='counter"
-							+ user + id +"'>140</font>&nbsp;characters!</div>\
-  			<div id='mainBannerTopIssueForm'>\
-  				  <div id='mainBannerTopIssueFrame'>\
-  					<textarea name='reply' rows='1' class='Size' id='" + "reply"
-						+ user + id + "'  style='overflow:hidden;border:1px \
-						#0CF solid;' onkeyup='calNum(this,counter" + user + id
-						+ ",0)'></textarea>\
-  				  </div>\
-  			  <div id='mainBannerTopIssueInsert'>\
-  			  </div>\
-  			  <div id='mainBannerTopIssueSure'>\
-  				<div id='mainBannerTopIssueSure2'>\
-  				  <input type='button' id='button" + user + id
-				  			+ "' value='Reply' style='background-color:#3295E6;\
-						      border:none' onclick=\"submitComment('" + user
-							  + "', " + id + ")\" />\
-  				</div>\
-  			  </div>\
-  			  </div>\
-			  </div>\
-		  <div class='comments' id='" + "" + user + id + "'></div>\
-		</div>";
-		var divObj = document.getElementById("mainBannerContent");
-		divObj.innerHTML = innerht + divObj.innerHTML;
-		addComment(comments, id, user);
-		changeDivHeight();
-}
+// function submitComment(user, id) {
+// 	$.getScript("./scripts/main.js", function() {
+// 		submitComment(user, id, userName);
+// 	});
+// }
 
 
-function likePost(user, id) {
-	$.ajax({
-		url: "/like",
-		type: "POST",
-		dataType: "JSON",
-		data: JSON.stringify({
-			"userName": userName,
-			"userNameLiked": user,
-			"id": id
 
-		}),
-		success: function(response) {
-			window.location.reload();
-		},
-		error: function(xhr){
-			alert(xhr.responseText);
-		}
-	});
-}
+// function likePost(user, id) {
+// 	$.getScript("./scripts/main.js", function() {
+// 		console.log("cust" + userName);
+// 		likePost(user, id, userName);
+// 	});
+// }
 
 function delPost(user, id) {
-	var urlD = "/deletePost?userName=" + user + "&postId=" +  id;
-	$.ajax({
-		url: urlD,
-		type: "DELETE",
-		dataType: "JSON",
-		success: function(response) {
-			// $('#post' + user + id).remove();
-			window.location.reload();
-		},
-		error: function(xhr){
-			alert(xhr.responseText);
-		}
+	$.getScript("./scripts/main.js", function() {
+		delPost(user, id);
 	});
 }
 
-function addComment(comments, pId, user) {
-	var parent = $("#" + user + pId);
-	for (let item in comments) {
-		let comment = comments[item];
-		let delComment = "";
-		if (isadmin == true || comment.userName == userName) {
-			delComment = "<a class='opComment' onclick=\"delComment("
-								+ comment.id + ", " + pId +  ", '" + user
-								+ "');\">Delete</a>"
-		}
-		var text =
-			"<div class='stateComments' id='" + "" + user + pId
-															+ comment.id + "'>\
-			  <table width='450' border='0' cellpadding='0' \
-								cellspacing='0' class='commentTable'>\
-				<tr>\
-				  <td width='70' align='center' valign='top'>\
-				  </td>\
-				  <td width='380'>\
-					<a href='#'>" + comment.userName + "</a>\
-					  <img src='images/1.gif' align='absmiddle' \
-					  style='border:none;' />&nbsp;" + comment.content +
-				 "</td>\
-				</tr>\
-			  </table>\
-			  \
-			   <div class='stateOp'>\
-				" + delComment + "\
-			   </div>\
-			 </div>";
-		parent.append(text);
-	}
-}
+// function addComment(comments, pId, user) {
+// 	$.getScript("./scripts/main.js", function() {
+// 		addComment(comments, pId, user, userName);
+// 	});
+// }
 
 
 
 
 function delComment(cId, pId, user) {
-	var urlD = "/deleteComment?userName=" + user + "&postId=" + pId
-														+ "&commentId=" + cId;
-	$.ajax({
-		url: urlD,
-		type: "DELETE",
-		dataType: "json",
-		// contentType: "application/json; charset=utf-8",
-		success: function(response) {
-			// $("#" + user + pId + cId).remove();
-
-			window.location.reload();
-		},
-		error: function(xhr){
-			alert(xhr.responseText);
-		}
+	$.getScript("./scripts/main.js", function() {
+		delComment(comments, pId, user);
 	});
 }
 
