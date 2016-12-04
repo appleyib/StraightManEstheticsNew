@@ -20,12 +20,19 @@ $(document).ready(function(){
             }
         });
 	}
-
+	$("#quitBtn").click(function(e) {
+		e.preventDefault();
+		var date = new Date();
+	    date.setDate(date.getDate() - 1);
+	    document.cookie = "curUser=;expires=" + date.toUTCString();
+	    document.cookie = "isadmin=;expires=" + date.toUTCString();
+		window.location = "./login.html";
+	});
 	getUsers();
 	function addUser(user){
 		$("#tb2").append(
 	   '<tr id = "'+user.userName+'">\
-        <td height="105" align="center" valign="middle" class="td2"><img src="images/people1.gif" width="48" height="48" alt="" /></td>\
+        <td height="105" align="center" valign="middle" class="td2"><img src="images/icon.jpg" width="48" height="48" alt="" /></td>\
         <td height="105" align="left" valign="bottom" class="td3"><font color="#005dc3" size="3" ><a>'+user.userName+'</a></font>\
         <img src="images/1.gif" width="17" height="15" alt="" />\
         <br /><font color="#000000" size="2">'+user.gender+'</font>\
@@ -129,8 +136,3 @@ $(document).ready(function(){
 	//     document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
 	//
 	// }
-	function quitBtn() {
-	    var date = new Date();
-	    date.setDate(date.getDate());
-	    document.cookie = "curUser=;expires=" + date.toUTCString();
-	}

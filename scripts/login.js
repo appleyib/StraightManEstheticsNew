@@ -38,12 +38,6 @@ $(document).ready(function(){
 				"password":password
 			}),
 	    	success:function(response){
-				// var isadmin = response[1];
-				// $.getScript("./scripts/main.js", function() {
-				// 	createIsAdminCookie(response);
-				// });
-			// document.cookie = "curUser=" + username + ";expires="
-				// 								+ date.toUTCString();
 				if (response[1]) {
 					$.getScript("./scripts/main.js", function() {
 						createCookie(username, true);

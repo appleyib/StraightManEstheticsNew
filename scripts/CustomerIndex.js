@@ -9,26 +9,37 @@ var result;
 result = getCookie();
 userName = result[0];
 isadmin = result[1];
+console.log(isadmin);
+console.log(userName);
 	//document.URL.split('?')[1].split("=")[1];
 
 $(document).ready(function() {
-	console.log(userName);
 	if (userName == undefined) {
 		window.location = "./login.html";
 	}
 
-    $("#profile").click(function(e){
+    $("#profile").click(function(e) {
     	e.preventDefault();
     	console.log("keke");
 		window.location = "./setting.html?loginuser=" + userName;
     	// window.location = "./setting.html?loginuser="+userName+"?currentuser="+userName;
     });
 
-
+	$("#quitBtn").click(function(e) {
+		e.preventDefault();
+		var date = new Date();
+	    date.setDate(date.getDate() - 1);
+	    document.cookie = "curUser=;expires=" + date.toUTCString();
+	    document.cookie = "isadmin=;expires=" + date.toUTCString();
+		window.location = "./login.html";
+	});
 
 	changeDivHeight();
 	loadmain();
 });
+
+
+
 
 function loaduser(user) {
 		var namefield=$("#nameField");
@@ -143,6 +154,11 @@ function addPost(post) {
 	//
 	// 	}
 	// }
+	var del = "";
+	if (user == userName) {
+		del = "<a class='opState' onclick=\"delPost('" + user
+												+ "', " + id + ");\">Delete</a>";
+	}
 	var innerht =
 		"<div class='stateShow' name='" + id + "'>\
 		  <div class='stateShowWord'>\
@@ -171,12 +187,11 @@ function addPost(post) {
 		  "</div>\
 		  \
 		   <div class='stateOp'>\
-			<a class='opState' onclick='reply(this)'>Reply</a>\
-			<a class='opState'>like(0)</a>\
-			<!--<a class='opState' onclick='delState(this)'>Delete</a>-->\
+			<a class='opState' onclick='addComment();'>Reply</a>\
+			<a class='opState' onclick=''>like(0)</a>\
+			" + del + "\
 		   </div>\
-		  \
-		  <div class='comments' id='" + user + id + "'></div>\
+		  <div class='comments' id='" + "" + user + id + "'></div>\
 		</div>";
 		addComment(comments, id, user);
 		var divObj = document.getElementById("mainBannerContent");
@@ -185,11 +200,12 @@ function addPost(post) {
 }
 
 
-
+// function like() {
+//
+// }
 
 function addComment(comments, pId, user) {
 	var parent = $("#" + user + pId);
-	console.log(parent);
 	for (let item in comments) {
 		let comment = comments[item];
 		let text =
@@ -214,8 +230,10 @@ function addComment(comments, pId, user) {
 										+ "');\">Delete</a>\
 			   </div>\
 			 </div>";
-		 parent.append(text);
+		console.log("1");
+		 parent.innerHTML = text + parent.innerHTML;
 	}
+	console.log(parent);
 }
 
 
@@ -264,96 +282,7 @@ function getCookie() {
 
 function quitBtn() {
     var date = new Date();
-    date.setDate(date.getDate());
+    date.setDate(date.getDate() - 1);
     document.cookie = "curUser=;expires=" + date.toUTCString();
+    document.cookie = "isadmin=;expires=" + date.toUTCString();
 }
-
-
-// 	var hfObj;
-// 	var srcUser;
-// 	var userName="testUser1";
-// /* 设置页面中的主题部分的左栏和右栏部分高度为自动 */
-// function initDivHeight(divObj1,divObj2){
-// 	divObj1.style.height = "auto";
-// 	divObj2.style.height = "auto";
-// }
-// /* 设置主体部分的高度以实际高度高的那个为准 */
-// function changeDivHeight(){
-// 	var mainBanner = document.getElementById("mainBanner");
-// 	var mainRight = document.getElementById("mainRight");
-// 	initDivHeight(mainBanner,mainRight);//设置高度为自动
-// 	var height = mainBanner.offsetHeight > mainRight.offsetHeight ? mainBanner.offsetHeight : mainRight.offsetHeight;//获取高度高的值
-// 	mainBanner.style.height = height + "px";//为他们的高度都赋高的那个值
-// 	mainRight.style.height = height+ "px";//
-// }
-// /* 动态的计算文本框里面已经输入的数量  */
-// function calNum(txtobj,divobj,fg){
-// 	var text = txtobj.value;
-// 	var n = 140;
-// 	n = n - Math.floor(text.length);//计算，一个中文是1个字符，2个英文是1个
-// 	if(n<0){
-// 		divobj.style.color = "#969";//设置如果超了，变背景色为红色
-// 	}else{
-// 		divobj.style.color = "#000";
-// 	}
-//     divobj.innerHTML = n ;
-// }
-
-
-// /* 当点提交按钮时，对文本框里面的内容进行处理，并进行提交 */
-// function submitState(){
-// 	var textfield = document.getElementById("textfield2");
-// 	var text=textfield.value;
-// 	var time = new Date();
-// 	console.log(time);
-// 	if (text.length>0){
-// 	    $.ajax({
-// 	        url:"/post",
-// 	        type:"POST",
-// 	        dataType:"json",
-// 	    	contentType:"application/json; charset=utf-8",
-// 	    	data:JSON.stringify({
-// 		    	"userName":userName,
-// 		    	"post":{
-// 			    	"userName":userName,
-// 			    	"content":text,
-// 			    	"time":time
-// 		    	}
-//         	}),
-// 	    	success:function(response){
-//                 console.log(response);
-//             }
-// 	    });
-//     }
-// 	// 	var innerht = "<div class='stateShow' onmouseover='stateMouseOver(this)' onmouseout='stateMouseOut(this)'><div class='stateShowWord'><table width='450' border='0' cellpadding='0' cellspacing='0' class='stateTable'><tr><td width='70' align='center' valign='top'><a href='#'><img src='images/MainRightFirstLineTitle.gif' alt='' width='48' height='48' /></a></td><td width='380'><a href='#'>DarkDemon</a><img src='images/1.gif' align='absmiddle' style='border:none;' />&nbsp;"+str+"</td></tr></table></div><div class='stateImgShow'></div><div class='stateShowtime'>"+time+"</div><div class='stateOp'><a onclick='reXianShi(this)' class='opState'>回复</a><a class='opState'>转发</a><a onclick='delState(this)' class='opState'>删除</a></div><div class='huifu'></div></div>";
-// 	// 	var divObj = document.getElementById("mainBannerContent");
-// 	// 	divObj.innerHTML = innerht + divObj.innerHTML;
-// 	// }
-// 	textfield.value = "";
-// 	changeDivHeight();
-// }
-
-// window.onload = function(){
-// 	changeDivHeight();//开始的时候设置左栏和右栏的高度
-
-
-// 	//隐藏 #back-top 先
-// 	$("#backtop").hide();
-// 	// 滚动条距顶100px显示 #back-top
-// 	$(function () {
-// 		$(window).scroll(function () {
-// 			if ($(this).scrollTop() > 100) {
-// 				$('#backtop').fadeIn();
-// 			} else {
-// 				$('#backtop').fadeOut();
-// 			}
-// 		});
-// 		// 点击事件 回到顶部
-// 		$('#backtop a').click(function () {
-// 			$('body,html').animate({
-// 				scrollTop: 0
-// 			}, 600);
-// 			return false;
-// 		});
-// 	});
-// }

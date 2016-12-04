@@ -30,7 +30,14 @@ $(document).ready(function() {
             }
         });
     }
-
+    $("#quitBtn").click(function(e) {
+		e.preventDefault();
+		var date = new Date();
+	    date.setDate(date.getDate() - 1);
+        document.cookie = "curUser=;expires=" + date.toUTCString();
+        document.cookie = "isadmin=;expires=" + date.toUTCString();
+		window.location = "./login.html";
+	});
 
     generateFollow(userName);
 
@@ -112,6 +119,7 @@ function getCookie() {
 
 function quitBtn() {
     var date = new Date();
-    date.setDate(date.getDate());
+    date.setDate(date.getDate() - 1);
     document.cookie = "curUser=;expires=" + date.toUTCString();
+    window.reload();
 }

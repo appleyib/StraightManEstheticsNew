@@ -24,14 +24,16 @@ function getCookie() {
 function createCookie(username, isadmin) {
     var date = new Date();
     date.setDate(date.getDate() + 5);
-    document.cookie = "curUser=" + username + ";isadmin=" + isadmin + ";expires=" + date.toUTCString();
-
+    document.cookie = "curUser=" + username + ";expires=" + date.toUTCString();
+    document.cookie = "isadmin=" + isadmin + ";expires=" + date.toUTCString();
+    console.log(isadmin);
 }
 
 function quitBtn() {
     var date = new Date();
     date.setDate(date.getDate());
     document.cookie = "curUser=;expires=" + date.toUTCString();
+    document.cookie = "isadmin=;expires=" + date.toUTCString();
 }
 // function getIsAdmin(){
 //     var isadmin = "isadmin=";
