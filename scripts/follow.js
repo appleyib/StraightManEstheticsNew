@@ -36,11 +36,14 @@ $(document).ready(function() {
             $("#profile").css('display', 'none');
             $("#home").attr("href", "./Admin.html");
         }
+        $("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
         $("#namefield").html(currentuserName);
         $("#postnum").html(user.posts.length);
         $("#follownum").html(user.follow.length);
         $("#followernum").html(user.followers.length);
         $("#profile").attr("href", "./setting.html?userName="+userName);
+        $("#getfollow").attr("href", "./follow.html?userName="+currentuserName);
+        $("#getfollower").attr("href", "./follower.html?userName="+currentuserName);
     }
     $("#quitBtn").click(function(e) {
 		e.preventDefault();

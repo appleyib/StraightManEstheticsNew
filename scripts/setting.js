@@ -93,8 +93,7 @@ $(document).ready(function() {
                 for (let i = 0;i<response.length;i++){
                     responseField.append('<li><a href="./setting.html?userName='+
                         response[i].userName+'" class="a1">\
-                        <font class="style2" href="./setting.html?userName='+
-                        response[i].userName+'">'+response[i].userName+'</font></a></li>');
+                        <font class="style2" >'+response[i].userName+'</font></a></li>');
                 }
             }
        });
@@ -160,8 +159,8 @@ $(document).ready(function() {
         var followingField = $("#ul2");
         $("#genderbodfield").html("&nbsp;"+user.gender+"&nbsp;"+user.birthday.substring(0,10));
         for (let i = 0;i<user.follow.length;i++){
-            followingField.append('<p class="a1" href="./setting.html?userName='+user.follow[i]+
-                     '"><li><font class="style2">'+user.follow[i]+'</font></li></p>');
+            followingField.append('<a class="a1" href="./setting.html?userName='+user.follow[i]+
+                     '"><li><font class="style2">'+user.follow[i]+'</font></li></a>');
         }
         birthdayfield.val(user.birthday.substring(0,10));
         if (user.gender == 'male'){
