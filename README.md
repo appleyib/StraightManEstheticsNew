@@ -5,7 +5,7 @@ Note: please run in ***Chrome***, because we have added extra features to use co
 
 Just directly go to this url through Chrome:
 
-[obscure-scrubland-69547.herokuapp.com](obscure-scrubland-69547.herokuapp.com/)
+[obscure-scrubland-69547.herokuapp.com](http://obscure-scrubland-69547.herokuapp.com/)
 
 will let you see our final product.
 
