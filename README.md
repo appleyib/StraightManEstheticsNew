@@ -1,15 +1,6 @@
 # StraightManEsthetics
 Note: please run in ***Chrome***, because we have added extra features to use cookies to store current user information locally! Firefox does not support local cookies.
 
-***How to run the app:***
-
-Just directly go to this url through Chrome:
-
-[obscure-scrubland-69547.herokuapp.com](http://obscure-scrubland-69547.herokuapp.com/)
-
-will let you see our final product.
-
-
 ***How to run locally:***
 
 Open terminal and cd to project dir. Use npm install to install all needed node modules.
